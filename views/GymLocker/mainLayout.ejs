@@ -1,0 +1,84 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>GymLocker</title>
+
+    <link rel="stylesheet" type="text/css" href="/gymlocker/css/jquery-ui-1.8.17.custom.css">
+    <link rel="stylesheet" href="/gymlocker/css/bootstrap.css" />
+    <link rel="stylesheet" href="/gymlocker/css/style.css" />
+
+	<script src='/gymlocker/js/libs/jquery-1.7.1.min.js'></script>
+    <script src="/gymlocker/js/libs/bootstrap.js"></script>
+</head>
+<body>
+	<div id="main-nav" class="navbar navbar-fixed-top">
+	  	<div class="navbar-inner">
+	    	<div class="container">
+	            <ul class="nav">
+	                <a class="brand" href="/GymLocker/main">Gym Locker</a>
+	                <% if (role == 1) { %>
+	                	<li id="li-admin"><a href="/GymLocker/admin" id="nav-admin">Admin</a></li>
+	                <% } %>
+	                <li id="li-fitness"><a href="/GymLocker/fitness/library" id="nav-fitness">Fitness</a></li>
+	                <li id="li-biometric"><a href="/GymLocker/biometrics_landing" id="nav-biometric">Biometrics</a></li>
+	                <%if (role == 2) { %>
+	                    <li id="li-pro"><a href="/GymLocker/professional/clients" id="nav-trainer">Trainer</a></li>
+	                <% } %>
+	                <li id="li-find"><a href="/GymLocker/find_a_trainer" id="nav-find-a-trainer">Marketplace</a></li>
+	            </ul>
+
+	            <span class="pull-right">
+	            <ul class="nav">
+	                <%if (role == 2) { %>
+		                <li>
+		                    <a title="Quick_requests" href="/GymLocker/professional/requests"><i class="icon-envelope icon-white"></i> <% requests %></a>
+		                </li>
+	                <% } %>
+	                <%if (role != 4) { %>
+		                <li>
+		                    <a title="Settings" href="/GymLocker/settings"><i class="icon-cog icon-white"></i>  Settings</a>
+		                </li>
+	                <% } %>
+	                <li>
+	                    <a title="Logout" href="/GymLocker/logout"><i class="icon-off icon-white"></i> Logout</a>
+	               </li>
+	            </ul>
+	            </span>
+	        </div>
+	    </div>
+	</div>
+
+<% if (role == 1 && adminPage == true) { %>
+	<div class="container-fluid">
+	    <div class="row-fluid">
+	        <div class="span2">
+	            <ul class="nav nav-list">
+	                <li class="nav-header">Administraton</li>
+	                <li id="get_all_users"><a href="/GymLocker/admin/members"><i class="icon-list-alt"></i> All Members</a></li>
+	                <li id="pro_queue"><a href="/GymLocker/admin/professional_queue"><i class="icon-list-alt"></i> Professional Queue</a></li>
+	                <li class="nav-header">Fitness</li>
+	                <li id="get_all_exercises"><a href="/GymLocker/admin/exercises"><i class="icon-list-alt"></i> Exercises</a></li>
+	                <li id="get_all_equipment"><a href="/GymLocker/admin/equipment"><i class="icon-list-alt"></i> Equipment</a></li>
+	                <li id="add_exercises"><a href="/GymLocker/admin/add_exercises"><i class="icon-plus-sign"></i> Add Exercises</a></li>
+	                <li id="add_equipment"><a href="/GymLocker/admin/add_equipment"><i class="icon-plus-sign"></i> Add Equipment</a></li>
+	            </ul>
+	        </div>
+	        <div class="span10">
+<% } %>
+
+	        	<%- body %>
+
+<% if (role == 1 && adminPage == true) { %>
+		    </div>
+<% } %>
+		</div>
+	</div>
+
+    
+</body>
+</html>

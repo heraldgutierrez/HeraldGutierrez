@@ -1,0 +1,173 @@
+<div id="delete_window" class="modal fade">
+    <div class="modal-header">
+        <h2 align="center" id="delete_header"></h2>
+    </div>
+    <div id="delete-window-content" class="modal-body">
+        <table id="delete_table" class="table table-striped table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th><i class='icon-cog'></i>  Equipment</th>
+                </tr>
+            </thead>
+            <tbody id="delete_body">
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <a href="#" id="btn-confirm-delete" class="btn btn-success" >Delete</a>
+        <a href="#" id="btn-cancel-delete" class="btn" >Cancel</a>
+    </div>
+</div>
+
+<h1>Equipment</h1>
+<section id="admin-buttons">
+    <span  class="btn-group">
+        <a id="btn-select-all" href="#" class="btn btn-small"><i class="icon-ok-sign"></i>  Select All</a>
+        <a id="btn-select-none" href="#" class="btn btn-small disabled"><i class="icon-minus-sign"></i>  Select None</a>
+    </span>
+    <a id="btn-remove_selected" href="#" class="btn btn-small btn-danger disabled"><i class="icon-remove-sign icon-white"></i>  Remove Selected</a>
+</section>
+<form name="equipment_form">
+<table id="table-equipment" class="table table-striped table-bordered table-condensed">
+    <thead>
+        <th></th>
+        <th><i class='icon-cog'></i>  Equipment</th>
+    </thead>
+    <tbody id="tbl-body">
+    </tbody>
+</table>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    $('#get_all_equipment').addClass('active');
+
+    var btnSelectAll = document.querySelector('#btn-select-all');
+    var btnSelectNone = document.querySelector('#btn-select-none');
+    var btnRemove = document.querySelector('#btn-remove_selected');
+    var table_body = document.querySelector('#tbl-body');
+    var btnModalCancel = document.querySelector('#btn-cancel-delete');
+    var btnModalDelete = document.querySelector('#btn-confirm-delete');
+    var equipmentToRemove;
+        
+    setAllCbChecked = function( isChecked ){
+        var cbos = document.querySelectorAll('input[name="equipment"]');
+        for( var i in cbos ){
+            cbos[i].checked = isChecked;
+        }
+    };
+
+    updateCboClick = function(){
+        var cbos = document.querySelectorAll('input[name="equipment"]:checked');
+        if( cbos.length > 0 ) {
+            btnRemove.classList.remove('disabled');
+            btnSelectNone.classList.remove('disabled');
+        }
+        else{
+            btnRemove.classList.add('disabled');
+            btnSelectNone.classList.add('disabled');
+        }
+    };
+
+    updateTable = function( data ){
+        $.each(data, function(i, line){
+            var tr = document.createElement('tr');
+            var td_cb = document.createElement('td');
+            var cb = document.createElement('input');
+            var td_equip = document.createElement('td');
+
+            cb.type = "checkbox";
+            cb.name = "equipment";
+            cb.addEventListener('click', function(){ updateCboClick(); }, false);
+            cb.value = line.name;
+            cb.id = line.id;
+            
+            td_cb.appendChild(cb);
+            tr.appendChild(td_cb);
+            
+            td_equip.innerHTML = line.name;
+            tr.appendChild(td_equip);
+            
+            table_body.appendChild(tr);
+        });
+    };
+    
+    function removeEquipment( equipmentToRemove ){
+        // go through each element and remove it from the DB
+        for (var i = 0; i < equipmentToRemove.length; i++) {
+            var id = equipmentToRemove[i].id;
+            $.getJSON('/remove_equipment', { "equipment_id" : equipmentToRemove[i].id }, function(wasSuccessful){});
+        }
+    };
+
+    createDeleteTable = function(equipmentToRemove) {
+        var tableDelete = document.querySelector('#delete_body');
+        var header = document.querySelector('#delete_header');
+        
+        header.innerHTML = "Delete the following equipment?";
+        tableDelete.innerHTML = "";
+
+        for (var i = 0; i < equipmentToRemove.length; i++) {
+            var tr = document.createElement('tr');
+            var td_id = document.createElement('td');
+            var td_name = document.createElement('td'); // equipment name field
+
+            td_name.innerHTML = equipmentToRemove[i].value;
+            tr.appendChild(td_name);
+            tableDelete.appendChild(tr);
+        };
+    };
+
+    btnSelectAll.addEventListener('click', function(){
+        if(!this.classList.contains('disabled')){
+            this.classList.add('disabled');
+            btnSelectNone.classList.remove('disabled');
+            btnRemove.classList.remove('disabled');
+            setAllCbChecked( true );
+        }
+    });
+    
+    btnSelectNone.addEventListener('click', function(){
+        if(!this.classList.contains('disabled')){
+            this.classList.add('disabled');
+            btnSelectAll.classList.remove('disabled');
+            btnRemove.classList.add('disabled');
+            setAllCbChecked( false );
+        }
+    });
+
+    btnRemove.addEventListener('click', function(){
+        // remove the selected equipment from the db
+        equipmentToRemove = document.querySelectorAll('input[name="equipment"]:checked');
+        if(!this.classList.contains('disabled')){
+            createDeleteTable(equipmentToRemove);
+            $("#delete_window").modal("show");
+        }
+    });
+
+    btnModalCancel.addEventListener('click', function(){
+        $("#delete_window").modal("hide");
+    });
+    
+
+    btnModalDelete.addEventListener('click', function(){
+        removeEquipment(equipmentToRemove);
+        $("#delete_window").modal("hide");
+
+        // reload table
+        $.getJSON(
+            '/get_equipment', function(data) {
+                table_body.innerHTML = "";
+                updateTable( data );
+            }
+        );
+    });
+    
+    $.getJSON(
+        '/get_equipment',
+        function(data){
+            updateTable( data );
+        }
+    );
+})
+</script>

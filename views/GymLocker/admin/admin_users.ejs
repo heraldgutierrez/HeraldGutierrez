@@ -1,0 +1,392 @@
+<div id="delete_window" class="modal fade">
+    <div class="modal-header">
+        <h2 align="center" id="delete_header"></h2>
+    </div>
+
+    <div id="delete-window-content" class="modal-body">
+  	  	<table id="delete_table" class="table table-striped table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <!-- <th>First Name</th>
+                    <th>Last Name</th> -->
+                    <th>Login Name</th>
+                    <!-- <th><i class="icon-envelope"></i> E-mail Address</th> -->
+                    <th><i class="icon-user"></i> Role</th>
+                </tr>
+            </thead>
+            <tbody id="delete_body">
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="modal-footer">
+        <a href="#" id="btn-confirm-delete" class="btn btn-success" >Delete</a>
+        <a href="#" id="btn-cancel-delete" class="btn" >Cancel</a>
+    </div>
+</div>
+
+<div>
+	<h1>All Registered Members</h1>
+    <section id="admin-buttons">
+        <span  class="btn-group">
+            <a id="btn-select-all" href="#" class="btn btn-small"><i class="icon-ok-sign"></i>  Select All</a>
+            <a id="btn-select-none" href="#" class="btn btn-small disabled"><i class="icon-remove-sign"></i>  Select None</a>
+        </span>
+        <a id="btn-delete-selected" href="#" class="btn btn-small btn-danger disabled"><i class="icon-trash icon-white"></i>  Delete Selected</a>
+    </section>
+    
+    <section id="admin-users-form">
+        <form name="all-users-reg" id="all-users-reg">
+        	<table id="membersTable" class="table table-striped table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <!-- <th>First Name</th> -->
+                        <!-- <th>Last Name</th> -->
+                        <th>Login Name</th>
+                        <!-- <th><i class="icon-envelope"></i> E-mail Address</th> -->
+                        <th><i class="icon-user"></i> Role</th>
+                    </tr>
+                </thead>
+                <tbody id="members_body">
+                </tbody>
+            </table>
+        </form>
+    </section>
+<div>
+
+<script>
+    $(document).ready(function(){ 
+        $('#get_all_users').addClass('active');
+            
+        getAllMembers();
+
+        $('#btn-select-all').click(function() { selectAll(true); });
+        $('#btn-select-none').click(function() { selectAll(false); });
+        $('#btn-delete-selected').click(function() {
+            alert('Need to implement...');
+            // if(!$(this).hasClass('disabled')) {
+            //     createDeleteTable();
+            //     $("#delete_window").modal("show");
+            // } else {
+            //     var cb = $('input[name="username"]');
+            //     $.each(cb, function(i, c) {
+            //         alert($(c).siblings('input[name="reg-now"]').is(':checked'));
+    
+            //     });
+            // }
+        });
+
+        $('#btn-confirm-delete').click(function() {
+            alert('Deleting...');
+        }); 
+
+        $('#btn-cancel-delete').click(function() {
+             alert('Cancel');
+        });
+    });
+
+    function getAllMembers() {
+        $.getJSON(
+            '/GymLocker/get_all_members',
+            function(data) {
+                updateTable( data );
+            }
+        );
+    }
+
+    function updateTable(members) {
+        var check;
+        var firstTd;
+        var row;
+        var username;
+        var role;
+        var body = '';
+
+        $.each(members, function(i, user) {
+            row = '<tr>';
+            firstTd = '<td>';
+            check = '<input type="checkbox" name="reg-now" onclick="checkboxClick();">';
+            check += '<input type="hidden" name="username" value="' + user.username + '">';
+            check += '<input type="hidden" name="role" value="' + user.role + '">';
+            username = '<td>' + user.username + '</td>';
+            role = '<td>' + user.role + '</td>';
+
+            firstTd += check + '</td>';
+            row += firstTd;
+            row += username;
+            row += role;
+            row += '</tr>';
+
+            $('#members_body').append(row);
+        });
+    }
+
+    function updateAllCheckboxes(state) {
+        var boxes = $('input[name="reg-now"]');
+
+        $.each(boxes, function(i, box) {
+            box.checked = state;
+        });
+    }
+
+    function selectAll(state) {
+        if(state) {
+            $('#btn-select-all').addClass('disabled');
+            $('#btn-select-none').removeClass('disabled');
+            $('#btn-delete-selected').removeClass('disabled');
+            updateAllCheckboxes(state);
+        } else {
+            $('#btn-select-none').addClass('disabled');
+            $('#btn-select-all').removeClass('disabled');
+            $('#btn-delete-selected').addClass('disabled');
+            updateAllCheckboxes(state);
+        }
+    }
+
+    function checkboxClick() {
+        var checked = $('input[name="reg-now"]:checked').length;
+        var total = $('input[name="reg-now"]').length;
+        if(checked == total) {
+            selectAll(true);
+        } else if (checked > 0) {
+            $('#btn-select-all').removeClass('disabled');
+            $('#btn-select-none').removeClass('disabled');
+            $('#btn-delete-selected').removeClass('disabled');
+        } else {
+            selectAll(false);
+        }
+    }
+
+    function createDeleteTable() {
+        var header = $('#delete_header');
+        var tableDelete = $('#delete_body');
+        var cbos = $('input[name="reg-now"]:checked');
+        var usernames = $('input[name="username"]');
+
+        if (cbos.length == 1) 
+            header.html("Delete this member?")
+        else 
+            header.html("Delete the following members?")
+
+        tableDelete.html('');
+
+        $.each(usernames, function(i, user) {
+            if($(user).siblings('input[name="reg-now"]').is(':checked')) {
+                var tr = '<tr>';
+                var td_name = '<td>' + $(user).val() + '</td>';
+                var td_role = '<td>' + $(user).siblings('input[name="role"]').val() + '</td>';
+
+                tr += td_name;
+                tr += td_role;
+                tr += '</tr>';
+
+                tableDelete.append(tr);
+            }
+        });
+    }
+
+    // function deleteUser(id) {
+    //     $.getJSON('/delete_user', { "id" : id }, function(data){
+    //         window.location.reload();
+    //     });
+    // }
+
+    
+
+	// document.addEventListener('DOMContentLoaded', function() {
+ //        $('#get_all_users').addClass('active');
+
+ //        var btnSelectAll = document.querySelector('#btn-select-all'),
+ //            btnSelectNone = document.querySelector('#btn-select-none'),
+ //            btnDeleteSelected = document.querySelector('#btn-delete-selected'),
+ //            btnModalCancel = document.querySelector('#btn-cancel-delete'),
+ //            btnModalDelete = document.querySelector('#btn-confirm-delete'),
+
+
+ //            updateTable = function( data ){
+ //                var tableMemebers = document.querySelector('#members_body');
+ //                $.each(data, function(i, line){
+ //                    alert(line.username + ' ' + line.role);
+ //                    var tr = document.createElement('tr'),
+ //                        td_cb = document.createElement('td'),       // checkbox field
+ //                        // td_first = document.createElement('td'),    // first name field
+ //                        // td_last = document.createElement('td'),     // last name field
+ //                        td_login = document.createElement('td'),    // login name field
+ //                        td_email = document.createElement('td'),    // email field
+ //                        td_role = document.createElement('td');     // role field
+ //                    var cb = document.createElement('input'),       // checkbox element
+ //                        ids = document.createElement('input'),      // ids element
+ //                        fnames = document.createElement('input'),   // fnames element
+ //                        lnames = document.createElement('input'),   // lnames element
+ //                        logins = document.createElement('input'),   // logins element
+ //                        emails = document.createElement('input'),   // emails element
+ //                        roles = document.createElement('input');    // roles element
+
+ //                    cb.type = "checkbox";
+ //                    cb.name = "reg-now";
+ //                    cb.value = i;
+ //                    cb.addEventListener('click', function(){ updateCboClick(); }, false);
+ //                    td_cb.appendChild(cb);
+
+ //                    ids.type = "hidden";
+ //                    ids.name = "ids";
+ //                    ids.value = line.id;
+ //                    td_cb.appendChild(ids);
+
+ //                    // fnames.type = "hidden";
+ //                    // fnames.name = "fnames";
+ //                    // fnames.value = line.fname;
+ //                    // td_cb.appendChild(fnames);
+
+ //                    // lnames.type = "hidden";
+ //                    // lnames.name = "lnames";
+ //                    // lnames.value = line.lname;
+ //                    // td_cb.appendChild(lnames);
+
+ //                    logins.type = "hidden";
+ //                    logins.name = "logins";
+ //                    logins.value = line.username;
+ //                    td_cb.appendChild(logins);
+
+ //                    emails.type = "hidden";
+ //                    emails.name = "emails";
+ //                    emails.value = line.email;
+ //                    td_cb.appendChild(emails);
+
+ //                    roles.type = "hidden";
+ //                    roles.name = "roles";
+ //                    roles.value = line.role;
+ //                    td_cb.appendChild(roles);
+ //                    tr.appendChild(td_cb);
+                    
+ //                    // td_first.innerHTML = line.fname;
+ //                    // tr.appendChild(td_first);
+
+ //                    // td_last.innerHTML = line.lname;
+ //                    // tr.appendChild(td_last);
+
+ //                    td_login.innerHTML = line.username;
+ //                    tr.appendChild(td_login);
+
+ //                    td_email.innerHTML = line.email;
+ //                    tr.appendChild(td_email);
+                    
+ //                    td_role.innerHTML = line.role;
+ //                    tr.appendChild(td_role);
+                    
+ //                    tableMemebers.appendChild(tr);
+ //                });
+ //            },
+
+ //            createDeleteTable = function() {
+ //                var tableDelete = document.querySelector('#delete_body');
+ //                var cbos = document.querySelectorAll('input[name="reg-now"]:checked'),
+ //                    fnames = document.querySelectorAll('input[name="fnames"]'),
+ //                    lnames = document.querySelectorAll('input[name="lnames"]'),
+ //                    logins = document.querySelectorAll('input[name="logins"]'),
+ //                    emails = document.querySelectorAll('input[name="emails"]'),
+ //                    roles = document.querySelectorAll('input[name="roles"]');
+
+ //                var header = document.querySelector('#delete_header');
+
+ //                if (cbos.length == 1) 
+ //                    header.innerHTML = "Delete this member?";
+ //                else 
+ //                    header.innerHTML = "Delete the following members?";
+
+ //                while (tableDelete.hasChildNodes()) {
+ //                    tableDelete.removeChild(tableDelete.firstChild);
+ //                }
+
+ //                var index = 0;
+ //                var items = 0;
+ //                var i = 0;
+ //                while(items < cbos.length) {
+ //                    if(cbos[index].value == i) {
+ //                        var tr = document.createElement('tr'),
+ //                            td_first = document.createElement('td'),    // first name field
+ //                            td_last = document.createElement('td'),     // last name field
+ //                            td_login = document.createElement('td'),    // login name field
+ //                            td_email = document.createElement('td'),    // email field
+ //                            td_role = document.createElement('td');     // role field
+                        
+ //                        td_first.innerHTML = fnames[i].value;
+ //                        tr.appendChild(td_first);
+
+ //                        td_last.innerHTML = lnames[i].value;
+ //                        tr.appendChild(td_last);
+
+ //                        td_login.innerHTML = logins[i].value;
+ //                        tr.appendChild(td_login);
+
+ //                        td_email.innerHTML = emails[i].value;
+ //                        tr.appendChild(td_email);
+                        
+ //                        td_role.innerHTML = roles[i].value;
+ //                        tr.appendChild(td_role);
+                        
+ //                        tableDelete.appendChild(tr);
+ //                        items++;
+ //                        index++;
+ //                    }
+ //                    i++;
+ //                };
+ //            },
+ //            deleteUser = function(id) {
+ //                $.getJSON('/delete_user', { "id" : id }, function(data){
+ //                    window.location.reload();
+ //                });
+ //            };
+
+ //        btnSelectAll.addEventListener('click', function(){
+ //            if(!this.classList.contains('disabled')){
+ //                this.classList.add('disabled');
+ //                btnSelectNone.classList.remove('disabled');
+ //                btnDeleteSelected.classList.remove('disabled');
+ //                updateAllCheckboxes( true );
+ //            }
+ //        });
+        
+ //        btnSelectNone.addEventListener('click', function(){
+ //            if(!this.classList.contains('disabled')){
+ //                this.classList.add('disabled');
+ //                btnSelectAll.classList.remove('disabled');
+ //                btnDeleteSelected.classList.add('disabled');
+ //                updateAllCheckboxes( false );
+ //            }
+ //        });
+
+ //        btnDeleteSelected.addEventListener('click', function(){
+ //            if(!this.classList.contains('disabled')){
+ //                createDeleteTable();
+ //                $("#delete_window").modal("show");
+ //            }
+ //        });
+
+ //        btnModalCancel.addEventListener('click', function(){
+ //            $("#delete_window").modal("hide");
+ //        });
+
+ //        btnModalDelete.addEventListener('click', function(){
+ //            var cbos = document.querySelectorAll('input[name="reg-now"]:checked');
+ //            var ids = document.querySelectorAll('input[name="ids"]');
+ //            var index = 0;
+ //            var items = 0;
+ //            var i = 0;
+            
+ //            while(items < cbos.length) {
+ //                if(cbos[index].value == i) {
+ //                    deleteUser(ids[i].value);
+ //                    items++;
+ //                    index++;
+ //                }
+ //                i++;
+ //            }
+ //            $("#delete_window").modal("hide");
+ //        });
+
+    // $(function() {
+    //     $("#members_table").tablesorter({ sortList: [[1,0]] });
+    // });
+</script>
