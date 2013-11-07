@@ -1,13 +1,13 @@
 $(document).ready(function() {
     $("#btn-demo").popover({placement:'bottom'});
 
-    $('#btn-signup').click(function() {
-        signup();
-    });
+    // $('#btn-signup').click(function() {
+    //     signup();
+    // });
 
-    $('#btn-login').click(function() {
-        login(username, password);
-    });
+    // $('#btn-login').click(function() {
+    //     login(username, password);
+    // });
 
 
     // var query = $.url().param('warning');

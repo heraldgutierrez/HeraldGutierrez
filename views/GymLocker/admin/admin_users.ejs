@@ -195,7 +195,6 @@
     
 
 	// document.addEventListener('DOMContentLoaded', function() {
- //        $('#get_all_users').addClass('active');
 
  //        var btnSelectAll = document.querySelector('#btn-select-all'),
  //            btnSelectNone = document.querySelector('#btn-select-none'),
@@ -203,81 +202,6 @@
  //            btnModalCancel = document.querySelector('#btn-cancel-delete'),
  //            btnModalDelete = document.querySelector('#btn-confirm-delete'),
 
-
- //            updateTable = function( data ){
- //                var tableMemebers = document.querySelector('#members_body');
- //                $.each(data, function(i, line){
- //                    alert(line.username + ' ' + line.role);
- //                    var tr = document.createElement('tr'),
- //                        td_cb = document.createElement('td'),       // checkbox field
- //                        // td_first = document.createElement('td'),    // first name field
- //                        // td_last = document.createElement('td'),     // last name field
- //                        td_login = document.createElement('td'),    // login name field
- //                        td_email = document.createElement('td'),    // email field
- //                        td_role = document.createElement('td');     // role field
- //                    var cb = document.createElement('input'),       // checkbox element
- //                        ids = document.createElement('input'),      // ids element
- //                        fnames = document.createElement('input'),   // fnames element
- //                        lnames = document.createElement('input'),   // lnames element
- //                        logins = document.createElement('input'),   // logins element
- //                        emails = document.createElement('input'),   // emails element
- //                        roles = document.createElement('input');    // roles element
-
- //                    cb.type = "checkbox";
- //                    cb.name = "reg-now";
- //                    cb.value = i;
- //                    cb.addEventListener('click', function(){ updateCboClick(); }, false);
- //                    td_cb.appendChild(cb);
-
- //                    ids.type = "hidden";
- //                    ids.name = "ids";
- //                    ids.value = line.id;
- //                    td_cb.appendChild(ids);
-
- //                    // fnames.type = "hidden";
- //                    // fnames.name = "fnames";
- //                    // fnames.value = line.fname;
- //                    // td_cb.appendChild(fnames);
-
- //                    // lnames.type = "hidden";
- //                    // lnames.name = "lnames";
- //                    // lnames.value = line.lname;
- //                    // td_cb.appendChild(lnames);
-
- //                    logins.type = "hidden";
- //                    logins.name = "logins";
- //                    logins.value = line.username;
- //                    td_cb.appendChild(logins);
-
- //                    emails.type = "hidden";
- //                    emails.name = "emails";
- //                    emails.value = line.email;
- //                    td_cb.appendChild(emails);
-
- //                    roles.type = "hidden";
- //                    roles.name = "roles";
- //                    roles.value = line.role;
- //                    td_cb.appendChild(roles);
- //                    tr.appendChild(td_cb);
-                    
- //                    // td_first.innerHTML = line.fname;
- //                    // tr.appendChild(td_first);
-
- //                    // td_last.innerHTML = line.lname;
- //                    // tr.appendChild(td_last);
-
- //                    td_login.innerHTML = line.username;
- //                    tr.appendChild(td_login);
-
- //                    td_email.innerHTML = line.email;
- //                    tr.appendChild(td_email);
-                    
- //                    td_role.innerHTML = line.role;
- //                    tr.appendChild(td_role);
-                    
- //                    tableMemebers.appendChild(tr);
- //                });
- //            },
 
  //            createDeleteTable = function() {
  //                var tableDelete = document.querySelector('#delete_body');
@@ -337,25 +261,7 @@
  //                $.getJSON('/delete_user', { "id" : id }, function(data){
  //                    window.location.reload();
  //                });
- //            };
-
- //        btnSelectAll.addEventListener('click', function(){
- //            if(!this.classList.contains('disabled')){
- //                this.classList.add('disabled');
- //                btnSelectNone.classList.remove('disabled');
- //                btnDeleteSelected.classList.remove('disabled');
- //                updateAllCheckboxes( true );
- //            }
- //        });
-        
- //        btnSelectNone.addEventListener('click', function(){
- //            if(!this.classList.contains('disabled')){
- //                this.classList.add('disabled');
- //                btnSelectAll.classList.remove('disabled');
- //                btnDeleteSelected.classList.add('disabled');
- //                updateAllCheckboxes( false );
- //            }
- //        });
+ //            };        
 
  //        btnDeleteSelected.addEventListener('click', function(){
  //            if(!this.classList.contains('disabled')){

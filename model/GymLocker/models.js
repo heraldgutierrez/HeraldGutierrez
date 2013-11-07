@@ -74,8 +74,8 @@ function exercises() {
 	var ESchema = new Schema({
 		name 		: String,
 		description	: String,
-		muscle_id 	: String,
-		equip_id	: String,
+		muscle 		: String,
+		equip		: String,
 		exercise_type : String,
 		video 		: String
 	});
@@ -191,7 +191,8 @@ function users() {
 		exercise_help 	: { type : Boolean, default : true },
 		create_help : { type : Boolean, default : true },
 		view_workout_help 	: { type : Boolean, default : true },
-		view_routines_help 	: { type : Boolean, default : true }
+		view_routines_help 	: { type : Boolean, default : true },
+		deleted		: { type : Boolean, default : false }
 	});
 
 	mongoose.model('User', USchema);

@@ -107,7 +107,12 @@ app.get('/GymLocker/get_all_members', gymlocker.db_get_all_members);
 // app.get('/GymLocker/delete_members', gymlocker.db_delete_members);
 // app.get('/GymLocker/get_pro_queue', gymlocker.db_get_pro_queue);
 // app.get('/GymLocker/get_all_exs', gymlocker.db_get_all_ex);
-// app.get('/GymLocker/get_all_equip', gymlocker.db_get_all_equip);
+app.get('/GymLocker/get_equipment', gymlocker.db_get_all_equip);
+app.get('/GymLocker/add_equipment', gymlocker.db_add_equip);
+app.get('/GymLocker/get_muscle_groups', gymlocker.db_get_muscle_groups);
+app.get('/GymLocker/get_exercise_types', gymlocker.db_get_exercise_types);
+app.get('/GymLocker/add_exercise', gymlocker.db_add_exercise);
+app.get('/GymLocker/get_exercises', gymlocker.db_get_exercises);
 
 /*********************************************************
 *	Casino

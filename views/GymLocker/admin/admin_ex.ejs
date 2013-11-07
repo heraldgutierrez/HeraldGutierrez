@@ -29,7 +29,7 @@
         <a id="btn-select-all" href="#" class="btn btn-small"><i class="icon-ok-sign"></i>  Select All</a>
         <a id="btn-select-none" href="#" class="btn btn-small disabled"><i class="icon-minus-sign"></i>  Select None</a>
     </span>
-    <a id="btn-remove_selected" href="#" class="btn btn-small btn-danger disabled"><i class="icon-remove-sign icon-white"></i>  Remove Selected</a>
+    <a id="btn-remove-selected" href="#" class="btn btn-small btn-danger disabled"><i class="icon-remove-sign icon-white"></i>  Remove Selected</a>
 </section>
 <form name="exercises_form">
 <table id="table-exercises" class="table table-striped table-bordered table-condensed">
@@ -49,57 +49,87 @@
     $(document).ready(function() {  
         $('#get_all_exercises').addClass('active');
         getAllExercises();
+
+        $('#btn-select-all').click(function() { selectAll(true); });
+        $('#btn-select-none').click(function() { selectAll(false); });
+        $('#btn-remove-selected').click(function() {
+            alert('Need to implement...');
+        });
     });
 
     function getAllExercises() {
         $.getJSON(
-            '/get_exercises',
+            '/GymLocker/get_exercises',
             function(data){
                 updateTable( data );
             }
         );
     }
 
-    // pdateTable = function( data ){
-//         $.each(data, function(i, line){
-//             var tr = document.createElement('tr');
-//             var td_cb = document.createElement('td');
-//             var cb = document.createElement('input');
-//             var td_name = document.createElement('td');
-//             var td_muscle = document.createElement('td');
-//             var td_equipment = document.createElement('td');
-//             var td_type = document.createElement('td');
-
-//             cb.type = "checkbox";
-//             cb.name = "exercises";
-//             cb.addEventListener('click', function(){ updateCboClick(); }, false);
-//             cb.id = line.id;
-//             cb.value = line.name;
-//             cb.muscle = line.muscle;
-//             cb.equipment = line.equipment;
-//             cb.exercise_type = line.exercise_type;
-                        
-//             td_cb.appendChild(cb);
-//             tr.appendChild(td_cb);
-            
-//             td_name.innerHTML = line.name;
-//             tr.appendChild(td_name);
-
-//             td_muscle.innerHTML = line.muscle;
-//             tr.appendChild(td_muscle);
-
-//             td_equipment.innerHTML = line.equipment;
-//             tr.appendChild(td_equipment);
-
-//             td_type.innerHTML = line.exercise_type;
-//             tr.appendChild(td_type);
-            
-//             table_body.appendChild(tr);
-//         });
-//     };
-
     function updateTable(data) {
+        var tr;
+        var td_cb;
+        var cb;
+        var td_ex;
+        var td_muscle;
+        var td_equipment;
+        var td_type;
 
+        $.each(data, function(i, line) {
+            tr = '<tr>';
+            td_cb = '<td>';
+            cb = '<input type="checkbox" name="exercises" onclick="checkboxClick();">';
+
+            td_ex = '<td>' + line.name + '</td>';
+            td_muscle = '<td>' + line.muscle + '</td>';
+            td_equipment = '<td>' + line.equip + '</td>';
+            td_type = '<td>' + line.exercise_type + '</td>';
+
+            td_cb += cb + '</td>';
+            tr += td_cb;
+            tr += td_ex;
+            tr += td_muscle;
+            tr += td_equipment;
+            tr += td_type;
+
+            $('#tbl-body').append(tr);
+        });
+    }
+
+    function selectAll(state) {
+        if(state) {
+            $('#btn-select-all').addClass('disabled');
+            $('#btn-select-none').removeClass('disabled');
+            $('#btn-remove-selected').removeClass('disabled');
+            updateAllCheckboxes(state);
+        } else {
+            $('#btn-select-none').addClass('disabled');
+            $('#btn-select-all').removeClass('disabled');
+            $('#btn-remove-selected').addClass('disabled');
+            updateAllCheckboxes(state);
+        }
+    }
+
+    function updateAllCheckboxes(state) {
+        var boxes = $('input[name="exercises"]');
+
+        $.each(boxes, function(i, box) {
+            box.checked = state;
+        });
+    }
+
+    function checkboxClick() {
+        var checked = $('input[name="exercises"]:checked').length;
+        var total = $('input[name="exercises"]').length;
+        if(checked == total) {
+            selectAll(true);
+        } else if (checked > 0) {
+            $('#btn-select-all').removeClass('disabled');
+            $('#btn-select-none').removeClass('disabled');
+            $('#btn-delete-selected').removeClass('disabled');
+        } else {
+            selectAll(false);
+        }
     }
 
 // document.addEventListener('DOMContentLoaded', function() {
@@ -110,63 +140,6 @@
 //     var btnModalCancel = document.querySelector('#btn-cancel-delete');
 //     var btnModalDelete = document.querySelector('#btn-confirm-delete');
 //     var exercisesToRemove;
-
-//     setAllCbChecked = function( isChecked ){
-//         var cbos = document.querySelectorAll('input[name="exercises"]');
-//         for( var i in cbos ){
-//             cbos[i].checked = isChecked;
-//         }
-//     };
-
-//     updateCboClick = function(){
-//         var cbos = document.querySelectorAll('input[name="exercises"]:checked');
-//         if( cbos.length > 0 ) {
-//             btnRemove.classList.remove('disabled');
-//             btnSelectNone.classList.remove('disabled');
-//         }
-//         else{
-//             btnRemove.classList.add('disabled');
-//             btnSelectNone.classList.add('disabled');
-//         }
-//     };
-
-//     updateTable = function( data ){
-//         $.each(data, function(i, line){
-//             var tr = document.createElement('tr');
-//             var td_cb = document.createElement('td');
-//             var cb = document.createElement('input');
-//             var td_name = document.createElement('td');
-//             var td_muscle = document.createElement('td');
-//             var td_equipment = document.createElement('td');
-//             var td_type = document.createElement('td');
-
-//             cb.type = "checkbox";
-//             cb.name = "exercises";
-//             cb.addEventListener('click', function(){ updateCboClick(); }, false);
-//             cb.id = line.id;
-//             cb.value = line.name;
-//             cb.muscle = line.muscle;
-//             cb.equipment = line.equipment;
-//             cb.exercise_type = line.exercise_type;
-                        
-//             td_cb.appendChild(cb);
-//             tr.appendChild(td_cb);
-            
-//             td_name.innerHTML = line.name;
-//             tr.appendChild(td_name);
-
-//             td_muscle.innerHTML = line.muscle;
-//             tr.appendChild(td_muscle);
-
-//             td_equipment.innerHTML = line.equipment;
-//             tr.appendChild(td_equipment);
-
-//             td_type.innerHTML = line.exercise_type;
-//             tr.appendChild(td_type);
-            
-//             table_body.appendChild(tr);
-//         });
-//     };
     
 //     function removeExercises ( exercisesToRemove ){
 //         // go through each element and remove it from the DB
@@ -209,24 +182,6 @@
 //         };
 //     };
 
-//     btnSelectAll.addEventListener('click', function(){
-//         if(!this.classList.contains('disabled')){
-//             this.classList.add('disabled');
-//             btnSelectNone.classList.remove('disabled');
-//             btnRemove.classList.remove('disabled');
-//             setAllCbChecked( true );
-//         }
-//     });
-    
-//     btnSelectNone.addEventListener('click', function(){
-//         if(!this.classList.contains('disabled')){
-//             this.classList.add('disabled');
-//             btnSelectAll.classList.remove('disabled');
-//             btnRemove.classList.add('disabled');
-//             setAllCbChecked( false );
-//         }
-//     });
-
 //     btnRemove.addEventListener('click', function(){
 //         // remove the selected equipment from the db
 //         exercisesToRemove = document.querySelectorAll('input[name="exercises"]:checked');
@@ -252,12 +207,5 @@
 //             }
 //         );
 //     });
-    
-//     $.getJSON(
-//         '/get_exercises',
-//         function(data){
-//             updateTable( data );
-//         }
-//     );
 // })
 </script>

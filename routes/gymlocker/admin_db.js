@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
+var BioTypeModel = mongoose.model('BiometricType');
+var EquipTypeModel = mongoose.model('EquipmentType');
+var ExerciseModel = mongoose.model('Exercises');
+var ExTypeModel = mongoose.model('ExerciseType');
+var MuscleModel = mongoose.model('MuscleGroup');
 var UserModel = mongoose.model('User');
-// var ExerciseModel = mongoose.model('Exercises');
+
 // var ProQueModel = mongoose.model('ProQueue');
 // var ObjectId = mongoose.Types.ObjectId;
 // var id = new ObjectId('id string');
@@ -12,6 +17,64 @@ exports.get_all_members = function(req, res) {
 		}
 	);
 };
+
+exports.get_all_equip = function(req, res) {
+	EquipTypeModel.find({}).sort({ name : 1 }).execFind(
+		function(err, result) {
+			res.json(result);
+		}
+	);
+};
+
+exports.add_equip = function(req, res) {
+	var equip = new EquipTypeModel({
+		name : req.query.equipment
+	});
+
+	equip.save(function(err, result) {
+		res.json({"success" : true});
+	});
+};
+
+exports.get_exercise_types = function(req, res) {
+	ExTypeModel.find({}).sort({ name : 1 }).execFind(
+		function(err, result) {
+			res.json(result);
+		}
+	);
+};
+
+exports.get_muscle_groups = function(req, res) {
+	MuscleModel.find({}).sort({ name : 1 }).execFind(
+		function(err, result) {
+			res.json(result);
+		}
+	);
+};
+
+exports.add_exercise = function(req, res) {
+	var exercise = new ExerciseModel({
+		name 		: req.query.exercise_name,
+		description	: req.query.exercise_desc,
+		muscle 		: req.query.muscle_group,
+		equip		: req.query.equipment,
+		exercise_type : req.query.exercise_type,
+		video 		: req.query.video
+	});
+
+	exercise.save(function(err, result) {
+		res.json({"success" : true});
+	});	
+};	
+
+exports.get_exercises = function(req, res) {
+	ExerciseModel.find({}).sort({ name : 1 }).execFind(
+		function(err, result) {
+			res.json(result);
+		}
+	);
+};
+
 
 // exports.delete_member = function(req, res) {
 // 	var id = new ObjectId();
