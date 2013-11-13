@@ -4,9 +4,7 @@ var UserModel = mongoose.model('User');
 // GET home page
 exports.home = function(req, res) {
 	if(!req.session.currentUser) {
-		res.render('GymLocker/index', { 
-			layout: false
-		});
+		res.render('GymLocker/index');
 	} else {
 		res.redirect('/GymLocker/main');
 	}
@@ -53,11 +51,8 @@ exports.logout = function(req, res) {
 
 exports.main = function(req, res) {
 	var currUser = req.session.currentUser;
-	res.render('GymLocker/user_main', {
-		layout 	: 'mainLayout',
-		role 	: currUser.role,
-		requests : 0,
-		adminPage : false
+	res.render('GymLocker/main_index', { 
+		role : currUser.role
 	});
 };
 

@@ -38,16 +38,6 @@ body {
 }
 
 /* navbar login info */
-#btn-demo {
+.navbar-inner a {
 	margin-bottom: 7px;
-}
-
-.login-links {
-    margin-left: 5px;
-    padding: 3px 10px 2px;
-}
-
-.login-links {
-	margin-top: 7px;
-	padding-bottom: 13px;
 }

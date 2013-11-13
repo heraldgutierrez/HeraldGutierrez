@@ -187,7 +187,7 @@ function users() {
 		username	: { type : String, index : { unique : true}},
 		password	: String,
 		role		: { type : String, default : '3' },
-		diagram 	: { type : Boolean, default : true },
+		diagram 	: { type : Boolean, default : false },
 		exercise_help 	: { type : Boolean, default : true },
 		create_help : { type : Boolean, default : true },
 		view_workout_help 	: { type : Boolean, default : true },

@@ -11,15 +11,17 @@ var UserModel = mongoose.model('User');
 // var id = new ObjectId('id string');
 
 exports.get_all_members = function(req, res) {
-	UserModel.find({}).sort({username : 1 }).execFind(
+	console.log('Get All Members');
+	UserModel.find({}).sort({ username : 1 }).exec(
 		function(err, result) {
+			console.log(JSON.stringify(result));
 			res.json(result);
 		}
 	);
 };
 
 exports.get_all_equip = function(req, res) {
-	EquipTypeModel.find({}).sort({ name : 1 }).execFind(
+	EquipTypeModel.find({}).sort({ name : 1 }).exec(
 		function(err, result) {
 			res.json(result);
 		}
@@ -31,13 +33,15 @@ exports.add_equip = function(req, res) {
 		name : req.query.equipment
 	});
 
+	console.log(equip);
+
 	equip.save(function(err, result) {
 		res.json({"success" : true});
 	});
 };
 
 exports.get_exercise_types = function(req, res) {
-	ExTypeModel.find({}).sort({ name : 1 }).execFind(
+	ExTypeModel.find({}).sort({ name : 1 }).exec(
 		function(err, result) {
 			res.json(result);
 		}
@@ -45,7 +49,7 @@ exports.get_exercise_types = function(req, res) {
 };
 
 exports.get_muscle_groups = function(req, res) {
-	MuscleModel.find({}).sort({ name : 1 }).execFind(
+	MuscleModel.find({}).sort({ name : 1 }).exec(
 		function(err, result) {
 			res.json(result);
 		}
@@ -68,7 +72,7 @@ exports.add_exercise = function(req, res) {
 };	
 
 exports.get_exercises = function(req, res) {
-	ExerciseModel.find({}).sort({ name : 1 }).execFind(
+	ExerciseModel.find({}).sort({ name : 1 }).exec(
 		function(err, result) {
 			res.json(result);
 		}

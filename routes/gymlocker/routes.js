@@ -1,6 +1,8 @@
 var index = require('./index');
 var admin = require('./admin_pages');
 var admin_db = require('./admin_db');
+var fitness = require('./fitness_pages');
+var user = require('./user');
 
 // Index pages
 exports.home = index.home;					// index/login page
@@ -11,7 +13,6 @@ exports.main = index.main;					// onces logged in/signed up, view main home page
 exports.signup = index.signup;				// attempt to sign up
 
 // Admin pages
-exports.admin = admin.index;
 exports.admin_users = admin.users;
 exports.admin_pro_queue = admin.pro_queue;
 exports.admin_exercises = admin.exercises;
@@ -19,7 +20,7 @@ exports.admin_equip = admin.equip;
 exports.admin_add_ex = admin.add_ex;
 exports.admin_add_equip = admin.add_equip;
 
-// Admin Query/JSON
+// // Admin Query/JSON
 exports.db_get_all_members = admin_db.get_all_members;
 // exports.db_delete_members = admin_db.delete_members;
 // exports.db_get_pro_queue = admin_db.get_pro_queue;
@@ -30,3 +31,9 @@ exports.db_get_muscle_groups = admin_db.get_muscle_groups;
 exports.db_get_exercise_types = admin_db.get_exercise_types;
 exports.db_get_exercises = admin_db.get_exercises;
 exports.db_add_exercise = admin_db.add_exercise;
+
+// // Fitness pages
+exports.fitness = fitness.library;
+
+// // User Query/JSON
+exports.get_settings = user.get_settings;
