@@ -639,18 +639,19 @@ function populateMuscle() {
 	console.log('Done: Populating Muscle Groups.');
 }
 
+// Pre-populate "Users" collection with admins
 function populateUser() {
 	console.log('Starting: Populating User...');
 	var admins = [
 		new UserModel({
 			username : 'herald',
 			password : 'pass',
-			role : 1,
+			role : 1
 		}),
 		new UserModel({
 			username : 'admin',
 			password : 'pass',
-			role : 1,
+			role : 1
 		})
 	];
 

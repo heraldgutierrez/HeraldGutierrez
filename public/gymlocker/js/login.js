@@ -1,16 +1,6 @@
 $(document).ready(function() {
     $("#btn-demo").popover({placement:'bottom'});
 
-    // $('#btn-signup').click(function() {
-    //     signup();
-    // });
-
-    // $('#btn-login').click(function() {
-    //     login(username, password);
-    // });
-
-
-    // var query = $.url().param('warning');
     var query = queryStr('warning');
     if(query == null)
         $('#warning').hide();

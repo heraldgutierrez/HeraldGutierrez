@@ -51,8 +51,11 @@ exports.logout = function(req, res) {
 
 exports.main = function(req, res) {
 	var currUser = req.session.currentUser;
+
 	res.render('GymLocker/main_index', { 
-		role : currUser.role
+		title	: 'GymLocker',
+		role 	: currUser.role,
+		user_id : currUser._id
 	});
 };
 
@@ -94,3 +97,20 @@ exports.signup = function(req, res) {
 		res.redirect('/GymLocker?warning=verifyPassword');
 	}
 }; // end: signup
+
+exports.demo = function(req, res) {
+	var date = new Date();
+	var name = 'demo_' + date.getTime();
+	var demo = new UserModel({
+		username : name,
+		password : name,
+		role 	 : 4
+	});
+
+	demo.save(function(err, result) {
+		req.session.currentUser = demo;
+
+		console.log(name + ' has been added.');
+		res.redirect('/GymLocker/main');
+	});
+};

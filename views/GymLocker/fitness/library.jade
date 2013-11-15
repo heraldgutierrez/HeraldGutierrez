@@ -2,7 +2,13 @@ extends ../layout/l_fitness
 
 block fitnessScripts
     script(src='/gymlocker/js/fitness/library.js')
-    script(src='/gymlocker/js/libs/jquery-ui-1.8.17.custom.min.js')
+
+block stylesheets
+    style.
+        #myCarousel, .img {
+            height : 550px;
+        }
+
 
 block fitnessContent
     div#content-main
@@ -151,22 +157,23 @@ block fitnessContent
                             div#add-date
                                 | Workout : 
                                 select#select-date
-                                    option(SELECTED value='0') Create a new workout
+                                    option(SELECTED value='0') - Create a new workout -
                             div#create-date(style='display: none')
-                                | Select a date :
-                                //- input#datepicker(type='data' name='date' value='#{date}')
+                                | Select a date : 
+                                input#datepicker(type='data' name='date' value='#{date}')
                             input#add-exercise(type='hidden')
                         td(rowspan='2')
+                            | &nbsp;
                             textarea#add-comment(rows='3' placeholder='Comments...')
                     tr
-                        td Reps :
+                        td Reps : 
                             input#add-reps.ex-number-input(type='number' min='0')
-                        td Weight (lb) :
+                        td Weight (lb) : 
                             input#add-weight.ex-number-input(type='number' min='0')
             div#create-new(style='display: none')
         div.modal-footer
             button#btn-add-workout.btn.btn-success Add
-            button#btn-create-workout.btn.btn-success(style='display: none')
+            button#btn-create-workout.btn.btn-success(style='display: none') Add
             button#btn-close-workout.btn Close
 
     div#content-help.well(style='display: none')
@@ -175,40 +182,40 @@ block fitnessContent
                 i Help: Exercise Library
         br
 
-        div#myCarousel.carousel(style='height: 550px')
+        div#myCarousel.carousel
             div.carousel-inner(align='center')
                 font(color='white')
                     div#first-item.item.active
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-0.png' width='450' height='400')
                         div.carousel-caption
                             | Clicking the 
                             u "Use Female Diagram"
                             |  will switch between using a Male or Female diagram.
                     div.item
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-1.png' width='450' height='400')
                     div.item
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-2.png' width='450' height='400')
                         div.carousel-caption
                             | Choosing from either the list of muscle groups or clicking on the any of the body parts on the diagram will display all exercises with that muscle group.
                     div.item
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-3.png')
                         div.carousel-caption
                             | The results of all exercises with that muscle is then displayed.
                             br
                             | Details of each exercises are shown, as well as an option for viewing an example video and adding to a workout is available.
                     div.item'
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-4.png')
                         div.carousel-caption
                             | Choosing the 
                             u "Example Video"
                             |  button will display an example video.
                     div.item
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-5.png')
                     div.item
                         div(style='height: 550px')
@@ -218,7 +225,7 @@ block fitnessContent
                             u "Add to a Workout"
                             |  button will display a form to add the exercise to a workout.
                     div.item
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-7.png')
                         div.carousel-caption
                             | You have 
@@ -228,13 +235,13 @@ block fitnessContent
                             |  1. Add to an existing workout or<br>
                             |  2. Create a new workout with this exercise.
                     div.item
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-8.png')
                         div.carousel-caption
                             h4 Option 1: Adding to an Existing Workout
                             | Simply select the date of the workout from the dropdown list to add an exercise to.
                     div.item
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-9.png')
                         div.carousel-caption
                             h4 Option 2: Create a new Workout
@@ -244,19 +251,21 @@ block fitnessContent
                             u "Add"
                             |  button, a new input field will appear.
                     div.item
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-10.png')
                         div.carousel-caption
                             h4 Option 2: Create a new Workout
                             | Clicking on the input field will display a calender where you will be able to select the date on which you would like to do the workout.
                     div.item
-                        div(style='height: 550px')
+                        div.img
                             img(src='/gymlocker/img/help/exercise-library/exercise-search-11.png')
                         div.carousel-caption
                             | After you have selected an existing workout or creating a date for a new workout, fill out the additional fields: <u>'Reps'</u>, <u>'Weight (lb)'</u> or <u>'Comment'</u>. Then click the <u>'Add'</u> button to complete the process.
 
             a.carousel-control.left(href='#myCarousel' data-slide='prev') &lsaquo;
             a.carousel-control.right(href='#myCarousel' data-slide='next') &rsaquo;
-        input#disable_help(type='checkbox')  Never Show Again
-        button#btn-close-help.btn.pull-right Close
-    
+        div
+            input#disable_help(type='checkbox')
+            |  Never Show Again
+            button#btn-close-help.btn.pull-right Close
+        

@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('.carousel').carousel({ interval: 10000 });
     $("#btn-help").tooltip({trigger: 'hover', placement: 'bottom'});
 
-    settings();
+    setSettings();
     // getAllWorkouts();
 
     $('#btn-help').click(function() { openHelp(); });
@@ -14,20 +14,16 @@ $(document).ready(function() {
         if($(this).is(':checked')) {
             $('#male_diagram').hide();
             $('#female_diagram').show();
-            savePreference(1);
+            savePreference(true);
         } else {
             $('#male_diagram').show();
             $('#female_diagram').hide();
-            savePreference(0);
+            savePreference(false);
         }
     });
 
     $('#disable_help').change(function() {
-        if($(this).is(':checked')) {
-            saveHelpPreference(1);
-        } else {
-            saveHelpPreference(0);
-        }
+        saveHelpPreference($(this).is(':checked'));
     });
 
     $('#searchOptions li a, .map_area').hover(
@@ -56,11 +52,10 @@ $(document).ready(function() {
         $('#content-results').addClass('active');
     });
 
-
-    // $('#datepicker').datepicker();
+    $('#datepicker').datepicker();
 
     $('#btn-close-workout').click(function() {
-        $('#workout_window').modal('hide');
+        $('#workout-window').modal('hide');
         $('#select-date').val(0);
     });
 
@@ -82,19 +77,21 @@ $(document).ready(function() {
     });
 });
 
-function settings() {
+function setSettings() {
     $.getJSON(
         '/GymLocker/get_settings',
         function(data){
-            if(data[0].diagram) {
+            if(data.diagram) {
                 $('#switch_diagram').attr('checked', true);
                 $('#male_diagram').hide();
                 $('#female_diagram').show();
             }
 
-            if(data[0].exercise_help) {
+            if(data.exercise_help) {
                 $('#content-help').show();
                 $('#content-main').hide();
+            } else {
+                $('#disable_help').attr('checked', true);
             }
         }
     );
@@ -115,9 +112,10 @@ function closeHelp() {
 function savePreference( gender ) {
     $.ajax({
         type:   "POST",
-        url:    "/save_diagram_preference",
+        url:    "/GymLocker/save_preference",
         data:   {
-            gender : gender
+            type    : 'diagram',
+            show    : gender
         },
         success: function(data) {
         }
@@ -127,13 +125,12 @@ function savePreference( gender ) {
 function saveHelpPreference( show ) {
     $.ajax({
         type:   "POST",
-        url:    "/save_help_preference",
+        url:    "/GymLocker/save_preference",
         data:   {
             type : 'exercise_help',
-            show : show
+            show : !show
         },
-        success: function(data) {
-        }
+        success: function(data) { }
     });
 };
 
@@ -146,70 +143,59 @@ function getExercises(musclePart) {
     var isEmpty = true;
 
     $.getJSON(
-        '/search_exercises', { muscle : musclePart }, 
+        '/GymLocker/get_exercises_by_muscle', 
+        { muscle : musclePart }, 
         function(data) {
-            $.each(data, function(i, line){
-                var tr = document.createElement('tr'),
-                    td_name = document.createElement('td'),    // exercise's name
-                    td_desc = document.createElement('td'),    // description of exercise
-                    td_muscle = document.createElement('td'),  // muscle group of exercise
-                    td_equip = document.createElement('td'),   // equipment used for exercise
-                    td_exType = document.createElement('td'),  // type of exercise
-                    td_view = document.createElement('td'),    // link to view exercise page
-                    td_workout = document.createElement('td'); // link to existing workout
-
-                var btn_video = document.createElement('button'),
-                    btn_add = document.createElement('button');
-
+            if(data.length > 0)
                 isEmpty = false;
-                
-                td_name.innerHTML = line.name;
-                tr.appendChild(td_name);
-                
-                td_desc.innerHTML = line.description;
-                tr.appendChild(td_desc);
 
-                td_muscle.innerHTML = line.muscle;
-                tr.appendChild(td_muscle);
+            $.each(data, function(i, line){
+                var tr = '<tr>';
+                var td_name = '<td>' + line.name + '</td>';
+                var td_desc = '<td>' + line.description + '</td>';
+                var td_muscle = '<td>' + line.muscle + '</td>';
+                var td_equip = '<td>' + line.equip + '</td>';
+                var td_exType = '<td>' + line.exercise_type + '</td>';
+                var td_view = '<td></td>';
+                var td_workout;
 
-                td_equip.innerHTML = line.equipment;
-                tr.appendChild(td_equip);
+                var btn_video;
+                var btn_add;
 
-                td_exType.innerHTML = line.type;
-                tr.appendChild(td_exType);
+                tr += td_name;
+                tr += td_desc;
+                tr += td_muscle;
+                tr += td_equip;
+                tr += td_exType;
 
-                if ((line.video).length != 0) {
-                    btn_video.className = "btn btn-small";
-                    btn_video.addEventListener('click', function() { openVideo(line.name, line.video); }, false);
-                    btn_video.innerHTML = "Example Video";
-                    td_view.appendChild(btn_video);
+                if((line.video).length != 0) {
+                    btn_video = '<button class="btn btn-small" onclick="openVideo(\'' + line.name  + '\', \'' + line.video + '\');" >Example Video</button>';
+                    td_view = '<td>' + btn_video + '</td>';
                 }
-                tr.appendChild(td_view);
-                
-                btn_add.className = "btn btn-small";
-                btn_add.addEventListener('click', function() { addToWorkout(line.id, line.name); }, false);
-                btn_add.innerHTML = "Add to a Workout";
-                td_workout.appendChild(btn_add);
-                tr.appendChild(td_workout);
+                tr += td_view;
 
-                searchTableBody.appendChild(tr);
+                btn_add = '<button class="btn btn-small" onclick="addToWorkout(\'' + line._id + '\', \'' + line.name + '\', \'' + musclePart + '\')" >Add to a Workout</button>';
+                td_workout = '<td>' + btn_add + '</td>';
+                tr += td_workout;
+
+                searchTableBody.append(tr);
             });
 
-            modalHeader.innerHTML = "Exercises for " + musclePart + ":";
+            modalHeader.html('Exercises for ' + musclePart + ':');
             if(isEmpty) {
-                emptyContainer.innerHTML = "<center><h3>Currently no exercises for " + musclePart + "</h3></center>";
-                emptyContainer.style.display = "block";
-                fullContainer.style.display = "none";
+                emptyContainer.html('<center><h3>Currently no exercises for ' + musclePart + '</h3></center>');
+                emptyContainer.show();
+                fullContainer.hide();
             } else {
-                emptyContainer.style.display = "none";
-                fullContainer.style.display = "block";
+                emptyContainer.hide();
+                fullContainer.show();
             }
         }
     );
 }
 
 function getAllWorkouts() {
-    var date = '[% date %]';
+    var date = '';
 
     $.getJSON(
         '/fitness/get_all_workout_dates', 
@@ -227,7 +213,7 @@ function getAllWorkouts() {
     );
 }
 
-function openVideo( exercise, url ) {
+function openVideo(exercise, url) {
     var video = '';
 
     var token = url.split('?');
@@ -247,8 +233,8 @@ function openVideo( exercise, url ) {
     $('#video_window').modal('show');
 }
 
-function addToWorkout( id, name ) {
-    $('#workout-header').html('Adding ' + name + ' to a workout.');
+function addToWorkout(id, name, muscle) {
+    $('#workout-header').html('Adding "' + name + '" to a workout.');
     $('#add-exercise').val(id);
     $('#add-reps').val(0);
     $('#add-weight').val(0);
@@ -258,7 +244,7 @@ function addToWorkout( id, name ) {
 
     $('#add-date').show();
     $('#create-date').hide();
-    $('#workout_window').modal('show');
+    $('#workout-window').modal('show');
 } 
 
 function reloadWorkouts() {
@@ -286,7 +272,7 @@ function saveWorkout(date, exercise, reps, weight, comment) {
             'comment'   : comment
         },
         success:    function() {
-                $('#workout_window').modal('hide');
+                $('#workout-window').modal('hide');
                 $('#select-date').val(0);
             },
     });

@@ -11,7 +11,6 @@ var UserModel = mongoose.model('User');
 // var id = new ObjectId('id string');
 
 exports.get_all_members = function(req, res) {
-	console.log('Get All Members');
 	UserModel.find({}).sort({ username : 1 }).exec(
 		function(err, result) {
 			console.log(JSON.stringify(result));

@@ -207,27 +207,6 @@ body {
   top: 40%;
 }
 
-
-/*#l-login-btn-area {
-    margin-bottom: 5px;
-}*/
-/*#l-info-panel {
-  background: url("../img/landing_2.jpg") no-repeat;
-  height: 500px;
-  width: 940px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  padding-top: 380px;
-}*/
-/*#l-register{
-  width: 450px;
-  margin: 0 auto;
-}
-#l-register p{
-  color: #fff;
-  font-size: 1.2em;
-}*/
 .navbar input[type=text], .navbar input[type=password]{
   border: #2b2b2b;
   background-color:#525252;
@@ -284,16 +263,8 @@ body {
   resize: none;
 }
 
-/*#lost-pwd {
-    margin-left: 5px;
-    padding: 3px 10px 2px;
-}*/
-
 .verticalAlign {
   position:absolute; 
-  /*top:25%; */
-  /*height:10em; */
-  /*margin-top:-5em;*/
 }
 
 [class*="vspan"] {
