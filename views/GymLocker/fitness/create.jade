@@ -2,6 +2,7 @@ extends ../layout/l_fitness
 
 block fitnessScripts
 	script(src='/gymlocker/js/fitness/create.js')
+	script(src='/gymlocker/js/fitness/search.js')
 
 block stylesheets
 	link(rel='stylesheet' href='/gymlocker/css/fitness.css')
@@ -26,7 +27,8 @@ block fitnessContent
 			div.span8
 				form#workout-form
 					strong Workout Date 
-					input#datepicker(type='text' value='#{date}')
+					input#datepicker(type='text' name='date' value='#{date}')
+					input#numExs(type='hidden' name='numExs')
 					|  
 					input#btn-save.span2.btn.btn-primary.disabled(value='Save Workout')
 					|  
@@ -49,7 +51,7 @@ block fitnessContent
 					span.add-on
 						i.icon-search
 					input#input-search(type='search' placeholder=' Search Exercises')
-				div#l-exercise-list
+				div#search-exercise-list
 
 	div#content-help.well(style='display: none')
 		h1

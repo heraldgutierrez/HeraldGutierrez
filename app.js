@@ -57,8 +57,15 @@ app.configure('development', function() {
 *********************************************************/
 
 app.get('/', routes.index);
+app.get('/portfolio', routes.portfolio);
+app.get('/resume', routes.resume);
 // app.get('/users', user.list);
 
+
+/*********************************************************
+*	MIPs
+*********************************************************/
+app.get('/scoreboard', routes.mips);
 
 /*********************************************************
 *	GymLocker
@@ -100,6 +107,7 @@ app.get('/GymLocker/fitness/get_planned_workouts', gymlocker.db_get_planned_work
 app.get('/GymLocker/fitness/check_existing_workout', gymlocker.db_check_existing_workouts);
 app.get('/GymLocker/get_exercises_by_muscle', gymlocker.db_get_exercises_by_muscle);
 app.get('/GymLocker/fitness/get_ex_search_results', gymlocker.db_get_ex_search_results);
+app.post('/GymLocker/fitness/save_workout', gymlocker.db_save_workout);
 
 // user JSON calls
 app.get('/GymLocker/get_settings', gymlocker.get_settings);

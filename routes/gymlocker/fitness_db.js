@@ -8,8 +8,10 @@ var UserModel = mongoose.model('User');
 var WorkoutModel = mongoose.model('Workout');
 
 // var ProQueModel = mongoose.model('ProQueue');
-// var ObjectId = mongoose.Types.ObjectId;
+var ObjectId = mongoose.Types.ObjectId;
 // var id = new ObjectId('id string');
+
+var async = require('async');
 
 exports.get_exercises_by_muscle = function(req, res) {
 	var muscle = req.query.muscle;
@@ -83,4 +85,81 @@ function getTodayDateString() {
 	var today = month + '/' + day + '/' + year;
 
 	return today;
+}
+
+exports.save_workout = function(req, res) {
+	var body = req.body;
+	var date = body.date;
+	var exs = body.exs;
+
+	console.log(exs.length);
+	// console.log(JSON.parse(body));
+	var e = ['test'];
+
+	async.series([
+		function(callback) {
+			for(var i = 0; i < exs.length; i++) {
+				console.log(exs[i].id);
+				// getExerciseByID(exs[i].id);
+				// console.log('1. ' + e);
+
+				ExerciseModel.findOne({ _id : exs[i].id }).exec(function(err, result) {
+					e.push(result);
+					// console.log(e.length)
+					// console.log(result);
+					callback(null, e);
+				});
+
+				// console.log('2. ' + e);
+			}
+
+			// console.log('3. ' + e);
+		}
+	],
+	function(err, result) {
+		console.log('e: ' + e);
+		console.log('result: ' + result);
+	});
+};
+
+function getExerciseByID(id) {
+	var id = new ObjectId(id);
+	var curr = req.session.currentUser;
+
+	async.series([
+		function(callback) {
+			// delete old workout on date
+			WorkoutModel.find({ date : date }).remove();
+			callback(null, true);
+		},
+		function(callback) {
+			// create a new workout
+
+			var wo = new WorkoutModel({ 
+				user_id 	: curr._id,
+				date 		: date,
+				exercises 	: []
+			});
+
+			wo.save(function(err, result) {});
+			// ExerciseModel.findOne({ _id : id }).exec(function(err, result) {
+			// 	callback(null, result);
+			// });
+			callback(null, '');
+		},
+		function(callback) {
+			// push all exercises to workout
+			var exs = new Array();
+
+			for(var i = 0; i < exs.length; i++) {
+
+			}
+
+
+			// callback(null, 'two');
+		}
+	], 
+	function(err, results) {
+		console.log(results);
+	});
 }

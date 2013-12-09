@@ -44,12 +44,7 @@ $(document).ready(function() {
             }
         }
     ).click(function(){
-        $('#search_body').html("");
         getExercises($(this).attr('data-muscle'));
-        $('#nav-muscle').removeClass('active');
-        $('#content-muscles').removeClass('active');
-        $('#nav-results').addClass('active');
-        $('#content-results').addClass('active');
     });
 
     $('#datepicker').datepicker();
@@ -135,63 +130,68 @@ function saveHelpPreference( show ) {
 };
 
 function getExercises(musclePart) {
-    var searchTableBody = $('#search_body');
-    var searchTable = $('#search_results');
-    var modalHeader = $('#exercise_header');
-    var emptyContainer = $('#emptyContainer');
-    var fullContainer = $('#fullContainer');
-    var isEmpty = true;
-
     $.getJSON(
         '/GymLocker/get_exercises_by_muscle', 
         { muscle : musclePart }, 
         function(data) {
-            if(data.length > 0)
-                isEmpty = false;
-
-            $.each(data, function(i, line){
-                var tr = '<tr>';
-                var td_name = '<td>' + line.name + '</td>';
-                var td_desc = '<td>' + line.description + '</td>';
-                var td_muscle = '<td>' + line.muscle + '</td>';
-                var td_equip = '<td>' + line.equip + '</td>';
-                var td_exType = '<td>' + line.exercise_type + '</td>';
-                var td_view = '<td></td>';
-                var td_workout;
-
-                var btn_video;
-                var btn_add;
-
-                tr += td_name;
-                tr += td_desc;
-                tr += td_muscle;
-                tr += td_equip;
-                tr += td_exType;
-
-                if((line.video).length != 0) {
-                    btn_video = '<button class="btn btn-small" onclick="openVideo(\'' + line.name  + '\', \'' + line.video + '\');" >Example Video</button>';
-                    td_view = '<td>' + btn_video + '</td>';
-                }
-                tr += td_view;
-
-                btn_add = '<button class="btn btn-small" onclick="addToWorkout(\'' + line._id + '\', \'' + line.name + '\', \'' + musclePart + '\')" >Add to a Workout</button>';
-                td_workout = '<td>' + btn_add + '</td>';
-                tr += td_workout;
-
-                searchTableBody.append(tr);
-            });
-
-            modalHeader.html('Exercises for ' + musclePart + ':');
-            if(isEmpty) {
-                emptyContainer.html('<center><h3>Currently no exercises for ' + musclePart + '</h3></center>');
-                emptyContainer.show();
-                fullContainer.hide();
-            } else {
-                emptyContainer.hide();
-                fullContainer.show();
-            }
+            fillResultTable(data, musclePart);
         }
     );
+}
+
+function fillResultTable(data, term) {
+    var searchTableBody = $('#search_body');
+    var emptyContainer = $('#emptyContainer');
+    var fullContainer = $('#fullContainer');
+
+    $('#nav-muscle').removeClass('active');
+    $('#content-muscles').removeClass('active');
+    $('#nav-results').addClass('active');
+    $('#content-results').addClass('active');
+
+    $('#search_body').html('');
+    $.each(data, function(i, line){
+        var tr = '<tr>';
+        var td_name = '<td>' + line.name + '</td>';
+        var td_desc = '<td>' + line.description + '</td>';
+        var td_muscle = '<td>' + line.muscle + '</td>';
+        var td_equip = '<td>' + line.equip + '</td>';
+        var td_exType = '<td>' + line.exercise_type + '</td>';
+        var td_view = '<td></td>';
+        var td_workout;
+
+        var btn_video;
+        var btn_add;
+
+        tr += td_name;
+        tr += td_desc;
+        tr += td_muscle;
+        tr += td_equip;
+        tr += td_exType;
+
+        if((line.video).length != 0) {
+            btn_video = '<button class="btn btn-small" onclick="openVideo(\'' + line.name  + '\', \'' + line.video + '\');" >Example Video</button>';
+            td_view = '<td>' + btn_video + '</td>';
+        }
+        tr += td_view;
+
+        btn_add = '<button class="btn btn-small" onclick="addToWorkout(\'' + line._id + '\', \'' + line.name + '\', \'' + line.muscle + '\')" >Add to a Workout</button>';
+        td_workout = '<td>' + btn_add + '</td>';
+        tr += td_workout;
+
+        searchTableBody.append(tr);
+    });
+
+    $('#exercise_header').html('Exercises for ' + term + ':');
+
+    if(data.length === 0) {
+        emptyContainer.html('<center><h3>Currently no exercises for ' + term + '</h3></center>');
+        emptyContainer.show();
+        fullContainer.hide();
+    } else {
+        emptyContainer.hide();
+        fullContainer.show();
+    }
 }
 
 function getAllWorkouts() {
@@ -234,17 +234,19 @@ function openVideo(exercise, url) {
 }
 
 function addToWorkout(id, name, muscle) {
-    $('#workout-header').html('Adding "' + name + '" to a workout.');
-    $('#add-exercise').val(id);
-    $('#add-reps').val(0);
-    $('#add-weight').val(0);
+    alert('Adding Exercise to a Workout still needs to be implemented...');
 
-    $('#btn-add-workout').show();
-    $('#btn-create-workout').hide();
+    // $('#workout-header').html('Adding "' + name + '" to a workout.');
+    // $('#add-exercise').val(id);
+    // $('#add-reps').val(0);
+    // $('#add-weight').val(0);
 
-    $('#add-date').show();
-    $('#create-date').hide();
-    $('#workout-window').modal('show');
+    // $('#btn-add-workout').show();
+    // $('#btn-create-workout').hide();
+
+    // $('#add-date').show();
+    // $('#create-date').hide();
+    // $('#workout-window').modal('show');
 } 
 
 function reloadWorkouts() {
@@ -277,3 +279,12 @@ function saveWorkout(date, exercise, reps, weight, comment) {
             },
     });
 }
+
+function resultClicked(ex) {
+    // alert(JSON.stringify(ex));
+    fillResultTable([ex], ex.name);
+    $('#exercise_header').html('Details for: ' + ex.name);
+}
+
+
+

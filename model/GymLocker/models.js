@@ -227,7 +227,7 @@ function workouts() {
 		reps 		: String,
 		weight		: String,
 		comments 	: String,
-		exercise 	: [ESchema]
+		exercises 	: [ESchema]
 	});
 
 	mongoose.model('Workout', WSchema);

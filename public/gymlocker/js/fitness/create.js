@@ -1,13 +1,6 @@
-$(document).ready(function() {
-	var delay = (function(){
-	  	var timer = 0;
-	  	
-	  	return function(callback, ms) {
-	    	clearTimeout (timer);
-	    	timer = setTimeout(callback, ms);
-	  	};
-	})();
+var field_id = 0;
 
+$(document).ready(function() {
 	$('#workout-dropdown').addClass('active');
 	$('#datepicker').datepicker();
 	$('#modal-delete').modal('hide');
@@ -19,8 +12,7 @@ $(document).ready(function() {
 
 	$('#btn-create-wo').addClass('active');
 
-	var exList = [];
-	var field_id = 0;
+	
 
 	setSettings();
 	// checkForExistingWorkout($('#datepicker').val());	// Check to see if there is an existing workout for today
@@ -37,25 +29,12 @@ $(document).ready(function() {
 		scroll: true
 	}).disableSelection();
 
-	$('#input-search').keyup(function(e) {
-		if($(this).val().length > 0) {
-			delay(function() { doSearch(); }, 750);
-		} else {
-			$('#l-exercise-list').html('');
-		}
-	});
-
-	$('#input-search').keypress(function(e) {
-		if(e.keyCode == 13) {
-			doSearch();
-		}
-	});
-
 	$('#datepicker').on('change', function() { checkForExistingWorkout( $(this).val() ); });
 
 	$('#btn-save').click(function() { 
-		if(!$(this).hasClass('disabled'))
-			saveWorkout(); 
+		alert('Saving Workout still needs to be implemented...');
+		// if(!$(this).hasClass('disabled'))
+		// 	saveWorkout(); 
 	});
 
 	$('#btn-delete').click(function() { 
@@ -132,15 +111,47 @@ function deleteWorkout(date) {
 }
 
 function saveWorkout() {
+	$('#numExs').val($('#tbl-workout tbody').children().length);
+	var exs = generateData();
+
 	$.ajax({
 		type	: 'post',
 		url 	: '/GymLocker/fitness/save_workout',
-		data 	: $('#workout-form').serialize(),
+		data 	: {
+			date 	: $('#datepicker').val(),
+			exs 	: exs
+		},
 		success : function() {
 			$('#btn-delete').removeClass('disabled');
 			$('#success-container').show().delay(5000).fadeOut();
 		}
 	});
+}
+
+function generateData() {
+	var children = $('#tbl-workout tbody').children();
+	var exs = [];
+
+	var id;
+	var reps;
+	var weight;
+	var comment;
+
+	$.each(children, function(i, val) {
+		id = $(this).children().children('[name="ex_id"]').val();
+		reps = $(this).children().children('[name="ex_reps"]').val();
+		weight = $(this).children().children('[name="ex_weight"]').val();
+		comment = $(this).children().children('[name="ex_com"]').val();
+
+		exs.push({
+			id : id,
+			reps : reps,
+			weight : weight,
+			comment : comment
+		})
+	});
+
+	return exs;
 }
 
 function saveHelpPreference( show ) {
@@ -155,51 +166,9 @@ function saveHelpPreference( show ) {
     });
 };
 
-function doSearch() {
-	$.getJSON(
-		'/GymLocker/fitness/get_ex_search_results',
-		{ 
-			'query' : $('#input-search').val()
-		},
-		function(data) {
-			$('#l-exercise-list').html('');
-			exList = [];
-
-			var div;
-			var text;
-			if(data.length > 0) {
-				$.each(data, function(i, ex) {
-					exList.push(ex);
-					div = '<div class="search-results">';
-					div += '<i class="icon-plus-sign"></i>  ';
-
-					text = '<strong>' + ex.name + '</strong><br>';
-					text += '<span class="label label-info">E : ' + ex.equip + '</span>';
-					text += '&nbsp;';
-					text += '<span class="label label-info">M : ' + ex.muscle + '</span>';
-					text += '&nbsp;';
-					text += '<span class="label label-info">T : ' + ex.exercise_type + '</span>';
-
-					div += text;
-					div += '<input type="hidden" class="ex-num" value="' + i + '" />';
-					div += '</div>';
-
-					$('#l-exercise-list').append(div);
-				});
-
-				$('.icon-plus-sign').click(function() {
-					createSetForm( exList[parseInt( $(this).siblings('.ex-num').val() )]);
-					$('#btn-save').removeClass('disabled');
-				});
-			} else {
-				div = '<div class="search-results">';
-				div += '<strong> No Exercises Found. </strong>';
-				div += '</div>';
-
-				$('#l-exercise-list').append(div);
-			}
-		}
-	);
+function resultClicked(ex) {
+	createSetForm(ex);
+	$('#btn-save').removeClass('disabled');
 }
 
 function createSetForm(ex) {
@@ -213,7 +182,8 @@ function createSetForm(ex) {
 
 	var td_name = '<td class="ex-name">'
 	td_name += ex.name;
-	var ex_id = '<input type="hidden" name="ex_id_' + field_id + '" value="' + ex._id + '" />';
+	// var ex_id = '<input type="hidden" name="ex_id_' + field_id + '" value="' + ex._id + '" />';
+	var ex_id = '<input type="hidden" name="ex_id" value="' + ex._id + '" />';
 	td_name += ex_id;
 	td_name += '</td>';
 	tr += td_name;
@@ -224,35 +194,33 @@ function createSetForm(ex) {
 	tr += td_bp;
 
 	var td_equip = '<td class="ex-bp">';
-	td_equip += ex.equipment;
+	td_equip += ex.equip;
 	td_equip += '</td>';
 	tr += td_equip;
 
 	var td_reps = '<td>';
-	var input_reps = '<input type="number" class="ex-number-input" name="ex_reps_' + field_id + '" min="0" placeholder="reps" value="' + ex.reps + '" />';
+	// var input_reps = '<input type="number" class="ex-number-input" name="ex_reps_' + field_id + '" min="0" placeholder="reps" value="' + ex.reps + '" />';
+	var input_reps = '<input type="number" class="ex-number-input" name="ex_reps" min="0" placeholder="reps" value="' + ex.reps + '" />';
 	td_reps += input_reps;
 	td_reps += '</td>';
 	tr += td_reps;
 
 	var td_weight = '<td>';
-	var input_weight = '<input type="number" class="ex-number-input" name="ex_weight_' + field_id + '" min="0" placeholder="weight" value="' + ex.weight + '" />';
+	// var input_weight = '<input type="number" class="ex-number-input" name="ex_weight_' + field_id + '" min="0" placeholder="weight" value="' + ex.weight + '" />';
+	var input_weight = '<input type="number" class="ex-number-input" name="ex_weight" min="0" placeholder="weight" value="' + ex.weight + '" />';
 	td_weight += input_weight;
 	td_weight += '</td>';
 	tr += td_weight;
 
 	var td_comm = '<td>';
 	var comm_text = ex.comments ? ex.comments : '';
-	var comm = '<input type="textarea" name="ex_com_' + field_id + '" placeholder="Comments" value="' + comm_text + '" />';
+	// var comm = '<input type="textarea" name="ex_com_' + field_id + '" placeholder="Comments" value="' + comm_text + '" />';
+	var comm = '<input type="textarea" name="ex_com" placeholder="Comments" value="' + comm_text + '" />';
 	td_comm += comm;
 	td_comm += '</td>';
 	tr += td_comm;
 
-	var td_del = '<td>';
-	var del = '<a href="#" class="btn btn-danger btn-delete">';
-	var del_i = '<i class="icon-remove icon-white"></i>';
-	del += del_i;
-	del += '</a>';
-	td_del += '</td>';
+	var td_del = '<td><button class="btn btn-danger btn-delete"><i class="icon-remove icon-white"></i></button></td>';
 	tr += td_del;
 
 	$('#tbl-workout tbody').append(tr);

@@ -1,0 +1,70 @@
+[class^="card-"] {
+	display: inline-block;
+	width: 170px;
+	height: 244px;
+	vertical-align: text-top;
+	background-image: url(../images/cards.png);
+	background-position: -347px -987px;
+	background-repeat: no-repeat;
+	*margin-right: .3em;
+}
+
+.card-Clubs-Ace { background-position: 1px 0px; }
+.card-Clubs-2 { background-position: -172px 0px; }
+.card-Clubs-3 { background-position: -347px 0px; }
+.card-Clubs-4 { background-position: -520px 0px; }
+.card-Clubs-5 { background-position: -694px 0px; }
+.card-Clubs-6 { background-position: -870px 0px; }
+.card-Clubs-7 { background-position: -1041px 0px; }
+.card-Clubs-8 { background-position: -1214px 0px; }
+.card-Clubs-9 { background-position: -1389px 0px; }
+.card-Clubs-10 { background-position: -1562px 0px; }
+.card-Clubs-Jack { background-position: -1734px 0px; }
+.card-Clubs-Queen { background-position: -1904px 0px; }
+.card-Clubs-King { background-position: -2076px 0px; }
+
+.card-Diamonds-Ace { background-position: 1px -246px; }
+.card-Diamonds-2 { background-position: -172px -246px; }
+.card-Diamonds-3 { background-position: -346px -246px; }
+.card-Diamonds-4 { background-position: -520px -246px; }
+.card-Diamonds-5 { background-position: -693px -246px; }
+.card-Diamonds-6 { background-position: -869px -246px; }
+.card-Diamonds-7 { background-position: -1040px -246px; }
+.card-Diamonds-8 { background-position: -1214px -246px; }
+.card-Diamonds-9 { background-position: -1389px -246px; }
+.card-Diamonds-10 { background-position: -1562px -246px; }
+.card-Diamonds-Jack { background-position: -1734px -246px; }
+.card-Diamonds-Queen { background-position: -1904px -246px; }
+.card-Diamonds-King { background-position: -2076px -246px; }
+
+.card-Hearts-Ace { background-position: 1px -494px; }
+.card-Hearts-2 { background-position: -172px -494px; }
+.card-Hearts-3 { background-position: -347px -494px; }
+.card-Hearts-4 { background-position: -520px -494px; }
+.card-Hearts-5 { background-position: -693px -494px; }
+.card-Hearts-6 { background-position: -869px -494px; }
+.card-Hearts-7 { background-position: -1041px -494px; }
+.card-Hearts-8 { background-position: -1214px -494px; }
+.card-Hearts-9 { background-position: -1389px -494px; }
+.card-Hearts-10 { background-position: -1562px -494px; }
+.card-Hearts-Jack { background-position: -1734px -494px; }
+.card-Hearts-Queen { background-position: -1904px -494px; }
+.card-Hearts-King { background-position: -2077px -494px; }
+
+.card-Spades-Ace { background-position: 1px -742px; }
+.card-Spades-2 { background-position: -172px -742px; }
+.card-Spades-3 { background-position: -347px -742px; }
+.card-Spades-4 { background-position: -520px -742px; }
+.card-Spades-5 { background-position: -693px -742px; }
+.card-Spades-6 { background-position: -869px -742px; }
+.card-Spades-7 { background-position: -1041px -742px; }
+.card-Spades-8 { background-position: -1214px -742px; }
+.card-Spades-9 { background-position: -1389px -742px; }
+.card-Spades-10 { background-position: -1562px -742px; }
+.card-Spades-Jack { background-position: -1734px -742px; }
+.card-Spades-Queen { background-position: -1904px -742px; }
+.card-Spades-King { background-position: -2077px -742px; }
+
+.card-Joker-1 { background-position: 1px -987px; }
+.card-Joker-2 { background-position: -172px -987px; }
+.card-Back { background-position: -347px -987px; }
