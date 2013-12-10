@@ -7,6 +7,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var app = express();
+var newrelic = require('newrelic');
 
 // mongodb
 var mongoose = require('mongoose');
