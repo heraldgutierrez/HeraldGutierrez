@@ -1,5 +1,5 @@
 {
-  "name": "Herald Gutierrez",
+  "name": "application-name",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
     "jade": "*",
     "mongodb": "*",
     "mongoose": "*",
-    "async": "*"
+    "async": "*",
+    "newrelic": "*"
   }
 }
