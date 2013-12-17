@@ -44,7 +44,7 @@ app.configure(function() {
 
 // development only
 app.configure('development', function() {
-  app.use(express.errorHandler());
+	app.use(express.errorHandler());
 });
 
 

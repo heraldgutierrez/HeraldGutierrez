@@ -279,6 +279,18 @@ $(document).ready(function() {
 	  	}
 	  	$('#timer_to').html(to_timer);
 	}
+
+
+
+	$('#changeSkin').click(function() {
+		if($('body').hasClass('dark')) {
+			$('body').removeClass('dark');
+			$('#scoreboard').removeClass('darkTable');
+		} else {
+			$('body').addClass('dark');
+			$('#scoreboard').addClass('darkTable');
+		}
+	});
 });
 
 function setTimer(count) {
@@ -290,20 +302,5 @@ function setTimer(count) {
 }
 
 function disableButtons(setting) {
-	// Home
-	// $('#btn_add_point_home').attr('disabled', setting);
-	// $('#btn_remove_point_home').attr('disabled', setting);
-	// $('#timeout_half').attr('disabled', setting);
-	// $('#timeout_full').attr('disabled', setting);
-
-	// // timer
-	// $('#start_timer').attr('disabled', setting);
-	// $('#stop_timer').attr('disabled', setting);
-	// $('#reset_sc').attr('disabled', setting);
-	// $('#change_time').attr('disabled', setting);
-
-	// // away
-	// $('#btn_add_point_away').attr('disabled', setting);
-	// $('#btn_remove_point_away').attr('disabled', setting);
 	$('button').attr('disabled', setting);
 }
