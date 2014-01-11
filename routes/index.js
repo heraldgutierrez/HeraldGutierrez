@@ -16,9 +16,7 @@ exports.index = function(req, res){
     else if(time >= 17 && time < 21)
 		greet = 'Good evening';
 	
-	// res.render('index', { 
 	res.render('index', { 
-		title: 'Express',
 		greeting: greet
 	});
 };

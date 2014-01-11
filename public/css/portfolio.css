@@ -1,0 +1,78 @@
+/*******************************************************
+ PORTFOLIO
+*******************************************************/
+a:link {
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+.previewContainer {
+	position: relative;
+	z-index: 1;
+	width: 920px;
+	height: 450px;
+	margin: 10px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+.previewContainer .preview{
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#GymLockerPreview {
+	background: transparent url("/img/gymlocker preview.png") 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+
+#ScoreboardPreview {
+	background: transparent url("/img/scoreboard preview.png") 0 0 no-repeat;	
+	background-size: 100% 100%;
+}
+
+.preview {
+	color: #FFF;
+
+    opacity: 1;
+	transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-webkit-transition: opacity .25s ease-in-out;
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.preview:hover, .fade {
+	opacity: 0.2;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.previewText {
+	width: 400px;
+	min-height: 200px;
+	/*margin: 50px;*/
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	padding: 10px;
+
+	background-color: white;
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}

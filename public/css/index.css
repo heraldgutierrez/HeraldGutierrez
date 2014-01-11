@@ -1,70 +1,90 @@
-* {
-	padding: 5px;
-	margin: 5px;
-	font-family: Helvetica, Arial, sans-serif;
-}
-
-html {
-	height: 95%;
-}
-
-body {
-	height: 95%;
-	margin-bottom: 10px;
-	padding-bottom: 75px;
-}
-
-p {
-	color: #666;
-	
-	font-size: 16px;
-	line-height: 24px;
-	margin-bottom: 22px;
-	-webkit-font-smoothing: antialiased;
-}
-
-#container {
-	border: 2px solid #999;
-	/*height: 100%;*/
+#background {
 	height: 700px;
-	/*max-height: 1000px;*/
-	/*background-color: red;*/
+	margin-top: -15px;
+	z-index: -10;
 }
 
-#header {
-	padding: 70px 0px 30px 0px;
-	font-size: 100px;
+[class^="background-"] {
+	background-image: url("/img/background.png");
+	background-repeat: no-repeat;
+	background-size: 400% 100%;
+}
+
+.background-0 {
+	background-position: 0px 30px;
+}
+
+.background-1 {
+	background-position: -958px 40px;
+}
+
+.background-2 {
+	background-position: -1917px 40px;
+}
+
+.background-3 {
+	background-position: -2876px 40px;
 }
 
 #about {
-	width: 50%;
-	min-width: 300px;
-	max-width: 500px;
+	padding: 10px;
 	text-align: justify;
-	/*padding: 0 0 0 70px;*/
-	/*margin: 60px auto 0 5% !important;*/
 	overflow: auto;
 }
 
-#about a, #nav a {
+#about a {
 	color: #555;
 	font-weight: bold;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
-a:hover {
-	color: #505e83;
+#about a:hover {
+	background: #8bacca;
+	color: #fff;
 }
 
-ul {
-
+#about span {
+	padding-left: 30px;
 }
 
-#nav li {
-	display: inline-block;
+#portfolio {
+	position: absolute;
+	top: 320px;
+	right: 50px;
+	width: 100px;
+	height: 100px;
+	background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(0, 214, 255, 1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255, 1)), color-stop(100%,rgba(0, 214, 255, 1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 20%, rgba(0, 214, 255, 1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(0, 214, 255, 1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(0, 214, 255, 1) 100%); /* IE10+ */
+	background: linear-gradient(to right, left, rgba(255, 255, 255, 1) 0%, rgba(0, 214, 255, 1) 100%); /* W3C */
+	
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
 }
 
-#nav li a:hover {
+#portfolio div {
+	position: absolute;
+	top: 35px;
+	left: 25px;	
+	width: 60px;
+
 	color: #555;
-	border-bottom: 1px solid rgba(80, 94, 131, 1);
+	font-weight: bold;
+	text-decoration: underline;
 }
+
+ #portfolio:hover  {
+ 	background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(0, 82, 255, 1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255, 1)), color-stop(100%,rgba(0, 82, 255, 1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 20%, rgba(0, 82, 255, 1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(0, 82, 255, 1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(0, 82, 255, 1) 100%); /* IE10+ */
+	background: linear-gradient(to right, left, rgba(255, 255, 255, 1) 0%, rgba(0, 82, 255, 1) 100%); /* W3C */
+ }
+
+ #portfolio:hover div {
+ 	color: #fff;
+ }

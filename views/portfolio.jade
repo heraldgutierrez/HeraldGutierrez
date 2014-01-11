@@ -1,13 +1,42 @@
 extends layout
 
+block styles
+	link(rel='stylesheet', href='/css/portfolio.css')
+
 block content
-	div#container
-		center
-			include header
-			ul
-				li 
-					a(href='/GymLocker') GymLocker
+	script.
+		$(document).ready(function() {
+			$('.previewText').hide();
+			$('.preview').mouseenter(function() {
+				$(this).siblings('center').children('div').fadeIn(250);
+			}).mouseleave(function() {
+				$(this).siblings('center').children('div').hide();
+				$(this).removeClass('fade');
+			});
+
+			$('.previewText').mouseenter(function() {
+				$(this).show();
+				$(this).parent().siblings('.preview').addClass('fade');
+			});
+		});
+
+	a(href='/GymLocker')
+		div.previewContainer
+			div#GymLockerPreview.preview
+			center
+				div#GymLockerPreviewText.previewText
+					h1 GymLocker
 					p GymLocker is a fitness tracking web application. It was created during my course, Software Engineering 2, at the University of Manitoba. Oringally written in Perl and MySQL, I converted that application to NodeJS and MongoDB.
-				li
-					a(href='/scoreboard') Scoreboard
-					p A simple scoreboard that was made in a few hours. My uncle needed a scoreboard for a family basketball league we will start early next year.
+						br
+						br
+						| (Updated: December 09, 2013)
+	a(href='/scoreboard')
+		div.previewContainer
+			div#ScoreboardPreview.preview
+			center
+				div#ScoreboardPreviewText.previewText
+					h1 Basketball Scoreboard
+					p A simple scoreboard that was made in a few hours. My uncle needed a scoreboard for a family basketball league that will start early 2014.
+						br
+						br
+						| (Updated: December 17, 2013)
