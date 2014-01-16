@@ -1,0 +1,98 @@
+body {
+	width: 1420px;
+	background-color: #000;
+}
+
+div {
+	display: inline-block;
+}
+
+.top, #top {
+	height: 126px;
+	/*background-color: #bbb;*/
+}
+
+.middle, #middle {
+	height: 424px;
+}
+
+.team, .team_name {
+	width: 518px;
+	height: 126px;
+	/*background-color: #000;*/
+	/*background-color: yellow;*/
+}
+
+.section {
+	/*width: 106px;*/
+	/*height: 150px;*/
+	width: 70px;
+	/*height: 126px;*/
+	/*background-color: #000;*/
+	/*display: inline-block;*/
+}
+
+.tens {
+	/*background-color: blue;*/
+}
+
+.number_small {
+	width: 70px;
+}
+
+.number_large {
+	width: 238px;
+}
+
+.divider {
+	width: 14px;
+	/*height: 126px;*/
+	/*height: 150px;*/
+	/*background-color: green;*/
+	/*display: inline-block;*/
+	/*margin-bottom: 5px;*/
+	/*margin: 1px;*/
+}
+
+.empty, .shotclock_empty {
+	width: 112px;
+	/*height: 126px;*/
+	/*height: 150px;*/
+	/*background-color: yellow;*/
+	/*display: inline-block;*/
+}
+
+.circle {
+	background-color: #222;
+	/*background-color: red;*/
+	width: 13px;
+	height: 13px;
+	/*display: inline-block;*/
+	border-radius: 50%;
+	margin-top: 1px; 
+	margin-left: 1px; 
+}
+
+.team .circle {
+	/*background-color: green;*/
+}
+
+.shotclock .circle {
+	/*background-color: red;*/
+}
+
+.shotclock .on {
+	background-color: red;
+}
+
+.score .on {
+	background-color: yellow;
+}
+
+#timer .on, .on {
+	background-color: white;
+}
+
+#center {
+	width: 378px;
+}

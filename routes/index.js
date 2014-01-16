@@ -29,6 +29,14 @@ exports.resume = function(req, res) {
 	res.render('resume');
 };
 
-exports.mips = function(req, res) {
-	res.render('mips');
+exports.scoreboard = function(req, res) {
+	res.render('scoreboard');
+};
+
+exports.ledscoreboard = function(req, res) {
+	res.render('scoreboard_led');
+};
+
+exports.ledscoreboard2 = function(req, res) {
+	res.render('scoreboard_led_2');
 };

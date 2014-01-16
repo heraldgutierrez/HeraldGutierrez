@@ -48,9 +48,9 @@
 }
 
 #portfolio {
-	position: absolute;
-	top: 320px;
-	right: 50px;
+	position: relative;
+	top: 130px;
+	left: 880px;
 	width: 100px;
 	height: 100px;
 	background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(0, 214, 255, 1) 100%); /* FF3.6+ */
@@ -67,7 +67,7 @@
 
 #portfolio div {
 	position: absolute;
-	top: 35px;
+	top: 30px;
 	left: 25px;	
 	width: 60px;
 

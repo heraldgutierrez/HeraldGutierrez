@@ -3,23 +3,10 @@ extends layout
 block styles
 	link(rel='stylesheet', href='/css/portfolio.css')
 
+block scripts
+	script(src='/js/portfolio.js')
+
 block content
-	script.
-		$(document).ready(function() {
-			$('.previewText').hide();
-			$('.preview').mouseenter(function() {
-				$(this).siblings('center').children('div').fadeIn(250);
-			}).mouseleave(function() {
-				$(this).siblings('center').children('div').hide();
-				$(this).removeClass('fade');
-			});
-
-			$('.previewText').mouseenter(function() {
-				$(this).show();
-				$(this).parent().siblings('.preview').addClass('fade');
-			});
-		});
-
 	a(href='/GymLocker')
 		div.previewContainer
 			div#GymLockerPreview.preview
