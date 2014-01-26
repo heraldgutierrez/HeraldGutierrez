@@ -64,11 +64,10 @@ app.get('/resume', routes.resume);
 
 
 /*********************************************************
-*	MIPs
+*	Scoreboard
 *********************************************************/
 app.get('/scoreboard', routes.scoreboard);
 app.get('/led_scoreboard', routes.ledscoreboard);
-app.get('/led_scoreboard_2', routes.ledscoreboard2);
 
 
 /*********************************************************
