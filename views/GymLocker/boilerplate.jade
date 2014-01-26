@@ -25,8 +25,8 @@ html
 
 						li#li-fitness
 							a#nav-fitness(href='/GymLocker/fitness/library') Fitness
-						li#li-biometric
-							a#nav-biometric(href='/GymLocker/biometrics') Biometrics
+						//- li#li-biometric
+						//- 	a#nav-biometric(href='/GymLocker/biometrics') Biometrics
 
 						if role == 2
 							li#li-pro
@@ -41,11 +41,11 @@ html
 								li
 									a#requests(href='GymLocker/trainer/requests' title='Quick_requests')
 
-							if role != 4
-								li
-									a(href='/GymLocker/settings' title='Settings')
-										i.icon-cog.icon-white
-										|  Settings
+							//- if role != 4
+							//- 	li
+							//- 		a(href='/GymLocker/settings' title='Settings')
+							//- 			i.icon-cog.icon-white
+							//- 			|  Settings
 
 							li
 								a(href='/GymLocker/logout' title='Logout')
