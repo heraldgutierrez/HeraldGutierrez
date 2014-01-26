@@ -58,16 +58,16 @@ app.configure('development', function() {
 *********************************************************/
 
 app.get('/', routes.index);
-app.get('/portfolio', routes.portfolio);
-app.get('/resume', routes.resume);
+app.get('/Portfolio', routes.portfolio);
+app.get('/Resume', routes.resume);
 // app.get('/users', user.list);
 
 
 /*********************************************************
 *	Scoreboard
 *********************************************************/
-app.get('/scoreboard', routes.scoreboard);
-app.get('/led_scoreboard', routes.ledscoreboard);
+app.get('/Scoreboard', routes.scoreboard);
+app.get('/LED_Scoreboard', routes.ledscoreboard);
 
 
 /*********************************************************

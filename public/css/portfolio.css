@@ -32,12 +32,17 @@ a:visited {
 }
 
 #GymLockerPreview {
-	background: transparent url("/img/gymlocker preview.png") 0 0 no-repeat;
+	background: transparent url("/img/preview-gymlocker.png") 0 0 no-repeat;
 	background-size: 100% 100%;
 }
 
 #ScoreboardPreview {
-	background: transparent url("/img/scoreboard preview.png") 0 0 no-repeat;	
+	background: transparent url("/img/preview-scoreboard.png") 0 0 no-repeat;	
+	background-size: 100% 100%;
+}
+
+#LEDScoreboardPreview {
+	background: transparent url("/img/preview-scoreboard-led.png") 0 0 no-repeat;	
 	background-size: 100% 100%;
 }
 
