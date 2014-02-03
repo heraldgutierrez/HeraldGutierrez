@@ -1,6 +1,11 @@
 @font-face {
 	font-family: 'digi';
-	src: url('http://cssdeck.com/uploads/resources/fonts/digii/DS-DIGII.TTF');
+	src: url('/font/DS-DIGII.TTF');
+}
+
+@font-face {
+	font-family: 'digital';
+	src: url('/font/digital-regular.ttf');
 }
 
 * {
@@ -116,7 +121,7 @@ body {
 	height: 30px;
 	margin-top: 5px;
 
-	font-family: 'digi';
+	font-family: 'digi', 'digital', Helvetica, Arial, sans-serif;
 }
 
 .navbar .nav.pull-right {
@@ -131,7 +136,7 @@ body {
 	text-decoration: none;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 
-	font-family: 'digi';
+	font-family: 'digi', 'digital', Helvetica, Arial, sans-serif;
 }
 
 .navbar .nav > li > a:hover {

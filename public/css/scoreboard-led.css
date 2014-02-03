@@ -1,56 +1,18 @@
 body {
-	width: 1420px;
 	background-color: #000;
 	color: white;
 }
 
-div {
-	display: inline-block;
-}
-
-.team_name, .score_section, .timeout_section { width: 518px; }
-.section, .number_small { width: 70px; }
-.number_large {	width: 210px; }
-
-.timeouts { width: 70px; }
-
-/* Dividers */
-.divider { width: 14px; }
-.divider_two { width: 28px; }
-.divider_three { width: 42px; }
-.divider_four { width: 56px; }
-.divider_foul_middle { width: 210px; }
-.divider_possession_middle { width: 42px; }
-.shotclock_empty { width: 112px; }
-
+div { display: inline-block; }
 
 .circle {
 	background-color: #222;
-	width: 13px;
-	height: 13px;
 	border-radius: 50%;
 	margin-top: 1px; 
 	margin-left: 1px; 
 }
 
-/* On colours */
-.on { background-color: white; }
-.shotclock .on { background-color: red; }
-.score .on { background-color: yellow; }
-.possession .on { background-color: orange; }
-.timeouts .on { background-color: orange; }
-
-
-#center { width: 378px; }
-.possession { width: 154px; }
-.foul_word { width: 70px; }
-#controls { margin-top: 10px; }
-
-/* Game controls */
-.game_controls { width: 370px; }
-
-/* Home and Away controls */
-.team_control { width: 510px; }
+#mins, #secs { width: 50px; }
 
 button {
 	display: inline-block;
@@ -92,4 +54,123 @@ button.disabled, button[disabled] {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
+}
+
+/* On colours */
+.on { background-color: white; }
+.shotclock .on { background-color: red; }
+.score .on { background-color: yellow; }
+.possession .on { background-color: orange; }
+.timeouts .on { background-color: orange; }
+
+#controls { margin-top: 10px; }
+
+@media only screen and (max-width: 1279px) {
+	body { width: 1024; }
+	
+	/* Width of 1 circle div = 9 + 1 */
+	.circle {
+		width: 9px;
+		height: 9px;
+	}
+
+	/* Dividers */
+	.divider { width: 10px; }					/* 9 + 1  */
+	.divider_two { width: 20px; }				/* 10 x 2 */
+	.divider_three { width: 30px; }				/* 10 x 3 */
+	.divider_four { width: 40px; }				/* 10 x 4 */
+	.divider_foul_middle { width: 150px; }		/* 10 x 15 */
+	.divider_possession_middle { width: 30px; }	/* 10 x 3 */
+	.shotclock_empty { width: 80px; }			/* 10 x 8 */
+
+	.full_empty_row { width : 1010px; }			/* 10 * 101 */
+
+	.team_name, .score_section, .timeout_section { width: 370px; } /* 10 x 37 */
+	.section, .number_small { width: 50px; }	/* 10 x 5 */
+	.number_large {	width: 150px; }				/* 10 x 15 */
+
+	.timeouts { width: 50px; }					/* 10 x 5 */
+
+	#center { width: 270px; }					/* 10 x 27 */
+	.possession { width: 110px; }				/* 10 x 11 */
+	.foul_word { width: 50px; }					/* 10 x 5 */
+
+	/* Game controls */
+	.game_controls { width: 262px; }		/* 10 x 27 - 8 */
+
+	/* Home and Away controls */
+	.team_control { width: 362px; }			/* 10 x 37 - 8 */
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1439px) {
+	body { width: 1280px; }
+
+	/* Width of 1 circle div = 11 + 1 */
+	.circle {
+		width: 11px;
+		height: 11px;
+	}
+
+	/* Dividers */
+	.divider { width: 12px; }					/* 11 + 1  */
+	.divider_two { width: 24px; }				/* 12 x 2 */
+	.divider_three { width: 36px; }				/* 12 x 3 */
+	.divider_four { width: 48px; }				/* 12 x 4 */
+	.divider_foul_middle { width: 180px; }		/* 12 x 15 */
+	.divider_possession_middle { width: 36px; }	/* 12 x 3 */
+	.shotclock_empty { width: 96px; }			/* 12 x 8 */
+
+	.full_empty_row { width : 1212px; }			/* 12 * 101 */
+
+	.team_name, .score_section, .timeout_section { width: 444px; } /* 12 x 37 */
+	.section, .number_small { width: 60px; }	/* 12 x 5 */
+	.number_large {	width: 180px; }				/* 12 x 15 */
+
+	.timeouts { width: 60px; }					/* 12 x 5 */
+
+	#center { width: 324px; }				/* 12 x 27 */
+	.possession { width: 132px; }			/* 12 x 11 */
+	.foul_word { width: 60px; }				/* 12 x 5 */
+
+	/* Game controls */
+	.game_controls { width: 316px; }		/* 12 x 27 - 8 */
+
+	/* Home and Away controls */
+	.team_control { width: 436px; }			/* 12 x 37 - 8 */
+}
+
+
+@media only screen and (min-width: 1440px) {
+	body { width: 1420px; }
+
+	/* Width of 1 circle div = 13 + 1 */
+	.circle {
+		width: 13px;
+		height: 13px;
+	}
+
+	/* Dividers */
+	.divider { width: 14px; }					/* 14 + 1  */
+	.divider_two { width: 28px; }				/* 14 x 2 */
+	.divider_three { width: 42px; }				/* 14 x 3 */
+	.divider_four { width: 56px; }				/* 14 x 4 */
+	.divider_foul_middle { width: 210px; }		/* 14 x 15 */
+	.divider_possession_middle { width: 42px; }	/* 14 x 3 */
+	.shotclock_empty { width: 112px; }			/* 14 x 8 */
+
+	.team_name, .score_section, .timeout_section { width: 518px; } /* 14 x 37 */
+	.section, .number_small { width: 70px; }	/* 14 x 5 */
+	.number_large {	width: 210px; }				/* 14 x 15 */
+
+	.timeouts { width: 70px; }					/* 14 x 5 */
+
+	#center { width: 378px; }				/* 14 x 27 */
+	.possession { width: 154px; }			/* 14 x 11 */
+	.foul_word { width: 70px; }				/* 14 x 5 */
+
+	/* Game controls */
+	.game_controls { width: 370px; }		/* 14 x 27 - 8 */
+
+	/* Home and Away controls */
+	.team_control { width: 510px; }			/* 14 x 37 - 8 */
 }
