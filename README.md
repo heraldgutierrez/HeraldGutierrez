@@ -1,29 +1,14 @@
-MyDemos
+Personal Website
 =======
-Sample demos of work that I've done. These are:
-- GymLocker [current project]
-- Casino [tbd]
+My personal website which contains my protfolio and resume.
 
+**Portfolio**<br>
+My portfolio includes:
+- [GymLocker](https://github.com/iheyroldy/GymLocker): a fitness application
+- [Basketball Scoreboard](https://github.com/iheyroldy/Scoreboard)
+- [Card: Match Pairs](https://github.com/iheyroldy/CardsMatchingPairs)
 
-GymLocker
----------
-- GymLocker is a fitness application. Users are able to search for exercises by "Muscle Groups" or querying by a term. Each exercise includes the name of the exercise, instructions on how to perform the exercise, any equipment needed, and the type of exercise it is (eg. Strength, Cardio, or Flexibity). Some exercises provide YouTube videos to compliment the instructions. Along with searching for exercises, users are able to create a workout. A workout is a list of exercises.
-- Originally, this was my University of Manitoba - Comp 4350: Software Engineering 2 group project
-  - This was originally written in PERL with MySQL
-  - This is being rewritten in Node.js, Express, Jade, MongoDB, and Mongoose
-
-- Challanges I faced/facing:
-  - Learning Node.js, Express, Jade, MongoDB, and Mongoose
-    - How to use routes with Node.js and Express, to load web pages
-    - Converting HTML files into Jade files, with proper syntax
-    - How to use MongoDB, which is a NoSQL database, and connecting it to Node.js with Mongoose
-    - Performing database queries and returning the results as a JSON object back to the webpage via an AJAX call
-
-
-
-Casino 
----------
-- A casino app, with various card games
-  - Blackjack
-  - Video Poker
-  - Texas Hold'em
+<br>
+Projects I have in mind:
+- Casino: includes Blackjack, Video Poker, Single player Texas Hold'em (vs Dealer), and possibly Multiplayer Texas Hold'em
+- 2D Side Scrolling Game (most likely a clone of a game)
