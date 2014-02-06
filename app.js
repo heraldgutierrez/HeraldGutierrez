@@ -46,6 +46,10 @@ app.configure('development', function() {
 app.get('/', routes.index);
 app.get('/Portfolio', routes.portfolio);
 app.get('/Resume', routes.resume);
+app.get('/Portfolio/Scoreboard/Simple', routes.simpleScoreboard);
+app.get('/Portfolio/Scoreboard/LED', routes.LEDScoreboard);
+app.get('/Portfolio/Cards', routes.Cards);
+app.get('/Portfolio/GymLocker', routes.GymLocker);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

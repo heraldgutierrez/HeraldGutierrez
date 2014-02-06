@@ -1,0 +1,32 @@
+extends layout
+
+block styles
+	link(rel='stylesheet', href='/css/portfolio-layout.css')
+	link(rel='stylesheet', href='/css/portfolio.css')
+	block portfolio-styles
+
+block scripts
+	script(src='/js/portfolio.js')
+	block portfolio-scripts
+
+block content
+	div.side-nav
+		div.side-links
+			ul
+				li#li_All.active
+					a(href='/Portfolio') All
+				li#li_AllScoreboard Basketball Scoreboards 
+					//-a(href='/Portfolio/Scoreboard') Basketball Scoreboard
+					ul
+						li#li_SimpleScoreboard
+							a(href='/Portfolio/Scoreboard/Simple') Simplified Scoreboard
+						li#li_LEDScoreboard
+							a(href='/Portfolio/Scoreboard/LED') LED Scoreboard
+				li#li_Cards
+					a(href='/Portfolio/Cards') Cards: Match Pairs
+				li#li_GymLocker
+					a(href='/Portfolio/GymLocker') GymLocker
+				
+	div.main-container
+		div.portfolio-content
+			block portfolio-content

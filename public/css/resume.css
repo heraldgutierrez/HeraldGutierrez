@@ -1,6 +1,19 @@
+body {
+	margin: auto;
+	max-height: 50px;
+	background: rgb(0,0,0); /* Old browsers*/
+	background: -moz-linear-gradient(top, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(90,90,90,1)), color-stop(45%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#848484',GradientType=0 ); /* IE6-9 */
+	background-repeat: repeat-x;
+}
+
 .sectionContainer {
 	display: inline-block;
-	height: 1000px;
 	padding: 10px;
 }
 

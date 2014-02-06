@@ -29,6 +29,22 @@ exports.resume = function(req, res) {
 	res.render('resume');
 };
 
+// Portfolio Pages
+exports.simpleScoreboard = function(req, res) {
+	res.render('portfolio/simple-scoreboard');
+};
+
+exports.LEDScoreboard = function(req, res) {
+	res.render('portfolio/led-scoreboard');
+};
+
+exports.Cards = function(req, res) {
+	res.render('portfolio/cards');
+};
+exports.GymLocker = function(req, res) {
+	res.render('portfolio/gymlocker');
+};
+
 exports.scoreboard = function(req, res) {
 	res.render('scoreboard');
 };

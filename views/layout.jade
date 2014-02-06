@@ -25,25 +25,28 @@ html
 		link(rel='stylesheet', href='/css/styles.css')
 		block styles
 	body
-		div.navbar
-			div.navbar-inner
-				ul.nav
-					li.brand Herald Gutierrez
-					li 
-						a(href='/') Home
-					li.divider-vertical
-					li 
-						a(href='/Portfolio') Portfolio
-					li.divider-vertical
-					li 
-						a(href='/Resume') Resume
-					li.divider-vertical
-					li
-						a(href='http://ca.linkedin.com/pub/herald-gutierrez/34/337/9b0')
-							img(src="http://s.c.lnkd.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Herald Gutierrez's LinkedIn profile" style="vertical-align:middle" border="0") 
-							| My LinkedIn Profile
-					li.divider-vertical
-					li
+		div.header
+			div.logo-container
+				div.logo
+					img(src='/img/logo.png')
+					span
 						a(href='mailto:heraldgutierrez@hotmail.com') HeraldGutierrez@Hotmail.com
-		div#container
+			div.navbar-container
+				div.navbar
+					div.navbar-inner
+						ul.nav
+							li#li_Home 
+								a(href='/') Home
+							li.divider-vertical
+							li#li_Portfolio
+								a(href='/Portfolio') Portfolio
+							li.divider-vertical
+							li#li_Resume
+								a(href='/Resume') Resume
+							li.divider-vertical
+							li
+								a(href='http://ca.linkedin.com/pub/herald-gutierrez/34/337/9b0')
+									img(src="http://s.c.lnkd.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Herald Gutierrez's LinkedIn profile" style="vertical-align:middle" border="0") 
+									| My LinkedIn Profile
+		div.main-container
 			block content

@@ -1,0 +1,53 @@
+extends ../portfolio-layout
+
+block portfolio-scripts
+	script. 
+		$(document).ready(function() {
+			$('#li_All').removeClass('active');
+			$('#li_GymLocker').addClass('active');
+		});
+
+block portfolio-content
+	h1 GymLocker
+	span (Last Updated: January 26, 2014)
+	br
+	div.portfolioLinks
+		a(href='http://herald-gymlocker.herokuapp.com') View Webpage
+		br
+		a(href='https://github.com/iheyroldy/GymLocker') View Source on GitHub
+	a(href='http://herald-gymlocker.herokuapp.com')
+		div.previewContainer
+			div#GymLockerPreview.exercise.preview
+		
+	div.description
+		h2 Description:
+		p GymLocker is a fitness application. Users are able to search for exercises by "Muscle Groups" or querying by a term. Each exercise includes the name of the exercise, instructions on how to perform the exercise, any equipment needed, and the type of exercise it is (eg. Strength, Cardio, or Flexibity). Some exercises provide YouTube videos to compliment the instructions. Along with searching for exercises, users are able to create a workout. A workout is a list of exercises.
+		br
+		p Originally, this was my University of Manitoba - Comp 4350: Software Engineering 2 group project
+			ul
+				li This was originally written in PERL with MySQL
+				li This is being rewritten in Node.js, Express, Jade, MongoDB, and Mongoose
+		
+		h2 Current Features:
+		ul
+			li There are two ways for searching for an exercise.
+				ol
+					li By muscle group:
+						ul
+							li Selecting one of the muscle part in the provided list
+							li Clicking the muscle group on the provided image
+					li Entering a term into the search bar. The query will return any exercises that contain the term in the:
+						ul
+							li Exercise name
+							li Equipment needed
+							li Muscle group being exercised
+							li Type of exercise being performed: Strength, Cardio, or Flexibity
+
+		h2 Future Features:
+		ul
+			li Being able to "Create a Workout"
+			li Convert a workout into a "Routine", and being able to create a "Routine"
+			li View "Biometric" stats
+			li View "Exercise Stats"
+			li Integrate "Nike Plus"
+			li Being able to find a "Trainer". Someone who will create a workout/routine for you.

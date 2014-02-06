@@ -3,11 +3,22 @@ extends layout
 block styles
 	link(rel='stylesheet', href='/css/resume.css')
 
+block scripts
+	script.
+		$(document).ready(function() {
+			$('#li_Resume').addClass('nav-active');
+		});
+
 block content
+	//- Experiences
 	div#experiences.grid_7.sectionContainer
+		//- Technical Work Experiences
 		div.section
 			h2 Work Experience
-			h3 iQmetrix - Web Developer 
+
+			//- iQmetrix
+			h3 iQmetrix - Web Developer
+			h4 Winnipeg, MB Canada
 			h4 January 2013 - April 2013 (Co-op Work Term III) [
 				a(href='http://www.iqmetrix.com') www.iqmetrix.com
 				| ]
@@ -17,7 +28,9 @@ block content
 				li Attended daily morning scrums and iteration planning every two weeks.
 			span Languages used: C#, HTML, CSS, JavaScript/jQuery, and SQL
 
+			//- Agriculture and Agri-Food Canada
 			h3 Agriculture and Agri-Food Canada (AAFC) - Small Systems Analyst
+			h4 Winnipeg, MB Canada
 			h4 May 2012 - August 2012 (Co-op Work Term II)
 			ul
 				li Generated a PDF from an Excel workbook for customers. The process included reading Excel cells to produce an XML. The XML is passed to a VBScript to do a custom mail merge into a Word document, which is saved as a PDF.
@@ -25,7 +38,9 @@ block content
 				li Created four different single-page web applications. The most notable was an internal calendar that kept track of employee attendance (vaction, doctor appointments, out of office, etc...)
 			span Languages used: VBA for Excel, VBScript, MS Access, HTML, CSS, and JavaScript
 
+			//- Geomax Mobile Corporation
 			h3 Geomax Mobile Corporation - Wireless Application Developer
+			h4 Winnipeg, MB Canada
 			h4 Mobile GPS for transportation companies [
 				a(href='http://www.geomaxmobile.com') www.geomaxmobile.com
 				| ]
@@ -36,19 +51,40 @@ block content
 				li Preformed software releases after the project had been committed, built, and prcessed by Maven.
 				li Updated the Geomax Mobile website with current information about the company.
 			span Languages used: Java, JSP, HTML, CSS, JavaScript/jQuery, and SQL
+
+		//- Other Work Experiences
+		div.section
+			h2 Other Work Experience
+
+			//- Shoppers Drug Mart
+			h3 Shoppers Drug Mart - Merchandiser
+			h4 Winnipeg, MB Canada
+			h4 August 2007 - April 2012
+
+			//- The Children's Place
+			h3 The Children's Place - Stock
+			h4 Winnipeg, MB Canada
+			h4 November 2013 - Present
+
+		//- References
 		div.section
 			h2 References
 			span Available upon request.
 
+
+	//- Other Information
 	div#other.grid_5.sectionContainer
+		//- Objective
 		div.section
 			h2 Objective
 			span To gain experience as a web developer by being exposed to different languages. Also to become a better overall developer.
 
+		//- About Me
 		div.section
 			h2 About Me
 			span I’m an enthusiastic and responsible person. I’m self-motivated being able to work independently, as well in a team environment. I’m able to work and keep up in a fast paced environment. I enjoy learning, and adapting to change. I’m looking to obtain a challenging position, offering personal growth, development, and experience.
 
+		//- Education
 		div.section
 			h2 Education
 			h3 University of Manitoba 
@@ -59,6 +95,7 @@ block content
 				li Dean's Honour List - 2011
 				li Attended 2007 - 2013
 
+		//- Technical Skills
 		div.section
 			h2 Technical Skills
 			h3 Programming Languages

@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	var curr = 0;
+	$('#li_Home').addClass('nav-active');
 	$('#portfolio').hide();
 
 	$(window).mousemove(function(e) {

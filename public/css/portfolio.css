@@ -1,15 +1,32 @@
 /*******************************************************
  PORTFOLIO
 *******************************************************/
-a:link {
+h1, h2, p, ul {
+	margin: 0;
+}
+
+h2 {
+	margin-top: 20px;
+}
+
+a:link, a:visited {
+	text-decoration: none;
 	color: black;
 }
 
-a:visited {
-	color: black;
+.portfolioLinks a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	background-color: #eeeeee;
 }
 
+.description {
+	margin-bottom: 20px;
+}
+
+/** Regular **/
 .previewContainer {
+	display: inline-block;
 	position: relative;
 	z-index: 1;
 	width: 920px;
@@ -20,6 +37,13 @@ a:visited {
 	text-align: center;
 }
 
+/** Small **/
+.small {
+	width: 450px;
+	height: 200px;
+}
+
+/** Preview **/
 .previewContainer .preview{
 	position: absolute;
 	z-index: -1;
@@ -29,21 +53,6 @@ a:visited {
 	right: 0;
 	height: 100%;
 	width: 100%;
-}
-
-#GymLockerPreview {
-	background: transparent url("/img/preview-gymlocker.png") 0 0 no-repeat;
-	background-size: 100% 100%;
-}
-
-#ScoreboardPreview {
-	background: transparent url("/img/preview-scoreboard.png") 0 0 no-repeat;	
-	background-size: 100% 100%;
-}
-
-#LEDScoreboardPreview {
-	background: transparent url("/img/preview-scoreboard-led.png") 0 0 no-repeat;	
-	background-size: 100% 100%;
 }
 
 .preview {
@@ -59,16 +68,9 @@ a:visited {
 	border-radius: 10px;
 }
 
-.preview:hover, .fade {
-	opacity: 0.2;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-}
-
 .previewText {
 	width: 400px;
-	min-height: 200px;
+	height: 200px;
 	/*margin: 50px;*/
 	position: absolute;
 	top: 25%;
@@ -80,4 +82,44 @@ a:visited {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+}
+
+.previewText.small {
+	width: 350px;
+	height: 40px; !important
+	position: absolute;
+	top: 70px;
+	left: 40px;
+}
+
+/*******************************************************
+		Preview Images 
+********************************************************/
+/* Simplified Scoreboard */
+#ScoreboardPreview {
+	background: transparent url("/img/preview-scoreboard.png") 0 0 no-repeat;	
+	background-size: 100% 100%;
+}
+
+/* LED Scoreboard */
+#LEDScoreboardPreview {
+	background: transparent url("/img/preview-scoreboard-led.png") 0 0 no-repeat;	
+	background-size: 100% 100%;
+}
+
+/* Cards: Match Pairs */
+#CardsPreview {
+	background: transparent url("/img/preview-matching-pairs-played.png") 0 0 no-repeat;	
+	background-size: 100% 100%;
+}
+
+/* GymLocker */
+#GymLockerPreview {
+	background: transparent url("/img/preview-gymlocker.png") 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+
+#GymLockerPreview.exercise {
+	background: transparent url("/img/preview-gymlocker-exercise.png") 0 0 no-repeat;
+	background-size: 100% 100%;
 }

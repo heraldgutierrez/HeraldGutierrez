@@ -1,0 +1,44 @@
+extends ../portfolio-layout
+
+block portfolio-scripts
+	script. 
+		$(document).ready(function() {
+			$('#li_All').removeClass('active');
+			$('#li_Cards').addClass('active');
+		});
+
+block portfolio-content
+	h1 Cards: Match Pairs
+	span (Last Updated: February 3, 2014)
+	br
+	div.portfolioLinks
+		a(href='http://herald-matchingpairs.herokuapp.com') View Webpage
+		br
+		a(href='https://github.com/iheyroldy/CardsMatchingPairs') View Source on GitHub
+	a(href='http://herald-matchingpairs.herokuapp.com')
+		div.previewContainer
+			div#CardsPreview.preview
+		
+	div.description
+		h2 Description:
+		p Started as an experiment with Socket.io as a learning exercise, since I wanted to use Socket.io in my Casino style project. With Socket.io, I am able to create and return objects/data from the server, similar to AJAX calls.
+			br
+			| Each Deck object contains multiple Card objects. Each Card object contains the value of the card, suit type, back html, and front html.
+		ul
+			li value = card value Ace (1), 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (11), Queen (12), and King (13)
+			li suit = Heart, Diamond, Spade, and Club
+			li back html = html containing the back side/image
+			li front html = html containing the front side which displays the value and suit in a design similar to real cards
+		
+		h2 Game Objective: 
+		p Clear the board by clicking on two (2) cards trying to make a pair. To win, you need to pair each card.
+			br
+			| The score is calculated as: score = current score + (multiplier * score base)
+		ul
+			li Current score is the total current score
+			li Multiplier starts at 1. For every pair made, the multiplier increments by 1. When a pair isn't made, the multiplier is reset back to 1
+			li Score base is 10
+			li Example: current score = 50, multiplier = 2, score base = 10
+				ul
+					li new score = 50 + (2 * 10) = 50 + 20 = 70
+		p When all the cards have been paired together, a prompt will be displayed if the user wants to play again.
