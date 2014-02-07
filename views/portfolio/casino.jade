@@ -1,0 +1,69 @@
+extends ../portfolio-layout
+
+block portfolio-scripts
+	script. 
+		$(document).ready(function() {
+			$('#li_All').removeClass('active');
+			$('#li_Casino_VP').addClass('active');
+		});
+
+block portfolio-content
+	h1 Casino: Video Poker
+	span 
+		b 
+			i Very basic functions, may still have bugs when pushed into production server.
+	br
+	span (Last Updated: February 6, 2014)
+	br
+	div.portfolioLinks
+		a(href='http://casino.heraldgutierrez.com/') View Webpage
+		br
+		a(href='https://github.com/iheyroldy/Casino') View Source on GitHub
+	a(href='http://casino.heraldgutierrez.com/')
+		div.previewContainer
+			div#CasinoPreview.preview
+		
+	div.description
+		h2 Description:
+		p Video Poker is a classic casino machine game. It is based on "Five-card draw poker".
+		br
+		p Using the same methods I learned from my Cards: Match Pairs application. Instead of returning the entire deck, I am only returning the cards that I need. 
+		
+		h2 Game Objective: 
+		p With the five (5) cards, try to make any of the following hands (which are ranked from highest/most valuable to lowest/least valuable):
+		ul
+			li Royal Flush
+			li Straight Flush
+			li 4 of a Kind
+			li Full House
+			li Flush
+			li Straight
+			li 3 of a Kind
+			li Two Pair
+			li Jacks or Better
+		p Each of these hands will have a different payout (a future feature).
+
+		h2 How to Play:
+		ol 
+			li At the start of a new game, you are given and shown five (5) cards. 
+			li From these five cards, you are able to "Hold" none, any, or all of the cards. When deciding which cards to hold, you should decide which cards can help make a winning hand.
+			li After you have made your decision on which cards to hold, click on the "Draw" button. 
+			li All cards not being "Held" will then be switched with new cards.
+			li After receiving new cards, the five cards will be used to calculate if you have a winning hand.
+			li If a winning hand has been created, you will be awarded a "a payout" depending on which hand was made.
+
+		h2 Current Features:
+		ul
+			li Retrieve individual cards from the server.
+			li Able to hold cards.
+			li When a card is not held, replace with a new card
+
+		h2 Future Features:
+		ul
+			li Calculate hand. Is it any of the winning hands?
+			li Implement a betting system
+				ul
+					li Initially, a fixed bet amount (one (1)).
+					li Each winning hand has a different payout ratio.
+					li Able to change bet amount.
+			li Upgrade UI to make it look similar to a real video poker machine.

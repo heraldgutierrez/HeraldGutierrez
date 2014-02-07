@@ -1,0 +1,40 @@
+extends portfolio-layout
+
+block portfolioStyles
+	link(rel='stylesheet', href='/css/portfolio.css')
+
+block scripts
+	script(src='/js/portfolio.js')
+
+block portfolio-content
+	div
+		a(href='/LED_Scoreboard')
+			div.previewContainer
+				div#LEDScoreboardPreview.preview
+				center
+					div#LEDScoreboardPreviewText.previewText
+						h1 Scoreboard: LED Version
+						p An LED version of my scoreboard.
+							br
+							br
+							| (Updated: January 26, 2014)
+		a(href='/GymLocker')
+			div.previewContainer
+				div#GymLockerPreview.preview
+				center
+					div#GymLockerPreviewText.previewText
+						h1 GymLocker
+						p GymLocker is a fitness tracking web application. It was created during my course, Software Engineering 2, at the University of Manitoba. Originally written in Perl and MySQL, This version is written in NodeJS and MongoDB.
+							br
+							br
+							| (Updated: December 09, 2013)
+		a(href='/Scoreboard')
+			div.previewContainer
+				div#ScoreboardPreview.preview
+				center
+					div#ScoreboardPreviewText.previewText
+						h1 Basketball Scoreboard
+						p A simple scoreboard that was made in a few hours. My family started a small basketball league that will start early 2014. This will be projected onto the wall since there is no scoreboard provided at the community centre.
+							br
+							br
+							| (Updated: December 17, 2013)

@@ -29,7 +29,11 @@ exports.resume = function(req, res) {
 	res.render('resume');
 };
 
-// Portfolio Pages
+/*************************************
+		Portfolio Pages
+*************************************/
+
+/***** Scoreboard *****/
 exports.simpleScoreboard = function(req, res) {
 	res.render('portfolio/simple-scoreboard');
 };
@@ -38,17 +42,25 @@ exports.LEDScoreboard = function(req, res) {
 	res.render('portfolio/led-scoreboard');
 };
 
+// exports.scoreboard = function(req, res) {
+// 	res.render('scoreboard');
+// };
+
+// exports.ledscoreboard = function(req, res) {
+// 	res.render('scoreboard_led');
+// };
+
+/***** Cards *****/
 exports.Cards = function(req, res) {
 	res.render('portfolio/cards');
 };
+
+/***** Casino *****/
+exports.videoPoker = function(req, res) {
+	res.render('portfolio/casino')
+}
+
+/***** GymLocker *****/
 exports.GymLocker = function(req, res) {
 	res.render('portfolio/gymlocker');
-};
-
-exports.scoreboard = function(req, res) {
-	res.render('scoreboard');
-};
-
-exports.ledscoreboard = function(req, res) {
-	res.render('scoreboard_led');
 };

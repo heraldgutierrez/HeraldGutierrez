@@ -46,9 +46,18 @@ app.configure('development', function() {
 app.get('/', routes.index);
 app.get('/Portfolio', routes.portfolio);
 app.get('/Resume', routes.resume);
+
+// Scoreboard
 app.get('/Portfolio/Scoreboard/Simple', routes.simpleScoreboard);
 app.get('/Portfolio/Scoreboard/LED', routes.LEDScoreboard);
+
+// Cards
 app.get('/Portfolio/Cards', routes.Cards);
+
+// Casino
+app.get('/Portfolio/Casino/VideoPoker', routes.videoPoker);
+
+// GymLocker
 app.get('/Portfolio/GymLocker', routes.GymLocker);
 
 http.createServer(app).listen(app.get('port'), function(){

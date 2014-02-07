@@ -1,7 +1,7 @@
 /*******************************************************
  PORTFOLIO
 *******************************************************/
-h1, h2, p, ul {
+h1, h2, p, ul, ol {
 	margin: 0;
 }
 
@@ -109,7 +109,17 @@ a:link, a:visited {
 
 /* Cards: Match Pairs */
 #CardsPreview {
+	background: transparent url("/img/preview-matching-pairs-new.png") 0 0 no-repeat;	
+	background-size: 100% 100%;
+}
+#CardsPreview.played {
 	background: transparent url("/img/preview-matching-pairs-played.png") 0 0 no-repeat;	
+	background-size: 100% 100%;
+}
+
+/* Casino */
+#CasinoPreview {
+	background: transparent url("/img/preview-video-poker.png") 0 0 no-repeat;	
 	background-size: 100% 100%;
 }
 
