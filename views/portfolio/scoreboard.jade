@@ -1,0 +1,27 @@
+extends ../portfolio-layout
+
+block portfolio-styles
+	link(rel='stylesheet', href='/css/portfolio/all.css')
+
+block portfolio-scripts
+	script. 
+		$(document).ready(function() {
+			$('#li_All').removeClass('active');
+			$('#li_AllScoreboard a:first').addClass('active');
+		});
+
+block portfolio-content
+	div
+		a(href='/Portfolio/Scoreboard/Simple')
+			div.previewContainer.small
+				div#ScoreboardPreview.preview.small(navlink='li_SimpleScoreboard')
+				center
+					div.previewText.small
+						h1 Simplified Scoreboard
+
+		a(href='/Portfolio/Scoreboard/LED')
+			div.previewContainer.small
+				div#LEDScoreboardPreview.preview.small(navlink='li_LEDScoreboard')
+				center
+					div.previewText.small
+						h1 L.E.D. Scoreboard

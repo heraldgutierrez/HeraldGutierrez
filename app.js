@@ -48,6 +48,7 @@ app.get('/Portfolio', routes.portfolio);
 app.get('/Resume', routes.resume);
 
 // Scoreboard
+app.get('/Portfolio/Scoreboard', routes.scoreboard);
 app.get('/Portfolio/Scoreboard/Simple', routes.simpleScoreboard);
 app.get('/Portfolio/Scoreboard/LED', routes.LEDScoreboard);
 

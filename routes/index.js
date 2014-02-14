@@ -42,9 +42,9 @@ exports.LEDScoreboard = function(req, res) {
 	res.render('portfolio/led-scoreboard');
 };
 
-// exports.scoreboard = function(req, res) {
-// 	res.render('scoreboard');
-// };
+exports.scoreboard = function(req, res) {
+	res.render('portfolio/scoreboard');
+};
 
 // exports.ledscoreboard = function(req, res) {
 // 	res.render('scoreboard_led');
