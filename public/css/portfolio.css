@@ -92,6 +92,14 @@ a:link, a:visited {
 	left: 40px;
 }
 
+.previewText.large {
+	width: 350px;
+	height: 110px; !important
+	position: absolute;
+	top: 35px;
+	left: 40px;
+}
+
 /*******************************************************
 		Preview Images 
 ********************************************************/
@@ -104,6 +112,18 @@ a:link, a:visited {
 /* LED Scoreboard */
 #LEDScoreboardPreview {
 	background: transparent url("/img/preview-scoreboard-led.png") 0 0 no-repeat;	
+	background-size: 100% 100%;
+}
+
+/* LED Scoreboard : Separated Display and Controller (Simple) */
+#LEDSimplePreview {
+	background: transparent url("/img/preview-led-simple.png") 0 0 no-repeat;	
+	background-size: 100% 100%;
+}
+
+/* LED Scoreboard : Separated Display and Controller (Simple) */
+#LEDSimpleControllerPreview {
+	background: transparent url("/img/preview-led-simple-controller.png") 0 0 no-repeat;	
 	background-size: 100% 100%;
 }
 

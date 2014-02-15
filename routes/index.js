@@ -34,21 +34,26 @@ exports.resume = function(req, res) {
 *************************************/
 
 /***** Scoreboard *****/
-exports.simpleScoreboard = function(req, res) {
-	res.render('portfolio/simple-scoreboard');
-};
-
-exports.LEDScoreboard = function(req, res) {
-	res.render('portfolio/led-scoreboard');
-};
-
+// All Scoreboards
 exports.scoreboard = function(req, res) {
 	res.render('portfolio/scoreboard');
 };
 
-// exports.ledscoreboard = function(req, res) {
-// 	res.render('scoreboard_led');
-// };
+// Simplified
+exports.simpleScoreboard = function(req, res) {
+	res.render('portfolio/simple-scoreboard');
+};
+
+// LED
+exports.LEDScoreboard = function(req, res) {
+	res.render('portfolio/led-scoreboard');
+};
+
+// LED: Display + Controller (Simple)
+exports.LEDSimple = function(req, res) {
+	res.render('portfolio/led-simple');
+};
+
 
 /***** Cards *****/
 exports.Cards = function(req, res) {
