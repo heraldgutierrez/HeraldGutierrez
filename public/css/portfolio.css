@@ -153,3 +153,9 @@ a:link, a:visited {
 	background: transparent url("/img/preview-gymlocker-exercise.png") 0 0 no-repeat;
 	background-size: 100% 100%;
 }
+
+/* MIPS */
+#MIPSPreview {
+	background: transparent url("/img/preview-mips.png") 0 0 no-repeat;
+	background-size: 100% 100%;
+}

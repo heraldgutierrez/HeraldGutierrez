@@ -69,3 +69,9 @@ exports.videoPoker = function(req, res) {
 exports.GymLocker = function(req, res) {
 	res.render('portfolio/gymlocker');
 };
+
+/***** MIPS *****/
+exports.MIPS = function(req, res) {
+	res.render('portfolio/mips');
+};
+
