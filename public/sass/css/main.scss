@@ -28,11 +28,7 @@ body {
 
 .content {
 	position: relative;
-	padding-bottom: $navHeight;
-	/*min-height: 72%;*/
-	/*min-height: 578px;*/
-	/*min-height: 65%;*/
-
+	padding-bottom: $navHeight + 20px;
 	
 	p {
 		margin-bottom: 10px;
