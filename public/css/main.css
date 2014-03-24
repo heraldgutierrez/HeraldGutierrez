@@ -23,9 +23,6 @@ body {
 .content {
   position: relative;
   padding-bottom: 100px;
-  /*min-height: 72%;*/
-  /*min-height: 578px;*/
-  /*min-height: 65%;*/
   /* p */ }
   .content p {
     margin-bottom: 10px; }
