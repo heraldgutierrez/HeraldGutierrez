@@ -1,20 +1,19 @@
-extends ../portfolio-layout
+extends ../layout
 
-block portfolio-scripts
-	script. 
-		$(document).ready(function() {
-			$('#li_All').removeClass('active');
-			$('#li_MIPS').addClass('active');
-		});
+block styles
+	link(rel='stylesheet', href='/css/project.css')
 
-block portfolio-content
+block scripts
+	script(src='/js/background.js')
+	script(src='/js/project.js')
+
+block content
 	h1 Cards: Match Pairs
-	span (Last Updated: February 17, 2014)
-	br
-	div.portfolioLinks
+	span.update (Last Updated: February 17, 2014)
+	div.external-links
 		a(href='http://mips.heraldgutierrez.com/') View Webpage
-		br
 		a(href='https://github.com/iheyroldy/MIPS') View Source on GitHub
 	a(href='http://mips.heraldgutierrez.com/')
-		div.previewContainer
-			div#MIPSPreview.preview
+		div.img(data-primary='mips.png' data-secondary='')
+
+	div.description

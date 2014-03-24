@@ -1,0 +1,21 @@
+.external-links {
+	margin: 5px 0;
+
+	a {
+		display: block;
+	}
+}
+
+.img {
+	margin-left: 50px;
+	width: 80%;
+	height: 400px;
+	background-size: 100% 100%;
+}
+
+.description {
+	ul, ol {
+		padding-left: 25px;
+		list-style-position: inside;
+	}
+}

@@ -1,0 +1,55 @@
+extends portfolio-layout
+
+block portfolio-styles
+	link(rel='stylesheet', href='/old/css/portfolio/all.css')
+
+block portfolio-content
+	div
+		a(href='/Portfolio/Scoreboard/Simple')
+			div.previewContainer.small
+				div#ScoreboardPreview.preview.small(navlink='li_SimpleScoreboard')
+				center
+					div.previewText.small
+						h1 Simplified Scoreboard
+
+		a(href='/Portfolio/Scoreboard/LED')
+			div.previewContainer.small
+				div#LEDScoreboardPreview.preview.small(navlink='li_LEDScoreboard')
+				center
+					div.previewText.small
+						h1 LED Scoreboard
+
+		a(href='/Portfolio/Scoreboard/LEDSimple')
+			div.previewContainer.small
+				div#LEDSimplePreview.preview.small(navlink='li_LEDSimple')
+				center
+					div.previewText.large
+						h1 LED Scoreboard: Separate Display and Controller (Simple)
+
+		a(href='/Portfolio/Cards')
+			div.previewContainer.small
+				div#CardsPreview.preview.small(navlink='li_Cards')
+				center
+					div.previewText.small
+						h1 Cards: Match Pairs
+
+		a(href='/Portfolio/Casino')
+			div.previewContainer.small
+				div#CasinoPreview.preview.small(navlink='li_Casino_VP')
+				center
+					div.previewText.small
+						h1 Casino: Video Poker
+
+		a(href='/Portfolio/GymLocker')
+			div.previewContainer.small
+				div#GymLockerPreview.preview.small(navlink='li_GymLocker')
+				center
+					div.previewText.small
+						h1 GymLocker
+
+		a(href='/Portfolio/MIPS')
+			div.previewContainer.small
+				div#MIPSPreview.preview.small(navlink='li_MIPS')
+				center
+					div.previewText.small
+						h1 MIPS

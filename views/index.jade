@@ -3,24 +3,15 @@ extends layout
 block styles
 	link(rel='stylesheet', href='/css/index.css')
 
-block scripts
-	script(src='/js/index.js')
-
 block content
-	div#background.background-0
-		p#about
-			| #{greeting}, I'm Herald Gutierrez. I graduated from the University of Manitoba with a Bachelors of Science: Computer Science degree. I am currently working towards being a better web developer. Samples of my work can be found on my  
-			a(href='/portfolio') portfolio
+	div.about
+		p
+			| Hello, I'm Herald Gutierrez. I graduated from the University of Manitoba with a Bachelors of Science: Computer Science degree. I am currently working towards being a better web developer. Samples of my work can be found on my  
+			a(href='/portfolio') portfolio page
 			|  and my work history can be found either on my 
 			a(href='/resume') resume
 			|  or my 
 			a(href='http://ca.linkedin.com/pub/herald-gutierrez/34/337/9b0') LinkedIn profile.
-			|  If you'd like to find out more about myself, 
-			a(href='mailto:heraldgutierrez@hotmail.com') say hello,
+			|  If you'd like to find out more about myself, you can contact me through my 
+			a(href='mailto:heraldgutierrez@hotmail.com') email.
 			|  I'd love to hear from you.
-			br
-			span - Herald Gutierrez
-		a(href='/portfolio') 
-			div#portfolio
-				center
-					div View Demos

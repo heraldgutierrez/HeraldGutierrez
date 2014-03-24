@@ -1,32 +1,28 @@
-extends ../portfolio-layout
+extends ../layout
 
-block portfolio-scripts
-	script. 
-		$(document).ready(function() {
-			$('#li_All').removeClass('active');
-			$('#li_Casino_VP').addClass('active');
-		});
+block styles
+	link(rel='stylesheet', href='/css/project.css')
 
-block portfolio-content
+block scripts
+	script(src='/js/background.js')
+	script(src='/js/project.js')
+
+block content
 	h1 Casino: Video Poker
 	span 
 		b 
 			i Very basic functions, may still have bugs when pushed into production server.
 	br
-	span (Last Updated: February 6, 2014)
-	br
-	div.portfolioLinks
+	span.update (Last Updated: February 6, 2014)
+	div.external-links
 		a(href='http://casino.heraldgutierrez.com/') View Webpage
-		br
 		a(href='https://github.com/iheyroldy/Casino') View Source on GitHub
 	a(href='http://casino.heraldgutierrez.com/')
-		div.previewContainer
-			div#CasinoPreview.preview
+		div.img(data-primary='video-poker.png' data-secondary='')
 		
 	div.description
 		h2 Description:
 		p Video Poker is a classic casino machine game. It is based on "Five-card draw poker".
-		br
 		p Using the same methods I learned from my Cards: Match Pairs application. Instead of returning the entire deck, I am only returning the cards that I need. 
 		
 		h2 Game Objective: 

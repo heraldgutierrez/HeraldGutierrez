@@ -1,78 +1,78 @@
-body {
-	margin: auto;
-	max-height: 50px;
-	background: rgb(0,0,0); /* Old browsers*/
-	background: -moz-linear-gradient(top, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(90,90,90,1)), color-stop(45%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(90,90,90,1) 0%, rgba(255,255,255,1) 45%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#848484',GradientType=0 ); /* IE6-9 */
-	background-repeat: repeat-x;
-}
+#li_Resume {
+  background-color: #444; }
 
-.sectionContainer {
-	display: inline-block;
-	padding: 10px;
-}
+/* #li_Resume */
+/* @mixin */
+#additional {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: top;
+  width: 29%;
+  /*width: 29%;*/ }
 
+/* #additional */
+#experiences {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: top;
+  width: 65%;
+  /*width: 65%;*/ }
+
+/* #experiences */
+.section_container {
+  display: inline-block;
+  padding: 10px; }
+
+/* .section_container */
 .section {
-	margin-bottom: 20px;
-}
+  margin-bottom: 20px;
+  /* span */
+  /* .header */
+  /* .job, .skill */
+  /* .location */
+  /* ul */ }
+  .section span {
+    display: block;
+    font-size: 14px; }
+  .section .header {
+    overflow: hidden;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 16px;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    border-bottom: 1px dotted #CCC; }
+  .section .job, .section .skill {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: -3px; }
+  .section .location {
+    font-weight: normal;
+    margin-top: 4px;
+    margin-bottom: 3px; }
+  .section ul {
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    padding-left: 25px; }
 
-h2 {
-	font-size: 10px;
-	text-transform: uppercase;
-	line-height: 16px;
-	margin-bottom: 15px;
-	padding-top: 5px;
-	padding-bottom: 2px;
-	border-bottom: 1px dotted #CCC;
-	overflow: hidden;
-}
+/* .section */
+@media (max-width: 1055px) {
+  /* #additional, #experiences */
+  /* .section_container */
+  #additional, #experiences {
+    width: 100%; }
+  .section_container {
+    padding: 0px; } }
 
-h3 {
-	font-size: 16px;
-	font-weight: bold;
-	font-style: italic;
-	margin-bottom: -5px;
-}
-
-h4 {
-	font-size: 14px;
-	font-weight: normal;
-	margin-top: 4px;
-	margin-bottom: -4px;
-}
-
-h5 {
-	font-weight: normal;
-	line-height: 18px;
-	padding: 0px;
-	margin-bottom: 0px;
-}
-
-span {
-	font-size: 14px;
-	font-weight: normal;
-	text-align: justify;
-}
-
-.section ul {
-	font-size: 14px;
-	line-height: 16px;
-	margin-top: 5px;
-	margin-bottom: 3px;
-	padding-left: 25px;
-}
-
-a {
-	text-decoration: underline;
-	color: #555;
-}
-
-a:hover {
-	background: #8bacca;
-	color: #fff;
-}
+/* @media */

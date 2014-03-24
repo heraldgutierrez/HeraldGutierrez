@@ -4,21 +4,7 @@
  */
 
 exports.index = function(req, res){
-	var time = new Date();
-	time = time.getHours();
-
-	var greet = 'Hello';
-
-	if(time >= 5 && time < 12)
-		greet = 'Good morning';
-    else if(time >= 12 && time < 17)
-		greet = 'Good afternoon';
-    else if(time >= 17 && time < 21)
-		greet = 'Good evening';
-	
-	res.render('index', { 
-		greeting: greet
-	});
+	res.render('index');
 };
 
 exports.portfolio = function(req, res) {
@@ -36,7 +22,8 @@ exports.resume = function(req, res) {
 /***** Scoreboard *****/
 // All Scoreboards
 exports.scoreboard = function(req, res) {
-	res.render('portfolio/scoreboard');
+	// res.render('portfolio/scoreboard');
+	res.redirect('/Portfolio');
 };
 
 // Simplified

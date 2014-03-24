@@ -8,6 +8,7 @@ var http = require('http');
 var path = require('path');
 var app = express();
 var newrelic = require('newrelic');
+var sass = require('node-sass');
 
 // routes
 var routes = require('./routes');
@@ -17,6 +18,14 @@ app.configure(function() {
 	app.set('port', process.env.PORT || 5000);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
+
+	app.use(
+		sass.middleware({
+			src: __dirname + '/public/sass',
+			dest: __dirname + '/public',
+			debug: false
+		})
+	);
 
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
@@ -46,6 +55,12 @@ app.configure('development', function() {
 app.get('/', routes.index);
 app.get('/Portfolio', routes.portfolio);
 app.get('/Resume', routes.resume);
+
+// app.get('/project', function(req, res) {
+// 	res.render('project', {
+// 		otherInfo : '<h1>text</h1>'
+// 	});
+// });
 
 // Scoreboard
 app.get('/Portfolio/Scoreboard', routes.scoreboard);

@@ -1,48 +1,26 @@
 $(document).ready(function() {
-	// Hide all preview texts
-	$('#li_Portfolio').addClass('nav-active');
-	$('.previewText').hide();
+	setBackgroundImage();
 
-	// When hovering over preview images, fade the image and display the text.
-	// Also highlight it's nav-link on the side
-	$('.preview').mouseenter(function() {
-		// highlight nav-link
-		var navlink = $(this).attr('navlink');
-		$('#' + navlink).addClass('hover');
+	// change background image on hover
+	$('figure').mouseover(function() {
+		// 'figure' is the parent container
+		// need to find the div.img container that actually has the background image
+		var container = $(this).children('a').children('.img');
 
-		// display text
-		$(this).siblings('center').children('div').fadeIn(250);
+		// only need to change background image if there is a secondary image
+		var secondary = $(container).attr('data-secondary');
+		if(secondary != '') {
+			fadeBackground(container, secondary);
+		}
 	}).mouseleave(function() {
-		// de-highlight nav-link
-		var navlink = $(this).attr('navlink');
-		$('#' + navlink).removeClass('hover');
+		// 'figure' is the parent container
+		// need to find the div.img container that actually has the background image
+		var container = $(this).children('a').children('.img');
 
-		// hide text
-		$(this).siblings('center').children('div').hide();
-		$(this).removeClass('fade');
-	});
-
-	// when hovering the preview text, perform the same behaviour
-	$('.previewText').mouseenter(function() {
-		// highlight nav-link
-		var navlink = $(this).parent().siblings('.preview').attr('navlink');
-		$('#' + navlink).addClass('hover');
-
-		// show text
-		$(this).show();
-
-		// fade image preview
-		$(this).parent().siblings('.preview').addClass('fade');
-	});
-
-	// when hovering over nav-links, fade image and display text
-	$('.side-links ul li').mouseenter(function() {
-		var navlink = $(this).attr('id');
-		$('.preview[navlink="' + navlink + '"]').addClass('fade');
-		$('.preview[navlink="' + navlink + '"]').siblings('center').children('div').fadeIn(250);
-	}).mouseleave(function() {
-		var navlink = $(this).attr('id');
-		$('.preview[navlink="' + navlink + '"]').removeClass('fade');
-		$('.preview[navlink="' + navlink + '"]').siblings('center').children('div').hide();
+		// only need to change background image if there is a secondary image
+		var secondary = $(container).attr('data-secondary');
+		if(secondary != '') {
+			fadeBackground(container, $(container).attr('data-primary'));
+		}
 	});
 });

@@ -1,23 +1,20 @@
-extends ../portfolio-layout
+extends ../layout
 
-block portfolio-scripts
-	script. 
-		$(document).ready(function() {
-			$('#li_All').removeClass('active');
-			$('#li_LEDScoreboard').addClass('active');
-		});
+block styles
+	link(rel='stylesheet', href='/css/project.css')
 
-block portfolio-content
+block scripts
+	script(src='/js/background.js')
+	script(src='/js/project.js')
+
+block content
 	h1 LED Basketball Scoreboard
-	span (Last Updated: January 26, 2014)
-	br
-	div.portfolioLinks
+	span.update (Last Updated: January 26, 2014)
+	div.external-links
 		a(href='http://scoreboard.heraldgutierrez.com/LED') View Webpage
-		br
 		a(href='https://github.com/iheyroldy/Scoreboard') View Source on GitHub
 	a(href='http://scoreboard.heraldgutierrez.com/LED')
-		div.previewContainer
-			div#LEDScoreboardPreview.preview
+		div.img(data-primary='scoreboard-led.png' data-secondary='')
 		
 	div.description
 		h2 Description:

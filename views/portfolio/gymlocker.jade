@@ -1,23 +1,20 @@
-extends ../portfolio-layout
+extends ../layout
 
-block portfolio-scripts
-	script. 
-		$(document).ready(function() {
-			$('#li_All').removeClass('active');
-			$('#li_GymLocker').addClass('active');
-		});
+block styles
+	link(rel='stylesheet', href='/css/project.css')
 
-block portfolio-content
+block scripts
+	script(src='/js/background.js')
+	script(src='/js/project.js')
+
+block content
 	h1 GymLocker
-	span (Last Updated: January 26, 2014)
-	br
-	div.portfolioLinks
+	span.update (Last Updated: January 26, 2014)
+	div.external-links
 		a(href='http://gymlocker.heraldgutierrez.com/') View Webpage
-		br
 		a(href='https://github.com/iheyroldy/GymLocker') View Source on GitHub
 	a(href='http://gymlocker.heraldgutierrez.com/')
-		div.previewContainer
-			div#GymLockerPreview.exercise.preview
+		div.img(data-primary='gymlocker.png' data-secondary='gymlocker-exercise.png')
 		
 	div.description
 		h2 Description:

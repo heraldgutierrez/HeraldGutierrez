@@ -1,16 +1,13 @@
-extends ../portfolio-layout
+extends ../layout
 
-block portfolio-styles
-	link(rel='stylesheet', href='/css/portfolio/all.css')
+block styles
+	link(rel='stylesheet', href='/css/project.css')
 
-block portfolio-scripts
-	script. 
-		$(document).ready(function() {
-			$('#li_All').removeClass('active');
-			$('#li_AllScoreboard a:first').addClass('active');
-		});
+block scripts
+	script(src='/js/background.js')
+	script(src='/js/project.js')
 
-block portfolio-content
+block content
 	div
 		a(href='/Portfolio/Scoreboard/Simple')
 			div.previewContainer.small

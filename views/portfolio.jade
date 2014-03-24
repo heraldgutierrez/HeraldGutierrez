@@ -1,55 +1,65 @@
-extends portfolio-layout
+extends layout
 
-block portfolio-styles
-	link(rel='stylesheet', href='/css/portfolio/all.css')
+block styles
+	link(rel='stylesheet', href='/css/portfolio.css')
+	link(rel='stylesheet', href='/css/test.css')
 
-block portfolio-content
-	div
-		a(href='/Portfolio/Scoreboard/Simple')
-			div.previewContainer.small
-				div#ScoreboardPreview.preview.small(navlink='li_SimpleScoreboard')
-				center
-					div.previewText.small
-						h1 Simplified Scoreboard
+block scripts
+	script(src='/js/background.js')
+	script(src='/js/portfolio.js')
 
-		a(href='/Portfolio/Scoreboard/LED')
-			div.previewContainer.small
-				div#LEDScoreboardPreview.preview.small(navlink='li_LEDScoreboard')
-				center
-					div.previewText.small
-						h1 LED Scoreboard
+block content
+	h1.title My Projects
 
-		a(href='/Portfolio/Scoreboard/LEDSimple')
-			div.previewContainer.small
-				div#LEDSimplePreview.preview.small(navlink='li_LEDSimple')
-				center
-					div.previewText.large
-						h1 LED Scoreboard: Separate Display and Controller (Simple)
+	//- Completed
+	div.section
+		span.header Completed:
+		div.project
+			figure
+				a(href='/Portfolio/Scoreboard/Simple')
+					div.img(data-primary='scoreboard.png' data-secondary='')
+					figcaption Basketball Scoreboard: Simplified
 
-		a(href='/Portfolio/Cards')
-			div.previewContainer.small
-				div#CardsPreview.preview.small(navlink='li_Cards')
-				center
-					div.previewText.small
-						h1 Cards: Match Pairs
+		div.project
+			figure
+				a(href='/Portfolio/Scoreboard/LED')
+					div.img(data-primary='scoreboard-led.png' data-secondary='')
+					figcaption Basketball Scoreboard: LED
 
-		a(href='/Portfolio/Casino')
-			div.previewContainer.small
-				div#CasinoPreview.preview.small(navlink='li_Casino_VP')
-				center
-					div.previewText.small
-						h1 Casino: Video Poker
+		div.project
+			figure
+				a(href='/Portfolio/MIPS')
+					div.img(data-primary='mips.png' data-secondary='')
+					figcaption MIPS
 
-		a(href='/Portfolio/GymLocker')
-			div.previewContainer.small
-				div#GymLockerPreview.preview.small(navlink='li_GymLocker')
-				center
-					div.previewText.small
-						h1 GymLocker
 
-		a(href='/Portfolio/MIPS')
-			div.previewContainer.small
-				div#MIPSPreview.preview.small(navlink='li_MIPS')
-				center
-					div.previewText.small
-						h1 MIPS
+	//- In Progress
+	div.section
+		span.header In Progress:
+		div.project
+			figure
+				a(href='/Portfolio/Scoreboard/LEDSimple')
+					div.img(data-primary='led-simple.png' data-secondary='')
+					figcaption Basketball Scoreboard: LED - Separate display and controller
+
+		div.project
+			figure
+				a(href='/Portfolio/GymLocker')
+					div.img(data-primary='gymlocker.png' data-secondary='gymlocker-exercise.png')
+					figcaption GymLocker
+
+	//- Prototypes
+	div.section
+		span.header Prototypes:
+		div.project
+			figure
+				a(href='/Portfolio/Cards')
+					div.img(data-primary='matching-pairs-new.png' data-secondary='matching-pairs-played.png')
+					figcaption Cards: Match Pairs
+		
+		div.project
+			figure
+				a(href='/Portfolio/Casino/VideoPoker')
+					div.img(data-primary='video-poker.png' data-secondary='')
+					figcaption Casino: Video Poker
+		
