@@ -1,7 +1,7 @@
 .about {
-  margin: 20px;
-  font-size: 15pt;
-  text-align: center; }
+  margin: 50px 20px;
+  /*font-size: 10pt;*/
+  text-align: justify; }
   .about p a {
     font-weight: bold; }
     .about p a:hover {

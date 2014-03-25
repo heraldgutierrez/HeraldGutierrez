@@ -38,7 +38,8 @@ header {
   color: white;
   border-bottom: dashed black;
   /* h1 */
-  /* span */ }
+  /* span */
+  /* input */ }
   header h1 {
     z-index: 3;
     position: absolute;
@@ -50,6 +51,8 @@ header {
     position: absolute;
     top: -5px;
     left: 3%;
+    display: none; }
+  header input {
     display: none; }
 
 /* #header */
@@ -71,10 +74,6 @@ footer {
     margin: 0 auto; }
 
 /* #footer */
-input {
-  display: none; }
-
-/* input */
 nav {
   z-index: 1;
   position: absolute;
@@ -107,12 +106,12 @@ nav {
 
 @media (max-width: 599px) {
   /* #header */
-  /* input */
   /* #nav */
   #header {
     /* .container */
     /* h1 */
-    /* span */ }
+    /* span */
+    /* input */ }
     #header .container {
       width: 100%; }
     #header h1 {
@@ -122,22 +121,22 @@ nav {
       margin: 0 auto; }
     #header span {
       display: inline-block; }
-  input {
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 2%;
-    width: 40px;
-    height: 60px;
-    z-index: 4;
-    opacity: 0;
-    cursor: pointer;
-    /* &:checked + #nav ul */ }
-    input:checked + #nav ul {
-      top: 3px;
-      /* li */ }
-      input:checked + #nav ul li {
-        visibility: visible; }
+    #header input {
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 2%;
+      width: 40px;
+      height: 60px;
+      z-index: 4;
+      opacity: 0;
+      cursor: pointer;
+      /* &:checked + #nav ul */ }
+      #header input:checked + #nav ul {
+        top: 3px;
+        /* li */ }
+        #header input:checked + #nav ul li {
+          visibility: visible; }
   #nav {
     z-index: 2;
     width: 100%;
