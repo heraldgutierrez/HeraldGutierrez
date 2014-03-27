@@ -1,44 +1,18 @@
-/*@font-face {
-	font-family: 'digi';
-	src: url('/font/DS-DIGII.TTF');
-}
-
-@font-face {
-	font-family: 'digital';
-	src: url('/font/digital-regular.ttf');
-}
+/*
+From: http://www.dafont.com/austie-bost-matamata.font
 */
 @font-face {
 	font-family: 'austie';
-	src: url('/font/Austie-Bost-Matamata.ttf');
+	src: url('/font/Austie-Bost-Matamata.eot'), /* IE */
+		 url('/font/Austie-Bost-Matamata.ttf'); /* Safari, Chrome, FireFox */
 }
+
 /*
-@font-face {
-	font-family: 'jack';
-	src: url('/font/CFJackStory.ttf');
-}
-
-@font-face {
-	font-family: 'colleged';
-	src: url('/font/Colleged.ttf');
-}
-
-@font-face {
-	font-family: 'autumn';
-	src: url('/font/Colors-Of-Autumn.ttf');
-}
-
-@font-face {
-	font-family: 'fine-college';
-	src: url('/font/Fine-College.ttf');
-}
+From: http://www.dafont.com/reditum.font
 */
 @font-face {
 	font-family: 'reditum';
-	src: url('/font/Reditum.ttf');
+	src: url('/font/Reditum.ttf'),  /* Safari, Chrome, FireFox */
+		 url('/font/Reditum.eot');  /* IE */
+	
 }
-/*
-@font-face {
-	font-family: 'vanity';
-	src: url('/font/Vanity.ttf');
-}*/
