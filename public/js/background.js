@@ -43,7 +43,7 @@ function fadeBackground(container, background) {
 function toggleFade(container, start, end, duration, background) {
 	var range = end - start;
 	var goingUp = end > start;
-	var steps = duration / 15; 
+	var steps = duration / 50; 
 	var increment = range / steps;
 	var current = start;
 	var more = true;
