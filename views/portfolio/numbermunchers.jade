@@ -1,0 +1,34 @@
+extends ../layout
+
+block styles
+	link(rel='stylesheet', href='/css/project.css')
+
+block scripts
+	script(src='/js/background.js')
+	script(src='/js/project.js')
+
+block content
+	h1 Number Munchers
+	span.update (Last Updated: April 11, 2014)
+	div.external-links
+		a(href='http://heraldgutierrez.github.io/NumberMunchers') View Webpage
+		a(href='https://github.com/heraldgutierrez/NumberMunchers') View Source on GitHub
+	a(href='http://heraldgutierrez.github.io/NumberMunchers')
+		div.img(data-primary='numbermunchers-title.png' data-secondary='numbermunchers-game.png')
+		
+	div.description
+		h2 Description:
+		p My attempt of recreating the educational game "Number Munchers" by Minnesota Educational Computing Consortium (MECC).
+
+		p Features that need to still be implemented:
+			ul 
+				li Proper prompt when a life is lost
+				li Number of lives tracker
+				li Character sprites
+				li Change fonts
+
+		p Improvements:
+			ul 
+				li Multiple enemies/troggles
+				li Each troggle has its own movement and special ability
+

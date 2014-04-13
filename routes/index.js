@@ -62,3 +62,8 @@ exports.MIPS = function(req, res) {
 	res.render('portfolio/mips');
 };
 
+/***** NumberMunchers *****/
+exports.NumberMunchers = function(req, res) {
+	res.render('portfolio/numbermunchers');
+};
+
