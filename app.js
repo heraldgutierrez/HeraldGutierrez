@@ -9,7 +9,7 @@ var app = express();
 var server = http.createServer(app);
 
 // Sass
-var sass = require('node-sass-middleware');
+//var sass = require('node-sass-middleware');
 
 // Routes
 var routes = require('./routes');
@@ -31,12 +31,12 @@ app.use(favicon(path.join(__dirname,'public/img/favicon.ico')));
 app.use('/', routes);
 
 // Sass
-app.use(sass({
-	src: path.join(__dirname, 'public/css/source'),
-	dest: path.join(__dirname, 'public/css'),
-	debug: true,
-	prefix: '/css'
-}));
+// app.use(sass({
+// 	src: path.join(__dirname, 'public/css/source'),
+// 	dest: path.join(__dirname, 'public/css'),
+// 	debug: true,
+// 	prefix: '/css'
+// }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
