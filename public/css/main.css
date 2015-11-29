@@ -27,6 +27,10 @@ body {
   .content p {
     margin-bottom: 10px; }
 
+.red {
+  color: red;
+}
+
 /* .content */
 header {
   z-index: 10;

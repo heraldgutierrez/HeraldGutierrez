@@ -2,13 +2,17 @@
 	"name": "application-name",
 	"version": "0.0.1",
 	"private": true,
+	"engines": {
+		"node": "0.10.21"
+	},
 	"scripts": {
 		"start": "node app.js"
 	},
 	"dependencies": {
-		"express": "3.4.0",
-		"jade": "*",
-		"newrelic": "*",
-		"node-sass": "*"
+		"express" : "^4.0.0",
+		"jade" : "0.35.0",
+		"body-parser": "^1.12.0",
+		"node-sass-middleware" : "0.5.0",
+        "serve-favicon" : "2.3.0"
 	}
 }

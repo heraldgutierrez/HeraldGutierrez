@@ -1,69 +1,33 @@
+var express = require('express');
 
-/*
- * GET home page.
- */
+module.exports = (function() {
+	'use strict';
+	var router = express.Router();
 
-exports.index = function(req, res){
-	res.render('index');
-};
+	router.get('/', function(req, res) { res.render('index'); });
 
-exports.portfolio = function(req, res) {
-	res.render('portfolio');
-};
+	router.get('/Resume', function(req, res) { res.render('resume'); });
 
-exports.resume = function(req, res) {
-	res.render('resume');
-};
+	router.get('/Portfolio', function(req, res) { res.render('portfolio'); });
 
-/*************************************
-		Portfolio Pages
-*************************************/
+	router.get('/Portfolio/Scoreboard', function(req, res) { res.redirect('/Portfolio'); });
+	router.get('/Portfolio/Scoreboard/Simple', function(req, res) { res.render('portfolio/simple-scoreboard'); });
+	router.get('/Portfolio/Scoreboard/LED', function(req, res) { res.render('portfolio/led-scoreboard'); });
+	router.get('/Portfolio/Scoreboard/LEDSimple', function(req, res) { res.render('portfolio/led-simple'); });
 
-/***** Scoreboard *****/
-// All Scoreboards
-exports.scoreboard = function(req, res) {
-	// res.render('portfolio/scoreboard');
-	res.redirect('/Portfolio');
-};
+	router.get('/Portfolio/Cards', function(req, res) { res.render('portfolio/cards'); });
+	
+	router.get('/Portfolio/Casino/VideoPoker', function(req, res) { res.render('portfolio/casino'); });
 
-// Simplified
-exports.simpleScoreboard = function(req, res) {
-	res.render('portfolio/simple-scoreboard');
-};
+	router.get('/Portfolio/GymLocker', function(req, res) { res.render('portfolio/gymlocker'); });
 
-// LED
-exports.LEDScoreboard = function(req, res) {
-	res.render('portfolio/led-scoreboard');
-};
+	router.get('/Portfolio/MIPS', function(req, res) { res.render('portfolio/mips'); });
 
-// LED: Display + Controller (Simple)
-exports.LEDSimple = function(req, res) {
-	res.render('portfolio/led-simple');
-};
+	router.get('/Portfolio/NumberMunchers', function(req, res) { res.render('portfolio/numbermunchers'); });
 
 
-/***** Cards *****/
-exports.Cards = function(req, res) {
-	res.render('portfolio/cards');
-};
+	// Christmas Wishlist
+	router.get('/Christmas2015', function(req, res) { res.render('xmas-wishlist'); });
 
-/***** Casino *****/
-exports.videoPoker = function(req, res) {
-	res.render('portfolio/casino')
-}
-
-/***** GymLocker *****/
-exports.GymLocker = function(req, res) {
-	res.render('portfolio/gymlocker');
-};
-
-/***** MIPS *****/
-exports.MIPS = function(req, res) {
-	res.render('portfolio/mips');
-};
-
-/***** NumberMunchers *****/
-exports.NumberMunchers = function(req, res) {
-	res.render('portfolio/numbermunchers');
-};
-
+	return router;
+})();
