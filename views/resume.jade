@@ -1,101 +1,103 @@
 extends layout
 
-block styles
-	link(rel='stylesheet', href='/css/resume.css')
+block content	
+	div.row
+		div.col-sm-12
+			div.row
+				div.col-sm-8
+					div.section
+						span.header Work Experience
 
-block content
-	//- Other Information
-	div#additional.section_container
-		//- Education
-		div.section
-			span.header Education
-			span.job University of Manitoba 
-			span.location 
-				i Bachelor of Science: Computer Science Major with Co-op Option
-			ul
-				li GPA - 3.05
-				li Dean's Honour List - 2011
-				li Attended 2007 - 2013
+						div.subsection
+							span.subheader People Corporation - Application Developer
+							span.location Winnipeg, MB
+							span.date June 2014 - Present
+							ul
+								li Develop a new application that consolidates information of new potential clients, existing clients’, their group benefits information, and generates various reports.
+								li Improve ease of group benefit enrolment by creating a customizable wizard and Excel parser that could be deployed on a per-client basis.
+								li Improve internal communication by developing a web portal application with customizable content, permission controls, and Active Directory integration.
+								li Maintain all active applications.
+								li Update and maintain corporate and partner websites.
+								li Provide HelpDesk support for all development related issues.
+								li Provide in-person and WebEx user training.
+								li Wrote various project user documentations to supplement user training.
 
-		//- Technical Skills
-		div.section
-			span.header Technical Skills
-			span.skill Programming Languages
-			ul
-				li Extensive knowledge and work experience with Java
-				li Work experience with VBA (Excel), VBScrtip, and C#
-				li Course knowledge of C/C++ and Assembly language (LC3)
-			span.skill Web Development Languages
-			ul
-				li Work experience with HTML, CSS, Javascript/jQuery, .NET/C#, XML, and Java Servlets
-				li Course knowledge of Perl, PHP, JavaBeans, ASP, JSP, and XSL
-				li Learning NodeJS, Express, and Jade
-			span.skill Databases
-			ul
-				li Extensive knowledge of MySQL
-				li Work experience with Microsoft Access
-				li Learning MondoDB with Mongoose
-			span.skill Software
-			ul
-				li Work experience with Microsoft Visual Studio, Excel, Word, and NetBeans with TortoiseSVN
-				li Course experience with Eclipse with CVS, Sublime Text, and Mac OS Terminal
+						div.subsection
+							span.subheader iQmetrix - Web Developer
+							span.location Winnipeg, MB
+							span.date January 2013 - April 2013 (Co-op Work Term III)
+							ul
+								li Maintained the intranet website for clients. Tasks included fixing reported bugs, implementing new features, and resolving support requests.
+								li Perform code reviews with peers.
+								li Attended daily morning scrums and bi-weekly iteration planning.
 
-	div#experiences.section_container
-		//- Technical Work Experiences
-		div.section
-			span.header Work Experience
+						div.subsection
+							span.subheader Agriculture and Agri-Food Canada – Small Systems Analyst
+							span.location Winnipeg, MB
+							span.date May 2012 – August 2012 (Co-op Work Term II)
+							ul
+								li Implemented a PDF generator function within Excel.
+								li Developed various internal single-page web applications.
+								li Attended requirement meetings with other departments.
+							
+						div.subsection
+							span.subheader Geomax Mobile Corporation – Wireless Application Developer
+							span.location Winnipeg, MB
+							span.date September 2011 – December 2011 (Co-op Work Term I)
+							ul
+								li Updated their web application that kept track of invoice documents throughout their processing phase.
+								li Attended customer meetings for software reviews and requests for additional features for the web application.
+								li Updated the Geomax Mobile website.
+								li Performed software releases.
 
-			//- iQmetrix
-			span.job iQmetrix - Web Developer
-			span.location Winnipeg, MB Canada
-			span.date January 2013 - April 2013 (Co-op Work Term III) [
-				a(href='http://www.iqmetrix.com') www.iqmetrix.com
-				| ]
-			ul
-				li Worked on the intranet website for their clients. Tasks included fixing reported bugs, implementing new features, resolving support requests, and improving and optimizing performance.
-				li Code reviews with peers ensuring code is working without causing other bugs before it was committed to the build.
-				li Attended daily morning scrums and iteration planning every two weeks.
-			span.language Languages used: C#, HTML, CSS, JavaScript/jQuery, and SQL
 
-			//- Agriculture and Agri-Food Canada
-			span.job Agriculture and Agri-Food Canada (AAFC) - Small Systems Analyst
-			span.location Winnipeg, MB Canada
-			span.date May 2012 - August 2012 (Co-op Work Term II)
-			ul
-				li Generated a PDF from an Excel workbook for customers. The process included reading Excel cells to produce an XML. The XML is passed to a VBScript to do a custom mail merge into a Word document, which is saved as a PDF.
-				li Attended requirement meetings with other departments.
-				li Created four different single-page web applications. The most notable was an internal calendar that kept track of employee attendance (vacation, doctor appointments, out of office, etc...)
-			span.language Languages used: VBA for Excel, VBScript, MS Access, HTML, CSS, and JavaScript
+				div.col-sm-4
+					div.section
+						span.header Skills
 
-			//- Geomax Mobile Corporation
-			span.job Geomax Mobile Corporation - Wireless Application Developer
-			span.location Winnipeg, MB Canada
-			span.date Mobile GPS for transportation companies [
-				a(href='http://www.geomaxmobile.com') www.geomaxmobile.com
-				| ]
-			span.location September 2011 - December 2011 (Co-op Work Term I)
-			ul
-				li Updated their web application that kept track of invoice documents throughout their processing phase.
-				li Attended customer meetings for software reviews and requests for additional features for the web application. The requested features were implemented in the next updates. (For example, customers being emailed if their invoice was rejected during processing).
-				li Preformed software releases after the project had been committed, built, and prcessed by Maven.
-				li Updated the Geomax Mobile website with current information about the company.
-			span.language Languages used: Java, JSP, HTML, CSS, JavaScript/jQuery, and SQL
+						div.subsection
+							span.subheader Languages
+							ul
+								li C#
+								li CSS
+								li HTML
+								li JavaScript
+								li SQL
+								li VBScript
+								li XML
 
-		//- Other Work Experiences
-		div.section
-			span.header Other Work Experience
+						div.subsection
+							span.subheader Frameworks & Libraries
+							ul
+								li AngularJS
+								li ASP.NET MVC
+								li Entity Framework
+								li jQuery
+								li .NET Framework 4.5
+								li NodeJS
+								li Sass
 
-			//- Shoppers Drug Mart
-			span.job Shoppers Drug Mart - Merchandiser
-			span.location Winnipeg, MB Canada
-			span.date August 2007 - April 2012
+						div.subsection
+							span.subheader Software
+							ul
+								li Git
+								li JIRA
+								li Microsoft Internet Information Services (IIS)
+								li Microsoft SQL Server
+								li Microsoft Visual Studio
 
-			//- The Children's Place
-			span.job The Children's Place - Stock
-			span.location Winnipeg, MB Canada
-			span.date November 2013 - Present
+						div.subsection
+							span.subheader Methodologies
+							ul
+								li Agile: Scrum & Kanban
+								li Object-oriented Programming
+								li Responsive Web Design
+								li Waterfall
 
-		//- References
-		div.section
-			span.header References
-			span.location Available upon request.
+
+					div.section
+						span.header Education
+						div.subsection 
+							span.subheader University of Manitoba
+							span.location BSc in Computer Science Co-op Option
+							span.date 2007 - 2013

@@ -22,7 +22,7 @@ app.set('view options', { layout: 'layout.jade' });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(favicon(path.join(__dirname,'public/img/favicon.ico')));
+app.use(favicon(path.join(__dirname,'public/images/favicon.ico')));
 // app.use(express.methodOverride());
 // app.use(express.cookieParser('your secret here'));
 // app.use(express.session());
@@ -30,21 +30,13 @@ app.use(favicon(path.join(__dirname,'public/img/favicon.ico')));
 
 app.use('/', routes);
 
-// Sass
-// app.use(sass({
-// 	src: path.join(__dirname, 'public/css/source'),
-// 	dest: path.join(__dirname, 'public/css'),
-// 	debug: true,
-// 	prefix: '/css'
-// }));
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Error
 // 500
-app.use(function (err, req, res, next) {
-	res.status(500).render('5xx');
-});
+// app.use(function (err, req, res, next) {
+// 	res.status(500).render('5xx');
+// });
 
 // 404
 app.use(function (req, res, next) {

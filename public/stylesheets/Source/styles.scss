@@ -1,0 +1,276 @@
+﻿/* Need to specify the file extentions for SASS watch via Koala to work*/
+@import "bootstrap.scss";
+@import "font-awesome.scss";
+@import "variables.scss"; 
+@import "fonts.scss"; 
+
+html, body
+{
+    background: radial-gradient(circle, #fff 25%, #ddd 75%);
+	height: 100%;
+    /*font-weight: 600;*/
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+body
+{
+    /*background: #fff linear-gradient(to top, red, #ddd);*/
+	/*background-color: transparent;*/
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	color: $primaryFont;
+	margin: 0;
+}
+
+h1
+{
+	font-size: 36px;
+	font-weight: bold;
+	margin-top: 10px;
+    text-transform: uppercase;
+
+	span
+	{
+		color: $blueLight;
+		font-weight: normal;
+	}
+}
+
+h2
+{
+	color: $blueLight;
+}
+
+h2,
+h3
+{
+	margin-bottom: 15px;
+}
+
+img
+{
+	display: block;
+	height: 100%;
+}
+
+a
+{
+	color: black;
+
+	&:hover
+	{
+		color: $blueLight;
+	}
+
+	&:focus
+	{
+		outline: 0;
+	}
+}
+
+u
+{
+	text-decoration: underline;
+}
+
+p
+{
+	margin: 0 0 15px 0;
+
+	&:last-child
+	{
+		margin: 0;
+	}
+}
+
+.section
+{
+	margin-bottom: 30px;
+
+    span 
+    {
+        display: block;
+        font-size: 14px; 
+    }
+
+    .header 
+    {
+        overflow: hidden;
+        text-transform: uppercase;
+        font-size: 15px;
+        line-height: 16px;
+        margin-bottom: 15px;
+        padding-top: 5px;
+        padding-bottom: 2px;
+        border-bottom: 1px dotted #CCC; 
+    }
+
+    .subsection 
+    {
+        .subheader 
+        {
+            font-size: 16px;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: -3px; 
+        }
+
+        .location 
+        {
+            font-weight: normal;
+            margin-top: 4px;
+            margin-bottom: 3px; 
+        }
+
+        ul 
+        {
+            font-size: 14px;
+            line-height: 16px;
+            margin-top: 5px;
+            margin-bottom: 3px;
+            padding-left: 25px; 
+        }
+    }
+}
+
+.navbar
+{
+    background: #fff linear-gradient(to top, #a0cfe6, #84bdda 5px, #3890bd 45px);
+	border-bottom: 1px solid #999;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 3px 10px;
+	height: $headerHeight;
+}
+
+.navbar-fixed-top
+{
+    border-color: #004d8d;
+}
+
+.navbar-default
+{
+	background-color: #fff;
+
+	.navbar-nav
+	{
+        > li
+        {
+            > a
+            {
+                color: $ammGreen;
+                padding: 10px 30px;
+                transition: color linear 0.25s;
+                font-size: 14pt;
+
+                &:hover,
+                &:focus
+                {
+                    color: $primaryFont;
+					background-color: transparent;
+                }
+            }
+        }
+
+		> .active
+		{
+			border-bottom: 5px solid $primaryFont;
+
+			> a
+			{
+				background-color: transparent;
+				padding-bottom: 11px;
+
+				&:hover
+				{
+					background-color: transparent;
+				}
+
+				&:focus
+				{
+					background-color: transparent;
+				}
+			}
+
+			&.enrolment
+			{
+				border-bottom: none;
+
+				a
+				{
+					color: #ddd;
+				}
+			}
+		}
+	}
+}
+
+.navbar-nav
+{
+	margin-top: 20px;
+}
+
+.content
+{
+    padding-top: $headerHeight + 30px;
+    min-height: 100%;
+
+	a
+	{
+		text-decoration: underline;
+	}
+}
+
+.left
+{
+	text-align: left;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.right
+{
+	text-align: right;
+}
+
+.error {
+    h1 {
+        color: black;
+    }
+}
+
+/* Small devices (tablets, 768px and down) */
+@media (max-width: $screen-sm-min)
+{
+    .navbar-default
+    {
+	    .navbar-nav
+	    {
+            margin-top: 0px;
+
+            > li
+            {
+                > a
+                {
+                    font-size: 12pt;
+                    padding: 2px;
+                }
+            }
+	    }
+    }
+
+	.navbar
+	{
+		border-top: none;
+		height: $headerHeightMobile;
+	}
+    
+	.content
+	{
+		padding-top: $headerHeightMobile + 30px;
+	}
+}
