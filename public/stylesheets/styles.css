@@ -7098,6 +7098,14 @@ p {
 .error h1 {
   color: black; }
 
+/*********************************************/
+/* Christmas CSS  */
+.person {
+  font-weight: bold;
+  font-size: 18px !important;
+  margin-top: 20px; }
+
+/*********************************************/
 /* Small devices (tablets, 768px and down) */
 @media (max-width: 768px) {
   .navbar-default .navbar-nav {
@@ -7112,5 +7120,3 @@ p {
 
   .content {
     padding-top: 205px; } }
-
-/*# sourceMappingURL=styles.css.map */

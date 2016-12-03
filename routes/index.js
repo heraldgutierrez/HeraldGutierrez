@@ -26,8 +26,8 @@ module.exports = (function() {
 	// router.get('/Portfolio/NumberMunchers', function(req, res) { res.render('portfolio/numbermunchers'); });
 
 
-	// // Christmas Wishlist
-	// router.get('/Christmas2015', function(req, res) { res.render('xmas-wishlist'); });
+	// Christmas Wishlist
+	router.get('/CousinsChristmas2016', function(req, res) { res.render('cousins-wishlist'); });
 
 	return router;
 })();
