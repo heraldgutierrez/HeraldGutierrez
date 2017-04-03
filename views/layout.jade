@@ -10,34 +10,18 @@ html
 
 		title Herald Gutierrez
 		
-		link(type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300")
-		link(type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,400i,600,700,700i|Lato:400,100,300,400i,700,700i,900")
-		link(type="text/css" rel="stylesheet" href="/stylesheets/styles.css")
+		link(type='text/css' rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300')
+		link(type='text/css' rel='stylesheet' href='//fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,400i,600,700,700i|Lato:400,100,300,400i,700,700i,900')
+		link(type='text/css' rel='stylesheet' href='/stylesheets/styles.css')
 		block styles
 		
-		script(type="text/javascript" src="/scripts/Libs/angular.js")
-		script(type="text/javascript" src="/scripts/Libs/jquery.min.js")
-		script.
-			$(function() {
-				$('header').hide();
-
-				$('a[href*=#]').on('click', function(e) {
-					e.preventDefault();
-					$('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 500, 'linear');
-				});
-			});
-
-			$(window).scroll(function() {
-
-				if ($(window).scrollTop() > 1) {
-					$('header').fadeIn(500);
-				} else {
-					$('header').fadeOut(500);
-				}
-			});
+		script(type='text/javascript' src='/scripts/Libs/angular.js')
+		script(type='text/javascript' src='/scripts/Libs/jquery.min.js')
+		script(type='text/javascript' src='/scripts/herald-app.js')
+		script(type='text/javascript' src='/scripts/Controllers/site-controller.js')
 		block scripts
 
-	body
+	body(ng-app='app' ng-controller='siteController as Site')
 		header
 			nav.navigation
 				div.container
@@ -47,14 +31,16 @@ html
 							//- 	span Menu
 							div.col-sm-5
 								ul
-									li.col-md-4 <a href="#section-home">Home</a>
-									li.col-md-4 <a href="#section-skills">Skills</a>
-									li.col-md-4 <a href="#section-experience">Experience</a>
+									li.col-md-4 <a href='#section-home'>Home</a>
+									li.col-md-4 <a href='#section-skills'>Skills</a>
+									li.col-md-4 <a href='#section-experience'>Experience</a>
 							div.col-sm-2
 							div.col-sm-5
 								ul
-									li.col-md-6 <a href="#section-portfolio">Portfolio</a>
-									li.col-md-6 <a href="#section-contact">Contact</a>
+									li.col-md-6 <a href='#section-portfolio'>Portfolio</a>
+									li.col-md-2 <a href='mailto:heraldgutierrez@gmail.com'><i class='fa fa-envelope-o'></i></a>
+									li.col-md-2 <a href='https://github.com/heraldgutierrez' target='_blank'><i class='fa fa-github-square'></i></a>
+									li.col-md-2 <a href='https://www.linkedin.com/in/herald-gutierrez/' target='_blank'><i class='fa fa-linkedin'></i></a>
 
 		div.inner-container
 				//- block content
@@ -71,54 +57,49 @@ html
 					div.content
 						h1.center Skills
 						div.row
-							div.col-sm-4
-								div.section
-									div.subsection
-										span.subheader Languages
-										ul
-											li C#
-											li CSS
-											li HTML
-											li JavaScript
-											li SQL
-											li VBScript
-											li XML
+							div.col-sm-8.col-sm-offset-2
+								div.row
+									div.col-sm-6
+										div.skill
+											h2.center Languages
+											ul
+												li C#
+												li CSS
+												li HTML
+												li JavaScript
+												li SQL
+												li VBScript
+												li XML
+									div.col-sm-6
+										div.skill
+											h2.center Frameworks & Libraries
+											ul
+												li AngularJS
+												li ASP.NET MVC
+												li Entity Framework
+												li jQuery
+												li .NET Framework 4.5
+												li NodeJS
+												li Sass
 
-									div.subsection
-										span.subheader Frameworks & Libraries
-										ul
-											li AngularJS
-											li ASP.NET MVC
-											li Entity Framework
-											li jQuery
-											li .NET Framework 4.5
-											li NodeJS
-											li Sass
-
-									div.subsection
-										span.subheader Software
-										ul
-											li Git
-											li JIRA
-											li Microsoft Internet Information Services (IIS)
-											li Microsoft SQL Server
-											li Microsoft Visual Studio
-
-									div.subsection
-										span.subheader Methodologies
-										ul
-											li Agile: Scrum & Kanban
-											li Object-oriented Programming
-											li Responsive Web Design
-											li Waterfall
-
-
-								div.section
-									span.header Education
-									div.subsection 
-										span.subheader University of Manitoba
-										span.location BSc in Computer Science Co-op Option
-										span.date 2007 - 2013
+								div.row
+									div.col-sm-6
+										div.skill
+											h2.center Software
+											ul
+												li Git
+												li JIRA
+												li Microsoft Internet Information Services (IIS)
+												li Microsoft SQL Server
+												li Microsoft Visual Studio
+									div.col-sm-6
+										div.skill
+											h2.center Methodologies
+											ul
+												li Agile: Scrum & Kanban
+												li Object-oriented Programming
+												li Responsive Web Design
+												li Waterfall
 				a.down-arrow(href="#section-experience") <span></span>
 
 			section#section-experience
@@ -127,51 +108,38 @@ html
 					div.content
 						h1.center Experience
 						div.row
-							div.col-sm-8
-								div.section
-									span.header Work Experience
+							div.col-sm-8.col-sm-offset-2
+								div.job
+									h2 People Corporation <a href='http://www.peoplecorporation.com/' target='_blank'><i class='fa fa-external-link'></i></a> - <span>June 2014 - Present</span>
+									p
+										span.city Winnipeg, MB
+										span.title Application Developer
 
-									div.subsection
-										span.subheader People Corporation - Application Developer
-										span.location Winnipeg, MB
-										span.date June 2014 - Present
-										ul
-											li Develop a new application that consolidates information of new potential clients, existing clients’, their group benefits information, and generates various reports.
-											li Improve ease of group benefit enrolment by creating a customizable wizard and Excel parser that could be deployed on a per-client basis.
-											li Improve internal communication by developing a web portal application with customizable content, permission controls, and Active Directory integration.
-											li Maintain all active applications.
-											li Update and maintain corporate and partner websites.
-											li Provide HelpDesk support for all development related issues.
-											li Provide in-person and WebEx user training.
-											li Wrote various project user documentations to supplement user training.
+								div.job
+									h2 iQmetrix <a href='http://www.iqmetrix.com/' target='_blank'><i class='fa fa-external-link'></i></a> - <span>January 2013 - April 2013</span>
+									p 
+										span.city Winnipeg, MB
+										span.title Web Developer (Co-op)
 
-									div.subsection
-										span.subheader iQmetrix - Web Developer
-										span.location Winnipeg, MB
-										span.date January 2013 - April 2013 (Co-op Work Term III)
-										ul
-											li Maintained the intranet website for clients. Tasks included fixing reported bugs, implementing new features, and resolving support requests.
-											li Perform code reviews with peers.
-											li Attended daily morning scrums and bi-weekly iteration planning.
+								div.job
+									h2 Agriculture and Agri-Food Canada <a href='http://www.agr.gc.ca/eng/home/?id=1395690825741' target='_blank'><i class='fa fa-external-link'></i></a> – <span>May 2012 – August 2012</span>
+									p
+										span.city Winnipeg, MB
+										span.title Small Systems Analyst (Co-op)
+									
+								div.job
+									h2 Geomax Mobile Corporation <a href='http://www.geomaxmobile.com/' target='_blank'><i class='fa fa-external-link'></i></a> – <span>September 2011 – December 2011</span>
+									p
+										span.city Winnipeg, MB
+										span.title Wireless Application Developer (Co-op)
 
-									div.subsection
-										span.subheader Agriculture and Agri-Food Canada – Small Systems Analyst
-										span.location Winnipeg, MB
-										span.date May 2012 – August 2012 (Co-op Work Term II)
-										ul
-											li Implemented a PDF generator function within Excel.
-											li Developed various internal single-page web applications.
-											li Attended requirement meetings with other departments.
-										
-									div.subsection
-										span.subheader Geomax Mobile Corporation – Wireless Application Developer
-										span.location Winnipeg, MB
-										span.date September 2011 – December 2011 (Co-op Work Term I)
-										ul
-											li Updated their web application that kept track of invoice documents throughout their processing phase.
-											li Attended customer meetings for software reviews and requests for additional features for the web application.
-											li Updated the Geomax Mobile website.
-											li Performed software releases.
+						h1.center Education
+						div.row
+							div.col-sm-8.col-sm-offset-2
+								div.job 
+									h2 University of Manitoba <a href='http://umanitoba.ca/' target='_blank'><i class='fa fa-external-link'></i></a> – <span>2007 - 2013</span>
+									p
+										span.title BSc in Computer Science Co-op Option
 				a.down-arrow(href="#section-portfolio") <span></span>
 
 			section#section-portfolio

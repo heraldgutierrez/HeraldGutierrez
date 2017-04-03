@@ -1,5 +1,6 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
 @import "bootstrap.scss";
+@import "font-awesome.scss";
 
 * 
 {
@@ -44,24 +45,29 @@ header
 			text-transform: uppercase;
 			padding-top: 30px;
 
-			a
+			.fa
 			{
-				color: black;
-				font-size: 25px;
-				transition: all 0.2s ease-in-out;
-
-				&:hover
-				{
-					color: #e74c3c;
-				}
-			}
-
-			a:-webkit-any-link
-			{
-				text-decoration: none;
+				font-size: 35px;
 			}
 		}
 	}
+}
+
+a
+{
+	color: black;
+	font-size: 25px;
+	transition: all 0.2s ease-in-out;
+
+	&:hover
+	{
+		color: #e74c3c;
+	}
+}
+
+a:-webkit-any-link
+{
+	text-decoration: none;
 }
 
 section 
@@ -82,16 +88,6 @@ section
 		background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.25) 85%,rgba(0,0,0,.25) 100%);
 		background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,.25) 85%,rgba(0,0,0,.25) 100%);
 	}
-
-	// &::after 
-	// {
-	// 	position: absolute;
-	// 	bottom: 0;
-	// 	left: 0;
-	// 	content: '';
-	// 	width: 100%;
-	// 	height: 80%;
-	// }
 
 	.container
 	{
@@ -139,7 +135,7 @@ section
 		}
 	}
 
-	a
+	> a
 	{
 		display: inline-block;
 		position: absolute;
@@ -214,316 +210,88 @@ section
 			}
 		}
 	}
+
+	.fa
+	{
+		font-size: 15px;
+	}
 }
 
-	
+
 
 .center
 {
 	text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Need to specify the file extentions for SASS watch via Koala to work*
-@import "bootstrap.scss";
-@import "font-awesome.scss";
-@import "variables.scss"; 
-@import "fonts.scss"; 
-
-html, body
+// Skills
+section
 {
-    background: radial-gradient(circle, #fff 25%, #ddd 75%);
-	height: 100%;
-    /*font-weight: 600;*
-    font-family: 'Open Sans', Helvetica, sans-serif;
-}
-
-body
-{
-    /*background: #fff linear-gradient(to top, red, #ddd);*
-	/*background-color: transparent;*
-}
-
-h1, h2, h3, h4, h5, h6
-{
-	color: $primaryFont;
-	margin: 0;
-}
-
-h1
-{
-	font-size: 36px;
-	font-weight: bold;
-	margin-top: 10px;
-    text-transform: uppercase;
-
-	span
+	.container
 	{
-		color: $blueLight;
-		font-weight: normal;
-	}
-}
-
-h2
-{
-	color: $blueLight;
-}
-
-h2,
-h3
-{
-	margin-bottom: 15px;
-}
-
-img
-{
-	display: block;
-	height: 100%;
-}
-
-a
-{
-	color: black;
-
-	&:hover
-	{
-		color: $blueLight;
-	}
-
-	&:focus
-	{
-		outline: 0;
-	}
-}
-
-u
-{
-	text-decoration: underline;
-}
-
-p
-{
-	margin: 0 0 15px 0;
-
-	&:last-child
-	{
-		margin: 0;
-	}
-}
-
-.section
-{
-	margin-bottom: 30px;
-
-    span 
-    {
-        display: block;
-        font-size: 14px; 
-    }
-
-    .header 
-    {
-        overflow: hidden;
-        text-transform: uppercase;
-        font-size: 15px;
-        line-height: 16px;
-        margin-bottom: 15px;
-        padding-top: 5px;
-        padding-bottom: 2px;
-        border-bottom: 1px dotted #CCC; 
-    }
-
-    .subsection 
-    {
-        .subheader 
-        {
-            font-size: 16px;
-            font-weight: bold;
-            font-style: italic;
-            margin-top: 15px;
-            margin-bottom: -3px; 
-        }
-
-        .location 
-        {
-            font-weight: normal;
-            margin-top: 4px;
-            margin-bottom: 3px; 
-        }
-
-        ul 
-        {
-            font-size: 14px;
-            line-height: 16px;
-            margin-top: 5px;
-            margin-bottom: 3px;
-            padding-left: 25px; 
-        }
-    }
-}
-
-.navbar
-{
-    background: #fff linear-gradient(to top, #a0cfe6, #84bdda 5px, #3890bd 45px);
-	border-bottom: 1px solid #999;
-    box-shadow: rgba(0, 0, 0, 0.5) 0 3px 10px;
-	height: $headerHeight;
-}
-
-.navbar-fixed-top
-{
-    border-color: #004d8d;
-}
-
-.navbar-default
-{
-	background-color: #fff;
-
-	.navbar-nav
-	{
-        > li
-        {
-            > a
-            {
-                color: $ammGreen;
-                padding: 10px 30px;
-                transition: color linear 0.25s;
-                font-size: 14pt;
-
-                &:hover,
-                &:focus
-                {
-                    color: $primaryFont;
-					background-color: transparent;
-                }
-            }
-        }
-
-		> .active
+		.content
 		{
-			border-bottom: 5px solid $primaryFont;
-
-			> a
+			.skill
 			{
-				background-color: transparent;
-				padding-bottom: 11px;
+				font-size: 20px;
 
-				&:hover
+				ul
 				{
-					background-color: transparent;
-				}
-
-				&:focus
-				{
-					background-color: transparent;
-				}
-			}
-
-			&.enrolment
-			{
-				border-bottom: none;
-
-				a
-				{
-					color: #ddd;
+					li
+					{
+						list-style-type: none;
+					}
 				}
 			}
 		}
 	}
 }
 
-.navbar-nav
-{
-	margin-top: 20px;
-}
 
-.content
+// Experience
+section
 {
-    padding-top: $headerHeight + 30px;
-    min-height: 100%;
-
-	a
+	.container
 	{
-		text-decoration: underline;
+		.content
+		{
+			.job
+			{
+				margin-bottom: 20px;
+
+				h2
+				{
+					margin-bottom: 0;
+
+					span
+					{
+						font-size: 24px;
+					}
+				}
+
+				p 
+				{
+					font-size: 20px;
+
+					span
+					{
+						// display: block;
+
+						&.city
+						{
+							&::after
+							{
+								content: ' - ';
+							}
+						}
+
+						&.title
+						{
+							font-weight: bold;
+						}
+					}
+				}
+			}
+		}
 	}
 }
-
-.left
-{
-	text-align: left;
-}
-
-.center
-{
-	text-align: center;
-}
-
-.right
-{
-	text-align: right;
-}
-
-.error {
-    h1 {
-        color: black;
-    }
-}
-
-/*********************************************
-/* Christmas CSS  *
-.person {
-	font-weight: bold;
-	font-size: 18px !important;
-	margin-top: 20px;
-}
-
-/*********************************************
-
-/* Small devices (tablets, 768px and down) *
-@media (max-width: $screen-sm-min)
-{
-    .navbar-default
-    {
-	    .navbar-nav
-	    {
-            margin-top: 0px;
-
-            > li
-            {
-                > a
-                {
-                    font-size: 12pt;
-                    padding: 2px;
-                }
-            }
-	    }
-    }
-
-	.navbar
-	{
-		border-top: none;
-		height: $headerHeightMobile;
-	}
-    
-	.content
-	{
-		padding-top: $headerHeightMobile + 30px;
-	}
-}
-*/
