@@ -7,7 +7,6 @@ html
 		meta(name='description' content='Herald Gutierrez is a developer in Winnipeg, Manitoba')
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 
-
 		title Herald Gutierrez
 		
 		link(type='text/css' rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300')
@@ -22,131 +21,26 @@ html
 		block scripts
 
 	body(ng-app='app' ng-controller='siteController as Site')
-		header
-			nav.navigation
-				div.container
-					div.row
-						div.col-sm-12.center
-							//- div#mobile-navigation-label(ng-click='Main.mobileMenuClick()')
-							//- 	span Menu
-							div.col-sm-5
-								ul
-									li.col-md-4 <a href='#section-home'>Home</a>
-									li.col-md-4 <a href='#section-skills'>Skills</a>
-									li.col-md-4 <a href='#section-experience'>Experience</a>
-							div.col-sm-2
-							div.col-sm-5
-								ul
-									li.col-md-6 <a href='#section-portfolio'>Portfolio</a>
-									li.col-md-2 <a href='mailto:heraldgutierrez@gmail.com'><i class='fa fa-envelope-o'></i></a>
-									li.col-md-2 <a href='https://github.com/heraldgutierrez' target='_blank'><i class='fa fa-github-square'></i></a>
-									li.col-md-2 <a href='https://www.linkedin.com/in/herald-gutierrez/' target='_blank'><i class='fa fa-linkedin'></i></a>
+		include includes/header.jade
 
 		div.inner-container
-				//- block content
 			section#section-home
-				div.container
-					div.center-center 
-						h1 Herald Gutierrez
-						h2 Developer
+				include includes/home.jade
 				a.down-arrow(href="#section-skills") <span></span>
 
 			section#section-skills
 				a.up-arrow(href="#section-home") <span></span>
-				div.container
-					div.content
-						h1.center Skills
-						div.row
-							div.col-sm-8.col-sm-offset-2
-								div.row
-									div.col-sm-6
-										div.skill
-											h2.center Languages
-											ul
-												li C#
-												li CSS
-												li HTML
-												li JavaScript
-												li SQL
-												li VBScript
-												li XML
-									div.col-sm-6
-										div.skill
-											h2.center Frameworks & Libraries
-											ul
-												li AngularJS
-												li ASP.NET MVC
-												li Entity Framework
-												li jQuery
-												li .NET Framework 4.5
-												li NodeJS
-												li Sass
-
-								div.row
-									div.col-sm-6
-										div.skill
-											h2.center Software
-											ul
-												li Git
-												li JIRA
-												li Microsoft Internet Information Services (IIS)
-												li Microsoft SQL Server
-												li Microsoft Visual Studio
-									div.col-sm-6
-										div.skill
-											h2.center Methodologies
-											ul
-												li Agile: Scrum & Kanban
-												li Object-oriented Programming
-												li Responsive Web Design
-												li Waterfall
+				include includes/skills.jade
 				a.down-arrow(href="#section-experience") <span></span>
 
 			section#section-experience
 				a.up-arrow(href="#section-skills") <span></span>
-				div.container
-					div.content
-						h1.center Experience
-						div.row
-							div.col-sm-8.col-sm-offset-2
-								div.job
-									h2 People Corporation <a href='http://www.peoplecorporation.com/' target='_blank'><i class='fa fa-external-link'></i></a> - <span>June 2014 - Present</span>
-									p
-										span.city Winnipeg, MB
-										span.title Application Developer
-
-								div.job
-									h2 iQmetrix <a href='http://www.iqmetrix.com/' target='_blank'><i class='fa fa-external-link'></i></a> - <span>January 2013 - April 2013</span>
-									p 
-										span.city Winnipeg, MB
-										span.title Web Developer (Co-op)
-
-								div.job
-									h2 Agriculture and Agri-Food Canada <a href='http://www.agr.gc.ca/eng/home/?id=1395690825741' target='_blank'><i class='fa fa-external-link'></i></a> – <span>May 2012 – August 2012</span>
-									p
-										span.city Winnipeg, MB
-										span.title Small Systems Analyst (Co-op)
-									
-								div.job
-									h2 Geomax Mobile Corporation <a href='http://www.geomaxmobile.com/' target='_blank'><i class='fa fa-external-link'></i></a> – <span>September 2011 – December 2011</span>
-									p
-										span.city Winnipeg, MB
-										span.title Wireless Application Developer (Co-op)
-
-						h1.center Education
-						div.row
-							div.col-sm-8.col-sm-offset-2
-								div.job 
-									h2 University of Manitoba <a href='http://umanitoba.ca/' target='_blank'><i class='fa fa-external-link'></i></a> – <span>2007 - 2013</span>
-									p
-										span.title BSc in Computer Science Co-op Option
+				include includes/experiences.jade
 				a.down-arrow(href="#section-portfolio") <span></span>
 
 			section#section-portfolio
 				a.up-arrow(href="#section-experience") <span></span>
-				div.container
-					div.content
-						h1.center Portfolio
+				include includes/portfolio.jade
 			//- 	a.down-arrow(href="#section-contact") <span></span>
 
 			//- section#section-contact
