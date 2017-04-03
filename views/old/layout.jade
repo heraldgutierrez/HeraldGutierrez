@@ -1,0 +1,50 @@
+html
+	head
+		meta(charset="utf-8")
+		meta(name='author' content='Herald Gutierrez')
+		meta(name='keywords' content='HTML, CSS, JavaScript, jQuery, NodeJS, Jade, ExpressJS')
+		meta(http-equiv='content-type' content='text/html; charset=utf-8')
+		meta(name='description' content='Herald Gutierrez is a developer in Winnipeg, Manitoba')
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+
+
+		title Herald Gutierrez
+		
+		link(href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css")
+		link(type="text/css" rel="stylesheet" href="/stylesheets/styles.css")
+		block styles
+
+		block scripts
+
+		script.
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-47254279-1', 'heraldgutierrez.com');
+			ga('send', 'pageview');
+	body
+		div.container
+			div.navbar.navbar-default.navbar-fixed-top(role="navigation")
+				div.container
+					div.col-sm-12.navbar-header.center
+						div.row
+							h1 Herald Gutierrez
+							div.col-sm-12
+								a(href="mailto:heraldgutierrez@gmail.com") HeraldGutierrez@gmail.com
+
+						div.row
+							ul.col-sm-12.nav.navbar-nav
+								li.col-xs-12.col-sm-4 
+									<a href="/Resume">Resume</a>
+								li.col-xs-12.col-sm-4 
+									<a href="https://github.com/heraldgutierrez" target="_blank">GitHub</a>
+								li.col-xs-12.col-sm-4 
+									<a href="https://www.linkedin.com/in/herald-gutierrez" target="_blank">LinkedIn</a>
+								//-li.col-xs-12.col-sm-4 
+								//-		<a href="/DailyProgrammer">Daily Programmer</a>
+
+		div.container.content
+			block content
+
