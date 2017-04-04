@@ -52,22 +52,23 @@ header
 	}
 }
 
+a:-webkit-any-link
+{
+	text-decoration: none;
+}
+
 a
 {
 	color: black;
 	font-size: 25px;
 	transition: all 0.2s ease-in-out;
 
-	&:hover
+	&:hover, &.active
 	{
 		color: #e74c3c;
 	}
 }
 
-a:-webkit-any-link
-{
-	text-decoration: none;
-}
 
 section 
 {

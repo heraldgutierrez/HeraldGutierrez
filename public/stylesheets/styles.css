@@ -5322,15 +5322,15 @@ header {
       header nav li .fa {
         font-size: 35px; }
 
+a:-webkit-any-link {
+  text-decoration: none; }
+
 a {
   color: black;
   font-size: 25px;
   transition: all 0.2s ease-in-out; }
-  a:hover {
+  a:hover, a.active {
     color: #e74c3c; }
-
-a:-webkit-any-link {
-  text-decoration: none; }
 
 section {
   position: relative;
