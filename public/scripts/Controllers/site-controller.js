@@ -33,8 +33,8 @@ app.controller('siteController', ['$scope', '$window', function($scope, $window)
 
 		for (var i = 0; i < navigationLinkIDs.length; i++) {
 			var sectionID = navigationLinkIDs[i];
-			var sectionPosition = $(theID).offset().top - sectionBuffer; // Get the offset of the section from the top of page - the buffer
-			var sectionHeight = $(theID).height(); 		// Get the height of the section in question
+			var sectionPosition = $(sectionID).offset().top - sectionBuffer; // Get the offset of the section from the top of page - the buffer
+			var sectionHeight = $(sectionID).height(); 		// Get the height of the section in question
 
 			if (windowPosition >= sectionPosition && windowPosition < (sectionPosition + sectionHeight)) {
 				$("a[href='" + sectionID + "']").addClass("active");
