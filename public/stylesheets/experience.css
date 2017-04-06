@@ -1,0 +1,12 @@
+section .container .content .job {
+  margin-bottom: 20px; }
+  section .container .content .job h2 {
+    margin-bottom: 0; }
+    section .container .content .job h2 span {
+      font-size: 24px; }
+  section .container .content .job p {
+    font-size: 20px; }
+    section .container .content .job p span.city::after {
+      content: ' - '; }
+    section .container .content .job p span.title {
+      font-weight: bold; }
