@@ -126,8 +126,11 @@ section
 	{
 		height: 100%;
 		line-height: 100%;
-		padding-top: 25%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
 		text-align: center;
+  		transform: translate(-50%, -15%);
 
 		h1, h2, h3
 		{	
