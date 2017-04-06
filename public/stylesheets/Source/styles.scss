@@ -1,5 +1,6 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
 @import "bootstrap.scss";
+@import "variables.scss";
 
 * 
 {
@@ -10,7 +11,7 @@
 html, body 
 {
 	height: 100%;
-	color: black;
+	color: $primaryFontColor;
 	font-family: 'Josefin Sans', sans-serif;	
 }
 
@@ -20,9 +21,9 @@ header
 	top: 0;
 	position: fixed;
 	width: 100%;
-	height: 90px;
-	background-color: rgba(255, 255, 255, 0.80);
-	z-index: 99;
+	height: $headerHeight;
+	background-color: $headerBackgroundColor;
+	z-index: $zIndexHeader;
 
 	nav
 	{
@@ -52,6 +53,76 @@ header
 	}
 }
 
+.side-navigation
+{
+	position: fixed;
+	z-index: $zIndexSideNavigation;
+	top: 50%;
+	left: 15px;
+	padding: 0 10px 0 0;
+
+	a
+	{
+		display: block;
+		margin: 0;
+		padding: 10px 0 10px 15;
+		cursor: pointer;
+		outline: 0;
+
+		.dot
+		{
+			display: block;
+			width: 10px;
+			height: 10px;
+			text-decoration: none;
+			border-radius: 50%;
+			background-color: $primaryFontColor;
+
+			.nav-title
+			{
+				position: absolute;
+				opacity: 0;
+				font-size: 13px;
+				text-transform: uppercase;
+				white-space: nowrap;
+				letter-spacing: 3px;
+				font-weight: 400;
+				font-style: normal;
+				text-decoration: none;
+				margin: -11px 0 0 20px;
+				padding: 0 0 5px 0;
+				transition: all .3s cubic-bezier(.23, 1, .32, 1);
+				line-height: 32px;
+				visibility: hidden;
+			}
+		}
+
+		&.active
+		{
+			.dot
+			{
+				background-color: transparent;
+				border: 2px solid $primaryFontColor;
+			}
+		}
+
+		&:hover
+		{
+			.dot
+			{
+				background-color: transparent;
+				border: 2px solid $primaryFontColor;
+				
+				.nav-title
+				{
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+}
+
 a:-webkit-any-link
 {
 	text-decoration: none;
@@ -59,13 +130,13 @@ a:-webkit-any-link
 
 a
 {
-	color: black;
+	color: $primaryFontColor;
 	font-size: 25px;
 	transition: all 0.2s ease-in-out;
 
 	&:hover, &.active
 	{
-		color: #e74c3c;
+		color: $secondaryFontColor;
 	}
 }
 
@@ -112,7 +183,7 @@ section
 
 	.container
 	{
-		padding-top: 90px;
+		padding-top: $headerHeight;
 		padding-bottom: 90px;
 
 		.content
@@ -167,7 +238,7 @@ section
 		position: absolute;
 		left: 50%;
 		padding-top: 60px;
-		z-index: 2;
+		z-index: $zIndexArrow;
 		color: #fff;
 
 		font-size: 20px/1;
@@ -209,7 +280,7 @@ section
 	a.up-arrow
 	{
 		top: 20px;
-		z-index: 150;
+		z-index: $zIndexUpArrow;
 
 		span::after 
 		{
