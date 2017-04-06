@@ -5428,10 +5428,11 @@ section {
 .center {
   text-align: center; }
 
-section .container .content .skill {
+section .container .content .skillset {
   font-size: 20px; }
-  section .container .content .skill ul li {
-    list-style-type: none; }
+  section .container .content .skillset img {
+    height: 100px;
+    margin-top: 50px; }
 
 section .container .content .job {
   margin-bottom: 20px; }
