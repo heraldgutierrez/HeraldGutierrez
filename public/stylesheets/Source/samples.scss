@@ -44,14 +44,20 @@
 
 	.section-subheading
 	{
-		font: 16px;
 		margin-top: 0;
-		color: #b5b5b5;
+		color: #a5a5a5;
+		/*color: #b5b5b5;*/
 	}
 
 	.section-centent
 	{
 		margin-top: 20px;
+	}
+
+	.developer-notes
+	{
+		color: #a5a5a5;
+		font-style: oblique;
 	}
 
 	img

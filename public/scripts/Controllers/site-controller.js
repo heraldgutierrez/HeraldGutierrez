@@ -28,7 +28,7 @@ app.controller('siteController', ['$scope', '$window', function($scope, $window)
 		// Add the 'active' class to the navigation when we are viewing the appropiate section
 		var windowPosition = $(window).scrollTop(); 	// Get the offset of the window from the top of page
 		var windowHeight = $(window).height(); 			// Get the height of the window
-		var sectionBuffer = windowHeight * 0.25;		// Add .active class once the section has reached 25% from the top of the window
+		var sectionBuffer = windowHeight * 0.30;		// Add .active class once the section has reached 25% from the top of the window
 		var docHeight = $(document).height();
 
 		for (var i = 0; i < navigationLinkIDs.length; i++) {
