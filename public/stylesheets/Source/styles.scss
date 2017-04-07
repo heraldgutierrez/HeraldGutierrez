@@ -54,6 +54,85 @@ header
 	}
 }
 
+footer
+{
+	height: $footerHeight;
+	line-height: $footerHeight;
+
+	.fa
+	{
+		font-size: 35px;
+		padding: 30px;
+	}
+
+	a.up-arrow
+	{
+		display: inline-block;
+		position: absolute;
+		top: -25px;
+		left: 50%;
+		padding-top: 60px;
+		color: #fff;
+		z-index: $zIndexUpArrow;
+
+		font-size: 20px/1;
+		font-weight: 400;
+		font-style: normal;
+		font-family: 'Josefin Sans', sans-serif;	
+		
+		letter-spacing: .1em;
+		transition: opacity .3s;
+		text-decoration: none;
+
+		span
+		{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 46px;
+			height: 46px;
+
+			margin-left: -23px;
+			border: 1px solid #000;
+			border-radius: 100%;
+			box-sizing: border-box;
+			background-color: white;
+
+			&::after 
+			{
+				position: absolute;
+				top: 67%;
+				left: 50%;
+				content: '';
+				width: 16px;
+				height: 16px;
+				margin: -12px 0 0 -8px;
+
+				border-left: 1px solid #000;
+				border-bottom: 1px solid #000;
+				box-sizing: border-box;
+
+				-webkit-transform: rotate(135deg);
+				transform: rotate(135deg);
+			}
+		}
+	}
+}
+
+a.up-arrow:hover, a.down-arrow:hover
+{
+	span
+	{
+		border: 1px solid $secondaryFontColor;
+
+		&::after 
+		{
+			border-left: 1px solid $secondaryFontColor;
+			border-bottom: 1px solid $secondaryFontColor;
+		}
+	}
+}
+
 .side-navigation
 {
 	position: fixed;
