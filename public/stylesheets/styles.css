@@ -5546,4 +5546,8 @@ section {
     section .home-content h2 {
       font-size: 30px; }
     section .home-content .social-media .fa {
-      font-size: 30px; } }
+      font-size: 30px; }
+
+  footer .fa {
+    padding: 15px;
+    padding-top: 30px; } }
