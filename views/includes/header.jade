@@ -3,15 +3,29 @@ header
 		div.container
 			div.row
 				div.col-sm-12.center
-					//- div#mobile-navigation-label(ng-click='Main.mobileMenuClick()')
-					//- 	span Menu
-					div.col-sm-5
-						ul
-							li.col-md-6 <a href='#section-home'>Home</a>
-							li.col-md-6 <a href='#section-skills'>Skillset</a>
-					div.col-sm-2
+					div.navigation-container
+						div.col-sm-5
+							ul
+								li.col-md-6 <a href='#section-home'>Home</a>
+								li.col-md-6 <a href='#section-skills'>Skillset</a>
+						div.col-sm-2
+							img(src='/images/logo-black.png')
+						div.col-sm-5
+							ul
+								li.col-md-6 <a href='#section-samples'>Samples</a>
+								li.col-md-6 <a href='/downloads/Herald Gutierrez - Resume.pdf' target='_blank'>Resume</a>
+			div.row
+				div#mobile-navigation-container
+					div.col-sm-12.center
 						img(src='/images/logo-black.png')
-					div.col-sm-5
+					div#mobile-navigation-label(ng-click='Site.mobileMenuClick()')
+						button.navbar-toggle
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+					div#mobile-nav-links.col-sm-12
 						ul
-							li.col-md-6 <a href='#section-samples'>Samples</a>
-							li.col-md-6 <a href='/downloads/Herald Gutierrez - Resume.pdf' target='_blank'>Resume</a>
+							li.col-xs-12 <a href='#section-home'>Home</a>
+							li.col-xs-12 <a href='#section-skills'>Skillset</a>
+							li.col-xs-12 <a href='#section-samples'>Samples</a>
+							li.col-xs-12 <a href='/downloads/Herald Gutierrez - Resume.pdf' target='_blank'>Resume</a>

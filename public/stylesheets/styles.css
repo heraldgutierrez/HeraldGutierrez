@@ -5322,6 +5322,33 @@ header {
       padding-top: 30px; }
       header nav li .fa {
         font-size: 35px; }
+  header #mobile-navigation-container {
+    display: none;
+    background-color: white;
+    width: 100%; }
+    header #mobile-navigation-container #mobile-navigation-label {
+      position: absolute;
+      top: 0;
+      right: 0; }
+      header #mobile-navigation-container #mobile-navigation-label button {
+        background-color: transparent;
+        border: 1px solid black; }
+        header #mobile-navigation-container #mobile-navigation-label button span {
+          display: block;
+          background-color: black;
+          width: 22px;
+          height: 2px;
+          border-radius: 1px; }
+    header #mobile-navigation-container #mobile-nav-links {
+      display: none; }
+    header #mobile-navigation-container img {
+      width: 50px;
+      height: 50px; }
+    header #mobile-navigation-container ul li {
+      display: block;
+      padding-top: 5px; }
+      header #mobile-navigation-container ul li:last-child {
+        padding-bottom: 10px; }
 
 footer {
   height: 90px;
@@ -5533,8 +5560,10 @@ section {
 @media (max-width: 768px) {
   header {
     height: 50px; }
-    header .navigation {
+    header .navigation .navigation-container {
       display: none; }
+    header #mobile-navigation-container {
+      display: inline-block !important; }
 
   .side-navigation {
     display: none; }

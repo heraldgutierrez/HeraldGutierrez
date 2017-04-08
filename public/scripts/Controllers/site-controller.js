@@ -44,4 +44,16 @@ app.controller('siteController', ['$scope', '$window', function($scope, $window)
 			}
 		}
 	})
+
+	var showMobile = false;
+	self.mobileMenuClick = function()
+	{
+		showMobile = !showMobile;
+
+		if (showMobile) {
+			$('#mobile-nav-links').slideDown();
+		} else {
+			$('#mobile-nav-links').slideUp();			
+		}
+	}
 }]);

@@ -52,7 +52,63 @@ header
 			}
 		}
 	}
+
+	#mobile-navigation-container
+	{
+		display: none;
+		background-color: white;
+		width: 100%;
+
+		#mobile-navigation-label
+		{
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			button
+			{
+				background-color: transparent;
+				border: 1px solid black;
+
+				span
+				{
+					display: block;
+					background-color: black;
+					width: 22px;
+					height: 2px;
+					border-radius: 1px;
+				}
+			}
+		}
+
+		#mobile-nav-links
+		{
+			display: none;
+		}
+
+		img
+		{
+			width: 50px;
+			height: 50px;
+		}
+
+		ul
+		{
+			li 
+			{
+				display: block;
+				padding-top: 5px;
+
+				&:last-child
+				{
+					padding-bottom: 10px;
+				}
+			}
+		}
+	}
 }
+
+
 
 footer
 {
@@ -410,7 +466,19 @@ section
 
 		.navigation
 		{
-			display: none;
+			.navigation-container
+			{
+				display: none;
+			}
+		}
+
+		#mobile-navigation-container
+		{
+			display: inline-block !important;
+
+			#mobile-navigation-label
+			{
+			}
 		}
 	}
 
