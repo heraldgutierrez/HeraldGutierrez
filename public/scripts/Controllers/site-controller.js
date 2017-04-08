@@ -17,9 +17,10 @@ app.controller('siteController', ['$scope', '$window', function($scope, $window)
 		navigationLinkIDs.push(ahref);
 	}
 
+	var navigationDisplayedAfter = 25;
 	angular.element($window).bind("scroll", function(e) {
 		// Display navigation when the window has been scrolled down
-		if ($window.pageYOffset > 1) {
+		if ($window.pageYOffset > navigationDisplayedAfter) {
 			$('header').fadeIn(500);
 		} else {
 			$('header').fadeOut(500);

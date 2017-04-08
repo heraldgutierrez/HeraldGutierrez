@@ -3,3 +3,11 @@ section .container .content .skillset {
   section .container .content .skillset img {
     height: 100px;
     margin-top: 50px; }
+
+/* Small devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+  section .container .content .skillset {
+    font-size: 20px; }
+    section .container .content .skillset img {
+      height: 65px;
+      margin-top: 30px; } }
